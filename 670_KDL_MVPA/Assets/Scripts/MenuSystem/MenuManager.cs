@@ -27,6 +27,13 @@ public class MenuManager : MonoBehaviour
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
 
+    // Hide and show Game Objects
+    [Header("Menu Tools")]
+    public string topPanelName;
+    public GameObject menuBackButton;
+    public GameObject menuHideButton;
+    public GameObject menuShowButton;
+    public GameObject menuSettingsButton;
 
     void GetDevice()
     {
@@ -44,6 +51,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        ShowMenu();
         SetupPanels();
     }
 
@@ -59,6 +67,8 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
+        SetBackButtonState();
+        
         if(!device.isValid)
         {
             GetDevice();
@@ -71,8 +81,8 @@ public class MenuManager : MonoBehaviour
         //if (OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.Two))
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {
-            Debug.Log("####################PRESSSSEDDDDD");
-            GoToPrevious();
+            /*disabled the back button here*/
+            //GoToPrevious();
         }
     }
 
@@ -121,5 +131,35 @@ public class MenuManager : MonoBehaviour
     public void LoadScene(string level)
     {
         SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+    }
+
+    void SetBackButtonState()
+    {
+        if(currentPanel.ToString() == topPanelName+" (Panel)")
+        {
+            menuBackButton.SetActive(false);
+        }
+        else
+        {
+            menuBackButton.SetActive(true);
+        }
+    }
+
+    public void HideMenu()
+    {
+        menuHideButton.SetActive(false);
+        menuShowButton.SetActive(true);
+        menuBackButton.SetActive(false);
+        menuSettingsButton.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public void ShowMenu()
+    {
+        menuHideButton.SetActive(true);
+        menuShowButton.SetActive(false);
+        menuSettingsButton.SetActive(true);
+        SetBackButtonState();
+        gameObject.SetActive(true);
     }
 }
