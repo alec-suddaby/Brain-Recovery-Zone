@@ -68,6 +68,7 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
         SetBackButtonState();
+        SettingsButtonState();
         
         if(!device.isValid)
         {
@@ -145,6 +146,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    void SettingsButtonState()
+    {
+        if(currentPanel.ToString() == "Panel_Settings (Panel)")
+        {
+            menuSettingsButton.SetActive(false);
+        }
+        else
+        {
+            menuSettingsButton.SetActive(true);
+        }
+    }
+
     public void HideMenu()
     {
         menuHideButton.SetActive(false);
@@ -158,7 +171,7 @@ public class MenuManager : MonoBehaviour
     {
         menuHideButton.SetActive(true);
         menuShowButton.SetActive(false);
-        menuSettingsButton.SetActive(true);
+        SettingsButtonState();
         SetBackButtonState();
         gameObject.SetActive(true);
     }
