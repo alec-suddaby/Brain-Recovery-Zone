@@ -10,11 +10,9 @@ public class MenuManager : MonoBehaviour
 {
     public Panel currentPanel = null;
 
-    private List<GameObject> panelPopupBox = new List<GameObject>();
+    public Component[] canvasInPanels;
 
     private List<Panel> panelHistory = new List<Panel>();
-
-    private Button[] allButtons;
 
     //XR Toolkit controllers
     [SerializeField]
@@ -29,11 +27,13 @@ public class MenuManager : MonoBehaviour
 
     // Hide and show Game Objects
     [Header("Menu Tools")]
-    public string topPanelName;
+    //public string topPanelName;
     public GameObject menuBackButton;
     public GameObject menuHideButton;
     public GameObject menuShowButton;
     public GameObject menuSettingsButton;
+
+    private bool menuHidden = false;
 
     void GetDevice()
     {
@@ -67,40 +67,50 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        SetBackButtonState();
-        SettingsButtonState();
+        //Debug.Log(currentPanel.ToString());
         
         if(!device.isValid)
         {
             GetDevice();
         }
 
+        SetBackButtonState();
+        SettingsButtonState();
+
         // capturing primary button press and release
         bool secondaryButtonValue = false;
         InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
         
-        //if (OVRInput.GetDown(OVRInput.Button.Back) || OVRInput.GetDown(OVRInput.Button.Two))
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {
-            /*disabled the back button here*/
-            //GoToPrevious();
+            //disabled the back button here
+            secondaryButtonIsPressed = true;
+            GoToPrevious();
+        }
+        else if (!secondaryButtonValue && secondaryButtonIsPressed)
+        {
+            secondaryButtonIsPressed = false;
+        }
+        else {
+            return;
         }
     }
 
     public void GoToPrevious()
-    {
-        //Debug.Log("Start Back Press");
-        
-        if(panelHistory.Count == 0)
-        //execute function if there is no panel histroy, for example exiting the app? else..... return;
+    {        
+        if(menuHidden == false && panelHistory.Count != 0)
         {
-            //OVRManager.PlatformUIConfirmQuit();
+            int lastIndex = panelHistory.Count - 1;
+            SetCurrent(panelHistory[lastIndex]);
+            panelHistory.RemoveAt(lastIndex);
+        }
+        else if(menuHidden == true)
+        {
+            ShowMenu();
+        }
+        else {
             return;
         }
-
-        int lastIndex = panelHistory.Count - 1;
-        SetCurrent(panelHistory[lastIndex]);
-        panelHistory.RemoveAt(lastIndex);
     }
  
     public void SetCurrentWithHistory(Panel newPanel)
@@ -109,10 +119,17 @@ public class MenuManager : MonoBehaviour
         SetCurrent(newPanel);
     }
 
-    public void SetCurrentChildWithHistory(Panel newPanel)
+    public void ToggleSettingsWithHistory(Panel newPanel)
     {
-        panelHistory.Add(currentPanel);
-        SetCurrentChild(newPanel);
+        if(currentPanel.ToString() == "Panel_Settings (Panel)")
+        {
+            GoToPrevious();
+        }
+        else
+        {
+            panelHistory.Add(currentPanel);
+            SetCurrent(newPanel);
+        }        
     }
 
     public void SetCurrent(Panel newPanel)
@@ -123,20 +140,39 @@ public class MenuManager : MonoBehaviour
         currentPanel.Show();
     }
 
-    public void SetCurrentChild(Panel newPanel)
-    {
-        currentPanel = newPanel;
-        currentPanel.Show();
-    }
-
     public void LoadScene(string level)
     {
         SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
     }
 
+    public void HideMenu()
+    {
+        menuHidden = true;
+        
+        menuHideButton.SetActive(false);
+        menuShowButton.SetActive(true);
+        SetBackButtonState();
+        menuSettingsButton.SetActive(false);
+
+        currentPanel.Hide();
+
+    }
+
+    public void ShowMenu()
+    {
+        menuHidden = false;
+        
+        menuHideButton.SetActive(true);
+        menuShowButton.SetActive(false);
+        SettingsButtonState();
+        SetBackButtonState();
+
+        currentPanel.Show();
+    }
+
     void SetBackButtonState()
     {
-        if(currentPanel.ToString() == topPanelName+" (Panel)")
+        if(panelHistory.Count == 0 || menuHidden)
         {
             menuBackButton.SetActive(false);
         }
@@ -147,8 +183,8 @@ public class MenuManager : MonoBehaviour
     }
 
     void SettingsButtonState()
-    {
-        if(currentPanel.ToString() == "Panel_Settings (Panel)")
+    { 
+        if(menuHidden)
         {
             menuSettingsButton.SetActive(false);
         }
@@ -156,23 +192,5 @@ public class MenuManager : MonoBehaviour
         {
             menuSettingsButton.SetActive(true);
         }
-    }
-
-    public void HideMenu()
-    {
-        menuHideButton.SetActive(false);
-        menuShowButton.SetActive(true);
-        menuBackButton.SetActive(false);
-        menuSettingsButton.SetActive(false);
-        gameObject.SetActive(false);
-    }
-
-    public void ShowMenu()
-    {
-        menuHideButton.SetActive(true);
-        menuShowButton.SetActive(false);
-        SettingsButtonState();
-        SetBackButtonState();
-        gameObject.SetActive(true);
     }
 }
