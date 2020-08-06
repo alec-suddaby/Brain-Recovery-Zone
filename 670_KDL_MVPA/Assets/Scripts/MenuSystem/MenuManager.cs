@@ -9,6 +9,7 @@ using UnityEngine.XR;
 public class MenuManager : MonoBehaviour
 {
     public Panel currentPanel = null;
+    public GameObject persistentLogo;
 
     public Component[] canvasInPanels;
 
@@ -155,6 +156,7 @@ public class MenuManager : MonoBehaviour
         menuSettingsButton.SetActive(false);
 
         currentPanel.Hide();
+        persistentLogo.SetActive(false);
 
     }
 
@@ -168,6 +170,7 @@ public class MenuManager : MonoBehaviour
         SetBackButtonState();
 
         currentPanel.Show();
+        persistentLogo.SetActive(true);
     }
 
     void SetBackButtonState()
