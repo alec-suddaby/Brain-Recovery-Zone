@@ -59,7 +59,7 @@ public class MenuManager : MonoBehaviour
     void SetupPanels()
     {
         Panel[] panels = GetComponentsInChildren<Panel>();
-
+        
         foreach(Panel panel in panels)
             panel.Setup(this);
 
@@ -78,7 +78,7 @@ public class MenuManager : MonoBehaviour
         SetBackButtonState();
         SettingsButtonState();
 
-        // capturing primary button press and release
+        // capturing secondary button press and release
         bool secondaryButtonValue = false;
         InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
         
@@ -143,7 +143,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string level)
     {
-        SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+        SceneLoader.Instance.LoadNewScene(level);
     }
 
     public void HideMenu()
