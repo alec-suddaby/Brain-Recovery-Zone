@@ -633,7 +633,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036791005
 GameObject:
@@ -783,7 +783,7 @@ Transform:
   m_Children:
   - {fileID: 1817844835}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1592084557
 MonoBehaviour:
@@ -797,7 +797,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd4821b313876345bf5d5152cc13634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vrScale: 1.5
+  vrScale: 1.2
+--- !u!1 &1610310584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610310586}
+  - component: {fileID: 1610310585}
+  - component: {fileID: 1610310587}
+  m_Layer: 0
+  m_Name: ButtonAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1610310585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610310584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f576a9b1c6ef24eb659e83c0e2610d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: []
+  btn: []
+  clickSound: {fileID: 8300000, guid: 92488d1a5b8bcb141a55949688f83722, type: 3}
+  audioVolume: 0.2
+--- !u!4 &1610310586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610310584}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1610310587
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610310584}
+  m_Enabled: 1
 --- !u!1 &1635420608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,15 +1347,16 @@ MonoBehaviour:
   m_HideControllerOnSelect: 0
   m_PlayAudioClipOnSelectEnter: 0
   m_AudioClipForOnSelectEnter: {fileID: 0}
-  m_PlayAudioClipOnSelectExit: 0
-  m_AudioClipForOnSelectExit: {fileID: 0}
+  m_PlayAudioClipOnSelectExit: 1
+  m_AudioClipForOnSelectExit: {fileID: 8300000, guid: 63808b772776b5d42a35930204cdfaf1,
+    type: 3}
   m_PlayAudioClipOnHoverEnter: 0
   m_AudioClipForOnHoverEnter: {fileID: 0}
   m_PlayAudioClipOnHoverExit: 0
   m_AudioClipForOnHoverExit: {fileID: 0}
-  m_PlayHapticsOnSelectEnter: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
+  m_PlayHapticsOnSelectEnter: 1
+  m_HapticSelectEnterIntensity: 10
+  m_HapticSelectEnterDuration: 0.2
   m_PlayHapticsOnSelectExit: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -1436,6 +1493,11 @@ PrefabInstance:
       propertyPath: menuSystemCanvas
       value: MenuSystemCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3419841541199783761, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: menuStatus
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5708838408779861893, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}
       propertyPath: m_Layer
@@ -1491,6 +1553,11 @@ PrefabInstance:
       propertyPath: OnLoadEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7442293592104636108, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: buttonAudio
+      value: 
+      objectReference: {fileID: 1610310584}
     - target: {fileID: 8608190872972700456, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}
       propertyPath: m_Layer

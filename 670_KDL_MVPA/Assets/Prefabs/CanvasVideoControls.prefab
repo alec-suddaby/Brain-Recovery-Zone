@@ -214,7 +214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806581438868165020}
+      - m_Target: {fileID: 806581438868165019}
         m_MethodName: OnUnmuteButton
         m_Mode: 1
         m_Arguments:
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806581438868165020}
+      - m_Target: {fileID: 806581438868165019}
         m_MethodName: OnPlayButton
         m_Mode: 1
         m_Arguments:
@@ -367,7 +367,6 @@ GameObject:
   - component: {fileID: 806581438868165023}
   - component: {fileID: 806581438868165008}
   - component: {fileID: 806581438868165009}
-  - component: {fileID: 806581438868165020}
   - component: {fileID: 806581438868165019}
   - component: {fileID: 806581438868165018}
   m_Layer: 0
@@ -476,26 +475,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 2147483647
---- !u!114 &806581438868165020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806581438868165010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86d799012355004b9ee4dbad9d27f2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skyboxMediaPlayer: {fileID: 0}
-  playButton: {fileID: 806581438780871147}
-  pauseButton: {fileID: 806581439808444022}
-  muteButton: {fileID: 806581440584472985}
-  unmuteButton: {fileID: 806581438668678304}
-  videoSeekerSlider: {fileID: 806581440490868283}
-  audioVolumeSlider: {fileID: 806581438891137500}
-  errorPanel: {fileID: 5046202555461225494}
 --- !u!114 &806581438868165019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,9 +487,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f37a6b5b131aa4eba09984c0861dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfCanvas: {fileID: 806581438868165022}
-  xRNode: 5
+  videoControlsPanel: {fileID: 806581439197868763}
+  errorPanel: {fileID: 5046202555461225494}
+  playButton: {fileID: 806581438780871147}
+  pauseButton: {fileID: 806581439808444022}
+  muteButton: {fileID: 806581440584472985}
+  unmuteButton: {fileID: 806581438668678304}
+  videoSeekerSlider: {fileID: 806581440490868283}
+  audioVolumeSlider: {fileID: 806581438891137500}
+  skyboxMediaPlayer: {fileID: 0}
   rotationOffset: {fileID: 806581440341296851}
+  xRNode: 5
 --- !u!114 &806581438868165018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,7 +599,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806581438868165020}
+      - m_Target: {fileID: 806581438868165019}
         m_MethodName: OnAudioVolumeSlider
         m_Mode: 1
         m_Arguments:
@@ -1701,7 +1688,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806581438868165020}
+      - m_Target: {fileID: 806581438868165019}
         m_MethodName: OnPauseButton
         m_Mode: 1
         m_Arguments:
@@ -2294,7 +2281,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806581438868165020}
+      - m_Target: {fileID: 806581438868165019}
         m_MethodName: OnVideoSeekSlider
         m_Mode: 1
         m_Arguments:
@@ -2322,8 +2309,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 806581438868165020}
-          m_MethodName: OnVideoSliderDown
+        - m_Target: {fileID: 806581438868165019}
+          m_MethodName: OnVideoSliderUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2337,8 +2324,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 806581438868165020}
-          m_MethodName: OnVideoSliderUp
+        - m_Target: {fileID: 806581438868165019}
+          m_MethodName: OnVideoSliderDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2466,7 +2453,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806581438868165020}
+      - m_Target: {fileID: 806581438868165019}
         m_MethodName: OnMuteButton
         m_Mode: 1
         m_Arguments:
@@ -2562,7 +2549,7 @@ GameObject:
   - component: {fileID: 5240204753578456225}
   - component: {fileID: 568729615939962633}
   - component: {fileID: 323387595339756831}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2877,7 +2864,7 @@ GameObject:
   - component: {fileID: 2188264656695139278}
   - component: {fileID: 3499220159852800385}
   - component: {fileID: 6612810553403178628}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ErrorPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2903,7 +2890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 47.2}
+  m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 650, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2188264656695139278
@@ -2969,7 +2956,7 @@ GameObject:
   - component: {fileID: 2884509265250682463}
   - component: {fileID: 7833180478858586281}
   - component: {fileID: 2980716944746540238}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}

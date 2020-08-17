@@ -26,12 +26,12 @@ public class VideoControls : MonoBehaviour
 
 	public Slider audioVolumeSlider;
 	private float setAudioVolumeSliderValue = 1.0f;
-
-	//public GameObject errorPanel;
+	
+	public GameObject errorPanel;
 
 	void Start()
 	{
-		//errorPanel.SetActive(false);
+		errorPanel.SetActive(false);
 		
 		skyboxMediaPlayer.Events.AddListener(OnVideoEvent);
 
@@ -80,8 +80,8 @@ public class VideoControls : MonoBehaviour
 		switch (et)
 		{
 			case MediaPlayerEvent.EventType.Error:
-			//errorPanel.SetActive(true);
-			//OnPauseButton();
+			errorPanel.SetActive(true);
+			OnPauseButton();
 			break;
 			case MediaPlayerEvent.EventType.ReadyToPlay:
 			break;

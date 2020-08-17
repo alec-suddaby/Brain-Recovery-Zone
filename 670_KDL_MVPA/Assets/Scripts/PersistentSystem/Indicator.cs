@@ -15,19 +15,19 @@ public class Indicator : MonoBehaviour
 
     public void Show()
     {
-        Debug.Log("############### SHOW");
+        //Debug.Log("############### SHOW");
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        Debug.Log("############### HIDE");
+        //Debug.Log("############### HIDE");
         gameObject.SetActive(false);
     }
 
     public void Deactivate()
     {
-        Debug.Log("############### DEACTIVEATED");
+        //Debug.Log("############### DEACTIVEATED");
         gameObject.SetActive(false);
     }
 }
