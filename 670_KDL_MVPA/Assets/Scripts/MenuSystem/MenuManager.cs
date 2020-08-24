@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.Events;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class MenuManager : MonoBehaviour
 
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
+    private bool primary2DAxisIsChosen;
+    private Vector2 primary2DAxisValue = Vector2.zero;
+    private Vector2 prevPrimary2DAxisValue;
 
     // Hide and show Game Objects
     [Header("Menu Tools")]
@@ -35,6 +39,7 @@ public class MenuManager : MonoBehaviour
     public GameObject menuSettingsButton;
 
     private bool menuHidden = false;
+
 
     void GetDevice()
     {
@@ -77,6 +82,50 @@ public class MenuManager : MonoBehaviour
 
         SetBackButtonState();
         SettingsButtonState();
+
+        // capturing primary 2D Axis changes and release
+        InputFeatureUsage<Vector2> primary2DAxisUsage = CommonUsages.primary2DAxis;
+        // make sure the value is not zero and that it has changed
+        if (primary2DAxisValue != prevPrimary2DAxisValue)
+        {
+            primary2DAxisIsChosen = false;
+            //Debug.Log($"CHANGED and prev value is {prevPrimary2DAxisValue} and the new value is {primary2DAxisValue}");
+        }
+        // was for checking to see if the axis values were reading as changed properly
+        /* else
+        {
+            Debug.Log($"Nope, prev value is {prevPrimary2DAxisValue} and the new value is {primary2DAxisValue}");
+        } */
+        if (device.TryGetFeatureValue(primary2DAxisUsage, out primary2DAxisValue) && primary2DAxisValue != Vector2.zero && !primary2DAxisIsChosen)
+        {
+            prevPrimary2DAxisValue = primary2DAxisValue;
+            primary2DAxisIsChosen = true;  
+            //Debug.Log($"Primary2DAxis value activated {primary2DAxisValue} on {xRNode}");
+        }
+        else if (primary2DAxisValue == Vector2.zero && primary2DAxisIsChosen)
+        {
+            prevPrimary2DAxisValue = primary2DAxisValue;
+            primary2DAxisIsChosen = false;
+            //Debug.Log($"Primary2DAxis deactivated {primary2DAxisValue} on {xRNode}");
+        }
+
+        // If active panel has a scrollbar GameObject then apply the v controller value to the scrollbar value
+        if (currentPanel.scrollBar != null)
+        {
+            //Debug.Log("Current Panel Has Scrollbar");
+
+            GameObject currentScrollBar = currentPanel.scrollBar;
+
+            currentScrollBar.GetComponent<Scrollbar>().value = currentScrollBar.GetComponent<Scrollbar>().value + (primary2DAxisValue.x * 0.01f) ;
+        }
+        else if (currentPanel.scrollBar == null)
+        {
+            //Debug.Log("Current Panel No Scrollbar");
+        }
+        else
+        {
+            //Debug.Log("Current Panel Scrollbar is buggered");
+        }
 
         // capturing secondary button press and release
         bool secondaryButtonValue = false;

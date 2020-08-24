@@ -5,6 +5,9 @@ public class Panel : MonoBehaviour
     private Canvas canvas = null;
     private MenuManager menuManager = null;
 
+    [SerializeField]
+    public GameObject scrollBar;
+
     private void Awake()
     {
         canvas = GetComponent<Canvas>();

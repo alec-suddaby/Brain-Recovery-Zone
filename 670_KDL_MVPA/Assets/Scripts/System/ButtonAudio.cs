@@ -68,6 +68,11 @@ public class ButtonAudio : MonoBehaviour
          
         for (int i = 0; i < btn.Length; i++)
         {
+            if(btn[i] == null)
+            {
+                continue;
+            }
+            
             // Adding the current 'btn' to the 'buttons' list
             // Get the Button component from each of the gameobjects
             buttons.Add(btn[i].GetComponent<Button>());
