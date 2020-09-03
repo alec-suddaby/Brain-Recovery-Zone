@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 806581438668678318}
   m_Layer: 5
   m_Name: UnmuteButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 806581438780871145}
   m_Layer: 5
   m_Name: PlayButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -498,6 +498,7 @@ MonoBehaviour:
   skyboxMediaPlayer: {fileID: 0}
   rotationOffset: {fileID: 806581440341296851}
   xRNode: 5
+  returningToMenu: 0
 --- !u!114 &806581438868165018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +523,7 @@ GameObject:
   - component: {fileID: 806581438891137500}
   m_Layer: 5
   m_Name: AudioVolumeSlider
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1024,7 +1025,7 @@ GameObject:
   - component: {fileID: 806581439573196510}
   m_Layer: 5
   m_Name: HideButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1326,7 +1327,7 @@ GameObject:
   - component: {fileID: 806581439727096442}
   m_Layer: 5
   m_Name: ExitVideoButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1584,7 +1585,7 @@ GameObject:
   - component: {fileID: 806581439808444020}
   m_Layer: 5
   m_Name: PauseButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2349,7 +2350,7 @@ GameObject:
   - component: {fileID: 806581440584472984}
   m_Layer: 5
   m_Name: MuteButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3116,7 +3117,7 @@ GameObject:
   - component: {fileID: 7954781570698423727}
   m_Layer: 5
   m_Name: ExitVideoButton
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

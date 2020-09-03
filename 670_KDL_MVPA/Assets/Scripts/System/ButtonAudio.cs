@@ -51,13 +51,12 @@ public class ButtonAudio : MonoBehaviour
     {
         ClearButtonArray();
 
-        btn = GameObject.FindGameObjectWithTag("ButtonArray").GetComponent<buttonArrayScript>().buttonArray;
+        //Set btn to the array drawn up in the ButtonArray
+        //btn = GameObject.FindGameObjectWithTag("ButtonArray").GetComponent<buttonArrayScript>().buttonArray;
 
-        /*
-            // This is to search for gameobjects with 'button' tag. Depricated now
-            // Make an array of all the GameObjects with the tag 'button'
-            //btn = GameObject.FindGameObjectsWithTag("button");
-        */
+        // Make an array of all the GameObjects with the tag 'button'
+        btn = GameObject.FindGameObjectsWithTag("button");
+        
 
         AddButtonsToList();
     }

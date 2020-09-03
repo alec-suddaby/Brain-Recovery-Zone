@@ -47,6 +47,9 @@ public class VideoMenuManager : MonoBehaviour
     private bool triggerButtonIsPressed;
     private bool secondaryButtonIsPressed;
 
+	//menu panel history bool trigger
+	public bool returningToMenu = false;
+
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -184,7 +187,8 @@ public class VideoMenuManager : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneLoader.Instance.ReturnToMenu();
+        returningToMenu = true;
+		SceneLoader.Instance.ReturnToMenu();
     }
 
     public void HideVideoControls()

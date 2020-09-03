@@ -830,8 +830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons: []
   btn: []
-  clickSound: {fileID: 8300000, guid: 92488d1a5b8bcb141a55949688f83722, type: 3}
-  audioVolume: 0.2
+  clickSound: {fileID: 8300000, guid: 36317194c81eb984bb8b1b37c92896f3, type: 3}
+  audioVolume: 0.8
 --- !u!4 &1610310586
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,6 +1497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: menuStatus
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419841541199783761, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: videoMenuSystemCanvas
+      value: CanvasVideoControls
       objectReference: {fileID: 0}
     - target: {fileID: 5708838408779861893, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}

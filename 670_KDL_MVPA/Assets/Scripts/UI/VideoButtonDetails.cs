@@ -28,41 +28,44 @@ public class VideoButtonDetails : MonoBehaviour
     public GameObject durationGameObject;
     public GameObject thumbnailGameObject;
 
-    [SerializeField]
+   
     private TextMeshProUGUI titleTMP;
-
-    [SerializeField]
     private TextMeshProUGUI decriptionTMP;
-
-    [SerializeField]
     private TextMeshProUGUI durationTMP;
-
-    [SerializeField]
     private ProceduralImage thumbnailIMG;
        
     
     
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         //Set Title
-        titleTMP = titleGameObject.GetComponent<TextMeshProUGUI>();
-        titleTMP.text = videoTitle;
-
+        if ( titleGameObject != null)
+        {   
+            titleTMP = titleGameObject.GetComponent<TextMeshProUGUI>();
+            titleTMP.text = videoTitle;
+        }
 
         //Set Description
-        decriptionTMP = descriptionGameObject.GetComponent<TextMeshProUGUI>();
-        decriptionTMP.text = videoDescription;
-
+        if ( descriptionGameObject != null)
+        {   
+            decriptionTMP = descriptionGameObject.GetComponent<TextMeshProUGUI>();
+            decriptionTMP.text = videoDescription;
+        }
         
         //Set Duration
-        durationTMP = durationGameObject.GetComponent<TextMeshProUGUI>();
-        durationTMP.text = videoDuration;
-
+        if ( durationGameObject != null)
+        {   
+            durationTMP = durationGameObject.GetComponent<TextMeshProUGUI>();
+            durationTMP.text = videoDuration;
+        }
 
         //Set Thumbnail Image
-        thumbnailIMG = thumbnailGameObject.GetComponent<ProceduralImage>();
-        thumbnailIMG.sprite = videoBackground;
+        if ( thumbnailGameObject != null)
+        {   
+            thumbnailIMG = thumbnailGameObject.GetComponent<ProceduralImage>();
+            thumbnailIMG.sprite = videoBackground;
+        }
     }
 
 }

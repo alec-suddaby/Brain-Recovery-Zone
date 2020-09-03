@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
 
     public Component[] canvasInPanels;
 
-    private List<Panel> panelHistory = new List<Panel>();
+    public List<Panel> panelHistory = new List<Panel>();
 
     //XR Toolkit controllers
     [SerializeField]
@@ -40,7 +40,6 @@ public class MenuManager : MonoBehaviour
 
     private bool menuHidden = false;
 
-
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -56,7 +55,7 @@ public class MenuManager : MonoBehaviour
     }
 
     void Start()
-    {
+    {       
         ShowMenu();
         SetupPanels();
     }
@@ -68,7 +67,13 @@ public class MenuManager : MonoBehaviour
         foreach(Panel panel in panels)
             panel.Setup(this);
 
-        currentPanel.Show();
+        //Sets the currentPanel to the right gameobjcet by converting back from a string and finding the game object
+        //currentPanel = GameObject.Find(PreviousPanelMemory.lastMenuPanel).GetComponent<Panel>();
+
+        //Debug.Log("CURRENT PANEL" + currentPanel);
+        //Debug.Log(currentPanel.transform.name);
+
+        currentPanel.Show();  
     }
 
     void Update()
@@ -116,6 +121,7 @@ public class MenuManager : MonoBehaviour
 
             GameObject currentScrollBar = currentPanel.scrollBar;
 
+            // Calculating the rate of which to scroll. Currently this may be uneven depending on different lengths of scroll as the length of scroll is always 0 to 1 so the factor added to it will always be the same. Need to calculate a way of adding a % of 100 instead of a single number
             currentScrollBar.GetComponent<Scrollbar>().value = currentScrollBar.GetComponent<Scrollbar>().value + (primary2DAxisValue.x * 0.01f) ;
         }
         else if (currentPanel.scrollBar == null)
@@ -144,6 +150,20 @@ public class MenuManager : MonoBehaviour
         else {
             return;
         }
+    }
+
+    private void OnDestroy() {
+
+        //On Destroy, sets the current panel into the memory script and removed the ' (Panel)' from the end of the string, hence -8 characters
+        if (PreviousPanelMemory.lastMenuPanel != null)
+        {
+            PreviousPanelMemory.lastMenuPanel = currentPanel.ToString().Substring(0, currentPanel.ToString().Length -8);
+            Debug.Log("Not Null");
+        }
+        //Debug.Log("Current" + currentPanel);
+        //Debug.Log("Saved Current" + PreviousPanelMemory.lastMenuPanel);
+        
+        Debug.Log("MenuManager was destroyed");
     }
 
     public void GoToPrevious()

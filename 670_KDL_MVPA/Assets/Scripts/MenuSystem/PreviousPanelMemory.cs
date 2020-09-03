@@ -6,26 +6,30 @@ public class PreviousPanelMemory : MonoBehaviour
 {
     
     public string menuSystemCanvas;
+    //public string videoMenuSystemCanvas;
 
-    public bool menuStatus = true;
+    public MenuManager menuSystemLink;
+    //public VideoMenuManager videoMenuSystemLink;
 
-    
+    static public string lastMenuPanel;
+    //public List<Panel> savedPanelHistory;
+
+   
 
     void Start()
     {
-      //GameObject.Find(menuSystemCanvas).GetComponent<MenuManager>();
+      menuSystemLink = GameObject.Find(menuSystemCanvas).GetComponent<MenuManager>();
+      
+      lastMenuPanel = menuSystemLink.currentPanel.ToString().Substring(0, menuSystemLink.currentPanel.ToString().Length -8);
     }
 
-    
     void Update()
     {
-        if (menuStatus == true)
-      {
-          //GameObject.Find(menuSystemCanvas).GetComponent<MenuManager>().ShowMenu();
-      }
-      else if (menuStatus == false)
-      {
-         // GameObject.Find(menuSystemCanvas).GetComponent<MenuManager>().HideMenu();
-      }
+      //Debug.Log(lastMenuPanel);
+      //Debug.Log(menuSystemLink.currentPanel);
+    }
+
+    void OnDestroy(){
+      Debug.Log("Previous Panel history cleared");
     }
 }
