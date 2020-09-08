@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _intensity: 0
+  _intensity: 1
   _color: {r: 0, g: 0, b: 0, a: 1}
   _fadeMaterial: {fileID: 2100000, guid: 3b16a9eba83cf8044894efc6565c05fa, type: 2}
 --- !u!1 &1662852626

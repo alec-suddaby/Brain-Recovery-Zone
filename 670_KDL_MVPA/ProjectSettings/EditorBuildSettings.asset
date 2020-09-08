@@ -20,6 +20,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_02_AshdownForest.unity
     guid: 498f21cf92d593042b3947cbe7443a67
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_03_AshdownForestCopse.unity
+    guid: 84a5519c28173ef449bfb218884e98eb
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_04_AshdownForestBench.unity
+    guid: ddb02644785cfcc42a85b50091985132
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_05_AshdownForestSunset.unity
+    guid: 4455af8e92aeb5d40982151748a3ae4c
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_06_NorthernLights.unity
+    guid: cb1c0d551f8e2ae47869dacdd6888863
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,
       type: 2}

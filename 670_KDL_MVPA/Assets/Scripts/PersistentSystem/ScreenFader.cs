@@ -5,7 +5,8 @@ using UnityEngine;
 public class ScreenFader : MonoBehaviour
 {
     [SerializeField] private float _speed = 1.0f;
-    [SerializeField] private float _intensity = 0.0f;
+    [SerializeField] private float _slowspeed = 0.3f;
+    [SerializeField] private float _intensity = 1.0f;
     [SerializeField] private Color _color = Color.black;
     [SerializeField] private Material _fadeMaterial = null;
 
@@ -42,6 +43,23 @@ public class ScreenFader : MonoBehaviour
         while (_intensity >= 0.0f)
         {
             _intensity -= _speed * Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public Coroutine FirstFadeUp()
+    {
+        //StopAllCoroutines();
+        return StartCoroutine(FadeUp());
+    }
+
+    private IEnumerator FadeUp()
+    {        
+        yield return new WaitForSecondsRealtime(2);
+
+        while (_intensity >= 0.0f)
+        {
+            _intensity -= _slowspeed * Time.deltaTime;
             yield return null;
         }
     }

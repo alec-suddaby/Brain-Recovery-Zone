@@ -19,6 +19,7 @@ public class SceneLoader : Singleton<SceneLoader>
     
     private void Awake()
     {
+       StartCoroutine(StartupFade());
       SceneManager.sceneLoaded += SetActiveScene;
     }
 
@@ -69,6 +70,28 @@ public class SceneLoader : Singleton<SceneLoader>
       buttonAudio.GetComponent<ButtonAudio>().OnSceneLoaded();
 
       isLoading = false;
+    }
+
+    private IEnumerator StartupFade()
+    {
+      //OnLoadBegin?.Invoke();
+      //yield return screenFader.StartFadeIn();
+      //yield return StartCoroutine(UnloadCurrent());
+
+      //buttonAudio.GetComponent<ButtonAudio>().ClearButtonArray();
+
+      // Fake wait time
+      //yield return new WaitForSeconds(1.0f);
+
+     // yield return StartCoroutine(LoadNew(sceneName));
+      yield return screenFader.FirstFadeUp();
+      //OnLoadEnd?.Invoke();
+
+      //yield return new WaitForSeconds(0.5f);
+
+      //buttonAudio.GetComponent<ButtonAudio>().OnSceneLoaded();
+
+      //isLoading = false;
     }
 
     private IEnumerator UnloadCurrent()
