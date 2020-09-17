@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _media: {fileID: 1582668818}
-  _defaultTexture: {fileID: 2800000, guid: bf4e7e9553ebc9447b01606c553534fa, type: 3}
+  _defaultTexture: {fileID: 2800000, guid: 5bd822f57e8c595408145614689f14fa, type: 3}
   _material: {fileID: 2100000, guid: c8bec942227c4d74592adffe6756186e, type: 2}
   _texturePropertyName: _MainTex
   _offset: {x: 0, y: 0}
