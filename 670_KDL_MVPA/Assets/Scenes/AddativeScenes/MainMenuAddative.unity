@@ -8815,7 +8815,7 @@ PrefabInstance:
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: videoDuration
-      value: 12 mins
+      value: 4 mins
       objectReference: {fileID: 0}
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
