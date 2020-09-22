@@ -1247,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: videoDescription
-      value: Personal sunset alongst the foliage of forest
+      value: Personal sunset amongst the foliage of forest
       objectReference: {fileID: 0}
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -2363,8 +2363,8 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 04ba7621ceca47040b316ba8e4745aa0,
         type: 3}
       propertyPath: menuDescription
-      value: Immerse yourself in a range of soothing experiences, allowing your brain
-        to shut down and recharge from the outside world
+      value: Supporting you to visualise your rehab goals and meditation exercises
+        to help create a feeling of calmness
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04ba7621ceca47040b316ba8e4745aa0, type: 3}
@@ -6382,7 +6382,7 @@ PrefabInstance:
     - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492645, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -12732,7 +12732,7 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 04ba7621ceca47040b316ba8e4745aa0,
         type: 3}
       propertyPath: menuTitle
-      value: Practise
+      value: Practice
       objectReference: {fileID: 0}
     - target: {fileID: 7452962581817084610, guid: 04ba7621ceca47040b316ba8e4745aa0,
         type: 3}
