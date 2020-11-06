@@ -5042,6 +5042,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 02d5fe35db0028b4f8018423f9a1c628,
         type: 3}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDescription
+      value: Enjoy a selection of stunning waterfalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDuration
+      value: 3 mins
+      objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492642, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5155,7 +5165,22 @@ PrefabInstance:
     - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 228583868}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 03_Calm_10_Waterfall
       objectReference: {fileID: 0}
     - target: {fileID: 4406427892981145759, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -6568,6 +6593,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 78a757ec248c8564d9dbea0668f948cc,
         type: 3}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDuration
+      value: 30 secs
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDescription
+      value: Take a look at the view from the top of a mountain
+      objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492642, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6681,7 +6716,22 @@ PrefabInstance:
     - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 228583868}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 03_Calm_09_Mountain
       objectReference: {fileID: 0}
     - target: {fileID: 4406427892981145759, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -12851,7 +12901,7 @@ PrefabInstance:
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: videoTitle
-      value: Private Beach
+      value: Lakeside
       objectReference: {fileID: 0}
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -12859,6 +12909,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 338bd4100d97058408bf6f8149f1004b,
         type: 3}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDescription
+      value: Dip your toes in a calming lake
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDuration
+      value: 3 mins
+      objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492642, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12972,7 +13032,22 @@ PrefabInstance:
     - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 228583868}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 03_Calm_08_Lakeside
       objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492645, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -13755,6 +13830,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5eba6a4d42cab764c96fa210445d8fea,
         type: 3}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDescription
+      value: Sit and watch the sunrise on your own private beach
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: videoDuration
+      value: 7 mins
+      objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492642, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13868,7 +13953,22 @@ PrefabInstance:
     - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 228583868}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406427892955492644, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 03_Calm_07_Beach
       objectReference: {fileID: 0}
     - target: {fileID: 4406427892955492645, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}

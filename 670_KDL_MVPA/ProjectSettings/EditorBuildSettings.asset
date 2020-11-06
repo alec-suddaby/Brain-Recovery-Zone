@@ -32,6 +32,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_06_NorthernLights.unity
     guid: cb1c0d551f8e2ae47869dacdd6888863
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_07_Beach.unity
+    guid: 411cbd5eed408fd47b52a1b4e0d9a7bc
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_08_Lakeside.unity
+    guid: 51da4c1da064e354d844a25a8a50dc29
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_09_Mountain.unity
+    guid: 4064d6bdb89b0284e98aa16ce2cd6a70
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_10_Waterfall.unity
+    guid: a795a1f6cfbe47a4c9ccd6e9df80ed5a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,
       type: 2}
