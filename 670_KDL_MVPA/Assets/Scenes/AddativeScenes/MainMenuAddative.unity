@@ -1860,6 +1860,7 @@ GameObject:
   - component: {fileID: 228583863}
   - component: {fileID: 228583868}
   - component: {fileID: 228583869}
+  - component: {fileID: 228583870}
   m_Layer: 5
   m_Name: MenuSystemCanvas
   m_TagString: Untagged
@@ -2005,6 +2006,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3d04e52b6abfb4ca329a0294f1e316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &228583870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228583862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af48f4192a7d254fb2eb4a47bcb94e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 0}
+  m_Horizontal: 1
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &287596045
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5071,7 @@ PrefabInstance:
         type: 3}
       propertyPath: videoBackground
       value: 
-      objectReference: {fileID: 21300000, guid: 02d5fe35db0028b4f8018423f9a1c628,
+      objectReference: {fileID: 21300000, guid: 4a334455d1c49f74998db18d3d0aa440,
         type: 3}
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -12907,7 +12938,7 @@ PrefabInstance:
         type: 3}
       propertyPath: videoBackground
       value: 
-      objectReference: {fileID: 21300000, guid: 338bd4100d97058408bf6f8149f1004b,
+      objectReference: {fileID: 21300000, guid: 3e51811fa8eeb1843b95cb1ac123e368,
         type: 3}
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -13828,7 +13859,7 @@ PrefabInstance:
         type: 3}
       propertyPath: videoBackground
       value: 
-      objectReference: {fileID: 21300000, guid: 5eba6a4d42cab764c96fa210445d8fea,
+      objectReference: {fileID: 21300000, guid: 338bd4100d97058408bf6f8149f1004b,
         type: 3}
     - target: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,
         type: 3}
@@ -14231,6 +14262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scrollbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005371760783836102, guid: 5b5c2e796c2cadc4ba3bbb1a98714b2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9005371760783836103, guid: 5b5c2e796c2cadc4ba3bbb1a98714b2b,
         type: 3}
