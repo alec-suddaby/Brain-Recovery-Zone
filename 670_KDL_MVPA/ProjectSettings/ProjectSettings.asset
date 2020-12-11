@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: f3358d83f4f4f6043a01232e49b79d75,
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: bb3b9ac028e8a8046bd037bba684360d,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -122,11 +122,8 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1.11
-  preloadedAssets:
-  - {fileID: 11400000, guid: f3406e523c1cb324d839b4a626cf1c37, type: 2}
-  - {fileID: -351029131513920462, guid: ea89635da3afaa94db74ccb12dc6534b, type: 2}
-  - {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6, type: 2}
+  bundleVersion: 0.1.12
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
