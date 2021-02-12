@@ -68,6 +68,12 @@ public static class SceneMenu
         OpenScene("Videos/03_Calm/03_Calm_06_NorthernLights");
     }
 
+    [MenuItem("Scenes/Calm/MindfulBreathing")]
+    public static void OpenMindfulBreathing()
+    {
+        OpenScene("Videos/03_Calm/03_Calm_12_MindfulBreathing");
+    }
+
 
     //////////////
     //   Solo
