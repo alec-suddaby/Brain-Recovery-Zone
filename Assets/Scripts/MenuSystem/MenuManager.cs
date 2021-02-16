@@ -9,19 +9,30 @@ using UnityEngine.Events;
 
 public class MenuManager : MonoBehaviour
 {
-    public Panel currentPanel = null;
+    [Header("Persistent Menu")]
     public GameObject persistentLogo;
 
+    // Hide and show Game Objects
+    [Header("Persistent Menu Tools")]
+    //public string topPanelName;
+    public GameObject menuBackButton;
+    public GameObject menuHideButton;
+    public GameObject menuShowButton;
+    public GameObject menuSettingsButton;
+    private bool menuHidden = false;
+    
+    [Header("Panel Navigation")]
+    [Tooltip("Set this as your default panel to show on load")]
+    public Panel currentPanel = null;
     public Component[] canvasInPanels;
-
     public List<Panel> panelHistory = new List<Panel>();
 
+    [Header("XR Controller")]
+    //WIll aim to remove or update this function
     //XR Toolkit controllers
     [SerializeField]
     private XRNode xRNode = XRNode.LeftHand;
-
     private List<InputDevice> devices = new List<InputDevice>();
-
     private InputDevice device;
 
     //to avoid repeat readings
@@ -29,16 +40,6 @@ public class MenuManager : MonoBehaviour
     private bool primary2DAxisIsChosen;
     private Vector2 primary2DAxisValue = Vector2.zero;
     private Vector2 prevPrimary2DAxisValue;
-
-    // Hide and show Game Objects
-    [Header("Menu Tools")]
-    //public string topPanelName;
-    public GameObject menuBackButton;
-    public GameObject menuHideButton;
-    public GameObject menuShowButton;
-    public GameObject menuSettingsButton;
-
-    private bool menuHidden = false;
 
     void GetDevice()
     {
