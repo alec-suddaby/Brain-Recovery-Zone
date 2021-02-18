@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_10_Waterfall.unity
     guid: a795a1f6cfbe47a4c9ccd6e9df80ed5a
   - enabled: 1
-    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_12_MindfulBreathing.unity
+    path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_11_MindfulBreathing.unity
     guid: 47efea6d2817c6c458d9e0e812773654
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,

@@ -68,10 +68,34 @@ public static class SceneMenu
         OpenScene("Videos/03_Calm/03_Calm_06_NorthernLights");
     }
 
+    [MenuItem("Scenes/Calm/Beach")]
+    public static void OpenBeach()
+    {
+        OpenScene("Videos/03_Calm/03_Calm_07_Beach");
+    }
+
+    [MenuItem("Scenes/Calm/Lakeside")]
+    public static void OpenLakeside()
+    {
+        OpenScene("Videos/03_Calm/03_Calm_08_Lakeside");
+    }
+
+    [MenuItem("Scenes/Calm/Mountain")]
+    public static void OpenMountain()
+    {
+        OpenScene("Videos/03_Calm/03_Calm_09_Mountain");
+    }
+
+    [MenuItem("Scenes/Calm/Waterfall")]
+    public static void OpenWaterfall()
+    {
+        OpenScene("Videos/03_Calm/03_Calm_10_Waterfall");
+    }
+
     [MenuItem("Scenes/Calm/MindfulBreathing")]
     public static void OpenMindfulBreathing()
     {
-        OpenScene("Videos/03_Calm/03_Calm_12_MindfulBreathing");
+        OpenScene("Videos/03_Calm/03_Calm_11_MindfulBreathing");
     }
 
 
