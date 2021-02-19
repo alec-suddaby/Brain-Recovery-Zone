@@ -20,12 +20,26 @@ public class MenuManager : MonoBehaviour
     public GameObject menuShowButton;
     public GameObject menuSettingsButton;
     private bool menuHidden = false;
+
+    //Current panel scrollbar
+    private GameObject currentScrollBar;
     
     [Header("Panel Navigation")]
     [Tooltip("Set this as your default panel to show on load")]
+    [SerializeField]
     public Panel currentPanel = null;
+    [SerializeField]
     public Component[] canvasInPanels;
+    [SerializeField]
     public List<Panel> panelHistory = new List<Panel>();
+    //Panel history debug
+    private string panelList = "List Panel History: ";
+    private string savedPanelList = "Saved List Panel History: ";
+
+    [Header("Saved Panel Navigation")]
+    public PreviousPanelMemory previousPanelMemory;
+    public Panel savedCurrentPanel = null;
+    public List<Panel> savedPanelHistory;
 
     [Header("XR Controller")]
     //WIll aim to remove or update this function
@@ -57,6 +71,8 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {       
+        previousPanelMemory = FindObjectOfType<PreviousPanelMemory>();
+        
         ShowMenu();
         SetupPanels();
     }
@@ -68,13 +84,24 @@ public class MenuManager : MonoBehaviour
         foreach(Panel panel in panels)
             panel.Setup(this);
 
-        //Sets the currentPanel to the right gameobjcet by converting back from a string and finding the game object
-        //currentPanel = GameObject.Find(PreviousPanelMemory.lastMenuPanel).GetComponent<Panel>();
+        // triggering the saved histry to convert from saved string to panels
+        previousPanelMemory.SavedFromString();
 
-        //Debug.Log("CURRENT PANEL" + currentPanel);
-        //Debug.Log(currentPanel.transform.name);
+        // Checking if there is a saved panel and setting it to current
+        if (previousPanelMemory.savedPanel != null)
+        {
+            currentPanel = previousPanelMemory.savedPanel;
+        }
 
-        currentPanel.Show();  
+        // Checking if there is a saved panel history and setting it to current
+        if (panelHistory.Count == 0 && previousPanelMemory.savedPanelListString.Count != 0)
+        {
+            panelHistory = previousPanelMemory.savedPanelList;
+        }
+        
+        currentPanel.Show();
+
+        CurrentPanelScrollbar(); 
     }
 
     void Update()
@@ -115,24 +142,12 @@ public class MenuManager : MonoBehaviour
             //Debug.Log($"Primary2DAxis deactivated {primary2DAxisValue} on {xRNode}");
         }
 
-        // If active panel has a scrollbar GameObject then apply the v controller value to the scrollbar value
-        if (currentPanel.scrollBar != null)
+        if (currentScrollBar != null)
         {
-            //Debug.Log("Current Panel Has Scrollbar");
-
-            GameObject currentScrollBar = currentPanel.scrollBar;
-
             // Calculating the rate of which to scroll. Currently this may be uneven depending on different lengths of scroll as the length of scroll is always 0 to 1 so the factor added to it will always be the same. Need to calculate a way of adding a % of 100 instead of a single number
             currentScrollBar.GetComponent<Scrollbar>().value = currentScrollBar.GetComponent<Scrollbar>().value + (primary2DAxisValue.x * 0.01f) ;
         }
-        else if (currentPanel.scrollBar == null)
-        {
-            //Debug.Log("Current Panel No Scrollbar");
-        }
-        else
-        {
-            //Debug.Log("Current Panel Scrollbar is buggered");
-        }
+        
 
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
@@ -153,17 +168,10 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy() {
-
-        //On Destroy, sets the current panel into the memory script and removed the ' (Panel)' from the end of the string, hence -8 characters
-        if (PreviousPanelMemory.lastMenuPanel != null)
-        {
-            PreviousPanelMemory.lastMenuPanel = currentPanel.ToString().Substring(0, currentPanel.ToString().Length -8);
-            Debug.Log("Not Null");
-        }
-        //Debug.Log("Current" + currentPanel);
-        //Debug.Log("Saved Current" + PreviousPanelMemory.lastMenuPanel);
-        
+    private void OnDestroy()
+    {
+        previousPanelMemory.SavedToString();
+        panelHistory.Clear();
         Debug.Log("MenuManager was destroyed");
     }
 
@@ -174,12 +182,16 @@ public class MenuManager : MonoBehaviour
             int lastIndex = panelHistory.Count - 1;
             SetCurrent(panelHistory[lastIndex]);
             panelHistory.RemoveAt(lastIndex);
+            DebugList();
+            SavePanelHistory();
         }
         else if(menuHidden == true)
         {
             ShowMenu();
         }
         else {
+            DebugList();
+            SavePanelHistory();
             return;
         }
     }
@@ -188,6 +200,19 @@ public class MenuManager : MonoBehaviour
     {
         panelHistory.Add(currentPanel);
         SetCurrent(newPanel);
+        DebugList();
+        SavePanelHistory();
+    }
+
+    public void SetCurrent(Panel newPanel)
+    {
+        currentPanel.Hide();
+
+        currentPanel = newPanel;
+
+        CurrentPanelScrollbar();
+
+        currentPanel.Show();
     }
 
     public void ToggleSettingsWithHistory(Panel newPanel)
@@ -201,14 +226,6 @@ public class MenuManager : MonoBehaviour
             panelHistory.Add(currentPanel);
             SetCurrent(newPanel);
         }        
-    }
-
-    public void SetCurrent(Panel newPanel)
-    {
-        currentPanel.Hide();
-
-        currentPanel = newPanel;
-        currentPanel.Show();
     }
 
     public void LoadScene(string level)
@@ -265,5 +282,61 @@ public class MenuManager : MonoBehaviour
         {
             menuSettingsButton.SetActive(true);
         }
+    }
+
+    void CurrentPanelScrollbar()
+    {
+        // If active panel has a scrollbar GameObject then apply the v controller value to the scrollbar value
+        if (currentPanel.scrollBar != null)
+        {
+            //Debug.Log("Current Panel Has Scrollbar");
+
+            currentScrollBar = currentPanel.scrollBar;
+        }
+        else if (currentPanel.scrollBar == null)
+        {
+            //Debug.Log("Current Panel No Scrollbar");
+            return;
+        }
+        else
+        {
+            //Debug.Log("Current Panel Scrollbar is buggered");
+            return;
+        }
+    }
+
+    void DebugList()
+    {
+        Debug.Log("Current Panel: " + currentPanel.ToString());
+
+        foreach (var panel in panelHistory)
+        {
+            panelList += panel.ToString() + ", ";
+        }
+
+        Debug.Log(panelList);
+    }
+
+    void SavePanelHistory()
+    {
+        savedCurrentPanel = currentPanel;
+        previousPanelMemory.savedPanel = currentPanel;
+        Debug.Log("Saved Current Panel: " + savedCurrentPanel.ToString());
+        
+        
+        savedPanelHistory = panelHistory;
+        previousPanelMemory.savedPanelList = panelHistory;
+        foreach (var panel in savedPanelHistory)
+        {
+            savedPanelList += panel.ToString() + ", ";
+        }
+
+        //Debug.Log("String list from Menu Manager: " + savedPanelList);
+
+        
+        
+        
+        
+        
     }
 }
