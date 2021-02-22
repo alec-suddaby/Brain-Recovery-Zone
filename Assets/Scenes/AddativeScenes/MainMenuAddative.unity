@@ -2045,6 +2045,9 @@ MonoBehaviour:
   currentPanel: {fileID: 2125607538}
   canvasInPanels: []
   panelHistory: []
+  previousPanelMemory: {fileID: 0}
+  savedCurrentPanel: {fileID: 0}
+  savedPanelHistory: []
   xRNode: 5
 --- !u!114 &228583869
 MonoBehaviour:
