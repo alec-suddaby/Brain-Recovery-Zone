@@ -19,6 +19,10 @@ public class VideoButtonDetails : MonoBehaviour
     public string videoDescription = "Video description";
     public string videoDuration = "x mins"; 
     public Sprite videoBackground; 
+    public bool menuVideoLoopCheck = false;
+
+    // Loop save
+    private LoopFunctionSave loopFunctionSave;
 
 
     // Input Linked Video Bits
@@ -66,6 +70,13 @@ public class VideoButtonDetails : MonoBehaviour
             thumbnailIMG = thumbnailGameObject.GetComponent<ProceduralImage>();
             thumbnailIMG.sprite = videoBackground;
         }
+    }
+
+    // Manually call this function when this video button is pressed. It will then send a save of the bool to the Persistent VR if the video should loop or not.
+    public void SaveLoopPreferance()
+    {
+        loopFunctionSave = FindObjectOfType<LoopFunctionSave>();
+        loopFunctionSave.loopSettingSave = menuVideoLoopCheck;
     }
 
 }

@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Videos/03_Calm/03_Calm_11_MindfulBreathing.unity
     guid: 47efea6d2817c6c458d9e0e812773654
+  - enabled: 0
+    path: Packages/com.unity.xr.picoxr/Assets/Payment/Demo/Scenes/Demo.unity
+    guid: c122f59d8531a904e9fc941120c77dcb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,
       type: 2}

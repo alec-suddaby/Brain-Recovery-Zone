@@ -15,7 +15,6 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
     public GameObject videoControlsPanel;
     public GameObject errorPanel;
     
-
     [Header("Video Control Buttons")]
     public GameObject playButton;
 	public GameObject pauseButton;
@@ -32,7 +31,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	private float setAudioVolumeSliderValue = 1.0f;
 	public GameObject audioVolumePanel;
 
-	public Toggle loopToggle;
+	[SerializeField]
+	private Toggle loopToggle;
 
     [Header("Media Player")]
     public MediaPlayer skyboxMediaPlayer;
@@ -68,6 +68,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
 	//If video should loop
 	public bool videoLoop = false;
+	private LoopFunctionSave loopFunctionSave;
 
 	//Clickable Down Objects
 	private Component[] pointerDetectionArray;
@@ -103,6 +104,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 		muteButton.SetActive(true);
 		unmuteButton.SetActive(false);
 
+		loopFunctionSave = FindObjectOfType<LoopFunctionSave>();
+		videoLoop = loopFunctionSave.loopSettingSave;
 		loopToggle.isOn = videoLoop;
 		loopToggle.onValueChanged.AddListener(delegate {
 			LoopToggleValueChanged(loopToggle);

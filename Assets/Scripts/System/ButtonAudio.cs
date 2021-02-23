@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class ButtonAudio : MonoBehaviour
 {
+    
+
+    //add a listener for every time a scene is loaded async
+    //then gather all the buttons and attach listeners
+    // then trigger the play sound
+
+
+    
     public List<Button> buttons;
     public GameObject[] btn;
     public AudioClip clickSound;

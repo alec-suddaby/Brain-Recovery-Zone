@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PreviousPanelMemory : MonoBehaviour
 {
+    /*
+    Info:
+
+    This script is designed to save the current panel and the panel history when leaving the menu scene.
+    Rather than storing that data to a save file, it is saved as a string on this script
+    */
+    
     [Header("Current Panel")]
     public Panel savedPanel = null;
     public string savedPanelSting;
@@ -15,17 +22,16 @@ public class PreviousPanelMemory : MonoBehaviour
     public List<string> savedPanelListString = new List<string>();
     public GameObject savedStringPanelHistoryGameObject;
 
-    //private const char panelListSeparator = ',';
-
-   
 
 
+    // function that save the panels to strings
     public void SavedToString()
     {
       SavedPanelToString();
       SavedHistoryToString();
     }
 
+    // function that converts the saved strings back to panels
     public void SavedFromString()
     {
       SavedPanelFromString();
@@ -34,7 +40,10 @@ public class PreviousPanelMemory : MonoBehaviour
 
     void SavedPanelToString()
     {
+      // Setting the panel to a string
       savedPanelSting = savedPanel.ToString();
+
+      // Removing the last 8 characters " (Panel)" from the string to help with finding the correct GameObject when converting back from String to Panel
       savedPanelSting = savedPanelSting.Substring(0, savedPanelSting.Length - 8);
     }
 
@@ -42,29 +51,26 @@ public class PreviousPanelMemory : MonoBehaviour
     {
       if (savedPanelSting != "")
       {
-        //Debug.Log("Saved Panel Full");
-        //Debug.Log("Saved Panel: " + savedPanelSting);
+        // Finding the GameObject with the name of the saved panel
         savedPanelGameObject = GameObject.Find(savedPanelSting);
-        //Debug.Log("Saved Panel Game Object: " + savedPanelGameObject);
+
+        // Selecting the Panel from the found GameObject
         savedPanel = savedPanelGameObject.GetComponent<Panel>();
-        //Debug.Log(savedPanel);
       }
       else
       {
-        //Debug.Log("Saved Panel Empty");
         savedPanel = null;
       }
-        
     }
 
     void SavedHistoryToString()
     {
-      // clear list
+      // Clear list of strings from any previous save
       savedPanelListString.Clear();
 
       foreach (var panel in savedPanelList)
       {
-        // convert each panel to a string
+        // convert each panel to a string and remove the " (Panel)" from the end
         savedPanelListSingleString = panel.ToString();
         savedPanelListSingleString = savedPanelListSingleString.Substring(0, savedPanelListSingleString.Length - 8);
 
@@ -75,7 +81,7 @@ public class PreviousPanelMemory : MonoBehaviour
 
     void SavedHistroyFromString()
     {
-      // clear list
+      // Clear list of strings to remove any objects that can't be found due to leaving the Main Menu scene
       savedPanelList.Clear();
       
       if (savedPanelListString.Count != 0)
@@ -90,9 +96,7 @@ public class PreviousPanelMemory : MonoBehaviour
       }
       else
       {
-        
         savedPanelList = null;
       }
     }
-   
 }

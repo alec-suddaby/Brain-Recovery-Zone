@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2289175173496250930}
   - component: {fileID: 7442293592104636108}
   - component: {fileID: 3419841541199783761}
+  - component: {fileID: 7624795785687882151}
   m_Layer: 8
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7892326263789779821}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Show
         m_Mode: 1
         m_Arguments:
@@ -63,6 +65,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7892326263789779821}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
@@ -75,6 +78,7 @@ MonoBehaviour:
         m_CallState: 2
   screenFader: {fileID: 0}
   mainMenuName: MainMenuAddative
+  buttonAudio: {fileID: 0}
 --- !u!114 &3419841541199783761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +91,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9042587938f4fb2459bfdf7cbc0e42a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSystemCanvas: 
-  menuStatus: 1
+  savedPanel: {fileID: 0}
+  savedPanelSting: 
+  savedPanelGameObject: {fileID: 0}
+  savedPanelList: []
+  savedPanelListSingleString: 
+  savedPanelListString: []
+  savedStringPanelHistoryGameObject: {fileID: 0}
+--- !u!114 &7624795785687882151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289175173496250956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0c16e1d7dc2074e9a3b225cfec7da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3826686344165157102
 GameObject:
   m_ObjectHideFlags: 0
