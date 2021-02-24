@@ -41,10 +41,12 @@ public class PreviousPanelMemory : MonoBehaviour
     void SavedPanelToString()
     {
       // Setting the panel to a string
-      savedPanelSting = savedPanel.ToString();
+      if (savedPanel != null)
+        savedPanelSting = savedPanel.ToString();
 
       // Removing the last 8 characters " (Panel)" from the string to help with finding the correct GameObject when converting back from String to Panel
-      savedPanelSting = savedPanelSting.Substring(0, savedPanelSting.Length - 8);
+      if (savedPanel != null)
+        savedPanelSting = savedPanelSting.Substring(0, savedPanelSting.Length - 8);
     }
 
     void SavedPanelFromString()

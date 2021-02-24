@@ -19,13 +19,23 @@ public class SceneLoader : Singleton<SceneLoader>
     
     private void Awake()
     {
-       StartCoroutine(StartupFade());
+      if (!Application.isEditor)
+      {
+            LoadPersistent();
+      }
+
+      StartCoroutine(StartupFade());
       SceneManager.sceneLoaded += SetActiveScene;
     }
 
     private void OnDestroy()
     {
       SceneManager.sceneLoaded -= SetActiveScene;
+    }
+
+    private void LoadPersistent()
+    {
+        SceneManager.LoadSceneAsync(mainMenuName, LoadSceneMode.Additive);
     }
 
     // sceneName is the string for the name of the new scene

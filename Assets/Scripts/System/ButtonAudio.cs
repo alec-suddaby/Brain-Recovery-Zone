@@ -7,13 +7,6 @@ using UnityEngine.SceneManagement;
 public class ButtonAudio : MonoBehaviour
 {
     
-
-    //add a listener for every time a scene is loaded async
-    //then gather all the buttons and attach listeners
-    // then trigger the play sound
-
-
-    
     public List<Button> buttons;
     public GameObject[] btn;
     public AudioClip clickSound;
@@ -24,7 +17,7 @@ public class ButtonAudio : MonoBehaviour
     private AudioSource source { get { return GetComponent<AudioSource>(); } }
     
     void Start()
-    {
+    {  
         gameObject.AddComponent<AudioSource>();
         source.clip = clickSound;
         source.playOnAwake = false;
@@ -34,18 +27,12 @@ public class ButtonAudio : MonoBehaviour
 
     void Update()
     {
-        source.volume = audioVolume;
         
-        for (int i = 0; i < buttons.Count; i++)
-        {  
-            buttons[i].onClick.AddListener( () => PlaySound());
-            //return;
-        }
     }
+
 
     public void OnSceneLoaded()
     {
-        //Debug.Log("#####SCENE CHANGE");
         CollectButtonArray();
     }
 
@@ -85,11 +72,22 @@ public class ButtonAudio : MonoBehaviour
             buttons.Add(btn[i].GetComponent<Button>());
         }
 
+        source.volume = audioVolume;
+        
+        for (int i = 0; i < buttons.Count; i++)
+        {  
+            buttons[i].onClick.AddListener( () => PlaySound());
+            //return;
+        }
+
         Debug.Log("Button Array Length: " + btn.Length);
     }
 
     void PlaySound()
     {
+        source.PlayOneShot(clickSound);
+        
+        /*
         if (!source.isPlaying)
         {
             source.PlayOneShot(clickSound);
@@ -98,5 +96,6 @@ public class ButtonAudio : MonoBehaviour
         {
             return;
         }
+        */
     }
 }

@@ -2148,6 +2148,8 @@ GameObject:
   - component: {fileID: 228583869}
   - component: {fileID: 228583868}
   - component: {fileID: 228583870}
+  - component: {fileID: 228583872}
+  - component: {fileID: 228583871}
   m_Layer: 5
   m_Name: MenuSystemCanvas
   m_TagString: Untagged
@@ -2330,6 +2332,31 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!81 &228583871
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228583862}
+  m_Enabled: 0
+--- !u!114 &228583872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228583862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f576a9b1c6ef24eb659e83c0e2610d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: []
+  btn: []
+  clickSound: {fileID: 8300000, guid: 36317194c81eb984bb8b1b37c92896f3, type: 3}
+  audioVolume: 0.5
+  sceneLoader: {fileID: 0}
 --- !u!114 &286038317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2506649722254074263, guid: bc3f2f590a2f4a944b08b2cb4af5c260,

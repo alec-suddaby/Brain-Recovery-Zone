@@ -182,7 +182,7 @@ public class MenuManager : MonoBehaviour
             int lastIndex = panelHistory.Count - 1;
             SetCurrent(panelHistory[lastIndex]);
             panelHistory.RemoveAt(lastIndex);
-            DebugList();
+            //DebugList();
             SavePanelHistory();
         }
         else if(menuHidden == true)
@@ -190,7 +190,7 @@ public class MenuManager : MonoBehaviour
             ShowMenu();
         }
         else {
-            DebugList();
+            //DebugList();
             SavePanelHistory();
             return;
         }
@@ -200,7 +200,7 @@ public class MenuManager : MonoBehaviour
     {
         panelHistory.Add(currentPanel);
         SetCurrent(newPanel);
-        DebugList();
+        //DebugList();
         SavePanelHistory();
     }
 
@@ -321,7 +321,7 @@ public class MenuManager : MonoBehaviour
     {
         savedCurrentPanel = currentPanel;
         previousPanelMemory.savedPanel = currentPanel;
-        Debug.Log("Saved Current Panel: " + savedCurrentPanel.ToString());
+        //Debug.Log("Saved Current Panel: " + savedCurrentPanel.ToString());
         
         
         savedPanelHistory = panelHistory;
