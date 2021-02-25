@@ -114,6 +114,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 		audioVolumePanel.SetActive(false);
 
 		HideVideoControls();
+
+		//returningToMenu = false;
 		
 		// there is an issue here with the audioVolumeSlider not being found
 		//audioVolumeSlider.value = setAudioVolumeSliderValue;		
@@ -320,8 +322,11 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 			rotationOffset.transform.rotation = Quaternion.Euler(0,0,0);
 		}
 
-		videoControlsPanel.SetActive(true);
-		videoControlsOn = true;
+		if (!errorPanel.activeInHierarchy)
+		{
+			videoControlsPanel.SetActive(true);
+			videoControlsOn = true;
+		}
     }
 
     public void OnMuteButton()

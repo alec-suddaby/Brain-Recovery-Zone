@@ -21,8 +21,9 @@ public class MenuManager : MonoBehaviour
     public GameObject menuSettingsButton;
     private bool menuHidden = false;
 
-    //Current panel scrollbar
-    private GameObject currentScrollBar;
+    // Current panel buttonWrap
+    private GameObject currentButtonWrap;
+    private float crrentButtonWrapWidth;
     
     [Header("Panel Navigation")]
     [Tooltip("Set this as your default panel to show on load")]
@@ -51,9 +52,6 @@ public class MenuManager : MonoBehaviour
 
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
-    private bool primary2DAxisIsChosen;
-    private Vector2 primary2DAxisValue = Vector2.zero;
-    private Vector2 prevPrimary2DAxisValue;
 
     void GetDevice()
     {
@@ -101,7 +99,7 @@ public class MenuManager : MonoBehaviour
         
         currentPanel.Show();
 
-        CurrentPanelScrollbar(); 
+        CurrentPanelButtonWrap();
     }
 
     void Update()
@@ -113,42 +111,24 @@ public class MenuManager : MonoBehaviour
             GetDevice();
         }
 
+        // Hiding the back button if there is no menu history
         SetBackButtonState();
+        // Hide settings menu button when the menu is hidden
         SettingsButtonState();
 
-        // capturing primary 2D Axis changes and release
-        InputFeatureUsage<Vector2> primary2DAxisUsage = CommonUsages.primary2DAxis;
-        // make sure the value is not zero and that it has changed
-        if (primary2DAxisValue != prevPrimary2DAxisValue)
-        {
-            primary2DAxisIsChosen = false;
-            //Debug.Log($"CHANGED and prev value is {prevPrimary2DAxisValue} and the new value is {primary2DAxisValue}");
-        }
-        // was for checking to see if the axis values were reading as changed properly
-        /* else
-        {
-            Debug.Log($"Nope, prev value is {prevPrimary2DAxisValue} and the new value is {primary2DAxisValue}");
-        } */
-        if (device.TryGetFeatureValue(primary2DAxisUsage, out primary2DAxisValue) && primary2DAxisValue != Vector2.zero && !primary2DAxisIsChosen)
-        {
-            prevPrimary2DAxisValue = primary2DAxisValue;
-            primary2DAxisIsChosen = true;  
-            //Debug.Log($"Primary2DAxis value activated {primary2DAxisValue} on {xRNode}");
-        }
-        else if (primary2DAxisValue == Vector2.zero && primary2DAxisIsChosen)
-        {
-            prevPrimary2DAxisValue = primary2DAxisValue;
-            primary2DAxisIsChosen = false;
-            //Debug.Log($"Primary2DAxis deactivated {primary2DAxisValue} on {xRNode}");
-        }
+        // This functions can be done using the XR Interactions ranther than through update
+        BackButtonPress();
+    }
 
-        if (currentScrollBar != null)
-        {
-            // Calculating the rate of which to scroll. Currently this may be uneven depending on different lengths of scroll as the length of scroll is always 0 to 1 so the factor added to it will always be the same. Need to calculate a way of adding a % of 100 instead of a single number
-            currentScrollBar.GetComponent<Scrollbar>().value = currentScrollBar.GetComponent<Scrollbar>().value + (primary2DAxisValue.x * 0.01f) ;
-        }
-        
+    private void OnDestroy()
+    {
+        previousPanelMemory.SavedToString();
+        panelHistory.Clear();
+        Debug.Log("MenuManager was destroyed");
+    }
 
+    void BackButtonPress()
+    {
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
         InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
@@ -166,13 +146,6 @@ public class MenuManager : MonoBehaviour
         else {
             return;
         }
-    }
-
-    private void OnDestroy()
-    {
-        previousPanelMemory.SavedToString();
-        panelHistory.Clear();
-        Debug.Log("MenuManager was destroyed");
     }
 
     public void GoToPrevious()
@@ -210,7 +183,7 @@ public class MenuManager : MonoBehaviour
 
         currentPanel = newPanel;
 
-        CurrentPanelScrollbar();
+        CurrentPanelButtonWrap();
 
         currentPanel.Show();
     }
@@ -284,23 +257,15 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void CurrentPanelScrollbar()
+    void CurrentPanelButtonWrap()
     {
-        // If active panel has a scrollbar GameObject then apply the v controller value to the scrollbar value
-        if (currentPanel.scrollBar != null)
+        // If active panel has a buttonWrap GameObject then apply the v controller value to the scrollbar value
+        if (currentPanel.buttonWrap != null)
         {
-            //Debug.Log("Current Panel Has Scrollbar");
-
-            currentScrollBar = currentPanel.scrollBar;
-        }
-        else if (currentPanel.scrollBar == null)
-        {
-            //Debug.Log("Current Panel No Scrollbar");
-            return;
+            currentButtonWrap = currentPanel.buttonWrap;
         }
         else
         {
-            //Debug.Log("Current Panel Scrollbar is buggered");
             return;
         }
     }

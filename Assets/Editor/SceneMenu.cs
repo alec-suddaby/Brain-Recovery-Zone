@@ -97,6 +97,12 @@ public static class SceneMenu
     {
         OpenScene("Videos/03_Calm/03_Calm_11_MindfulBreathing");
     }
+    
+    [MenuItem("Scenes/Calm/UnderwaterWorld")]
+    public static void OpenUnderwaterWorld()
+    {
+        OpenScene("Videos/03_Calm/03_Calm_12_UnderwaterWorld");
+    }
 
 
     //////////////

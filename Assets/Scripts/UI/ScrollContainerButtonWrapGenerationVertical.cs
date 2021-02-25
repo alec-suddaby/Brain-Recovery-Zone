@@ -32,7 +32,7 @@ public class ScrollContainerButtonWrapGenerationVertical : MonoBehaviour
         }
 
         // Enabling and Disabling the Scroll Rect based on number of buttons
-        if (buttonArray.Length >= 4)
+        if (buttonArray.Length >= 5)
         {
             gameObject.GetComponent<ScrollRect>().enabled = true;
             scrollBar.SetActive(true);
@@ -89,7 +89,7 @@ public class ScrollContainerButtonWrapGenerationVertical : MonoBehaviour
             // Then get the Rect Transform on that final button
             RectTransform lastButtonArrayRT = lastButtonArray.GetComponent<RectTransform>();
             // Calculate the height of the last button and adding half to the box height
-            bwrt.sizeDelta = new Vector2 ( bwrt.sizeDelta.x, (-1 * lastButtonArrayRT.localPosition.y) + lastButtonArrayRT.sizeDelta.y + 145 );
+            bwrt.sizeDelta = new Vector2 ( bwrt.sizeDelta.x, (-1 * lastButtonArrayRT.localPosition.y) + lastButtonArrayRT.sizeDelta.y + 95 );
         }
         
         else {
