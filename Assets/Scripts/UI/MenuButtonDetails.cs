@@ -27,6 +27,10 @@ public class MenuButtonDetails : MonoBehaviour
 
     private TextMeshProUGUI decriptionTMP;
 
+    [Header("Coming Soon")]
+    public bool comingSoon;
+    public GameObject comingSoonText;
+
     
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,12 @@ public class MenuButtonDetails : MonoBehaviour
             decriptionTMP = descriptionGameObject.GetComponent<TextMeshProUGUI>();
             decriptionTMP.text = menuDescription;
         }
+
+        // Set Coming soon
+        if (comingSoon == true && comingSoonText != null)
+            comingSoonText.SetActive(true);
+        else if (comingSoonText != null)
+            comingSoonText.SetActive(false);
 
     }
 

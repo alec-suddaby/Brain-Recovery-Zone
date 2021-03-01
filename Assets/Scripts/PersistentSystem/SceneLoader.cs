@@ -12,9 +12,6 @@ public class SceneLoader : Singleton<SceneLoader>
     public string mainMenuName;
     private string sceneName;
 
-    [Header("Button Audio")]
-    public GameObject buttonAudio;
-
     private bool isLoading = false;
     
     private void Awake()
@@ -69,8 +66,6 @@ public class SceneLoader : Singleton<SceneLoader>
       yield return screenFader.StartFadeIn();
       yield return StartCoroutine(UnloadCurrent());
 
-      buttonAudio.GetComponent<ButtonAudio>().ClearButtonArray();
-
       // Fake wait time
       //yield return new WaitForSeconds(1.0f);
 
@@ -79,8 +74,6 @@ public class SceneLoader : Singleton<SceneLoader>
       //OnLoadEnd?.Invoke();
 
       //yield return new WaitForSeconds(0.5f);
-
-      buttonAudio.GetComponent<ButtonAudio>().OnSceneLoaded();
 
       isLoading = false;
     }
@@ -91,8 +84,6 @@ public class SceneLoader : Singleton<SceneLoader>
       //yield return screenFader.StartFadeIn();
       //yield return StartCoroutine(UnloadCurrent());
 
-      //buttonAudio.GetComponent<ButtonAudio>().ClearButtonArray();
-
       // Fake wait time
       //yield return new WaitForSeconds(1.0f);
 
@@ -101,8 +92,6 @@ public class SceneLoader : Singleton<SceneLoader>
       //OnLoadEnd?.Invoke();
 
       //yield return new WaitForSeconds(0.5f);
-
-      //buttonAudio.GetComponent<ButtonAudio>().OnSceneLoaded();
 
       //isLoading = false;
     }

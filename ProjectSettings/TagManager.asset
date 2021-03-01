@@ -6,6 +6,7 @@ TagManager:
   tags:
   - button
   - ButtonArray
+  - buttonAudio
   layers:
   - Default
   - TransparentFX
