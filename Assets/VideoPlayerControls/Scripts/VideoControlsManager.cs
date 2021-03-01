@@ -74,6 +74,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	private Component[] pointerDetectionArray;
 	private bool pointerDownSwitch = false;
 
+
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -288,8 +289,11 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
     public void BackToMenu()
     {
-        returningToMenu = true;
+        Debug.Log("BackToMenu 1");
+		returningToMenu = true;
+		Debug.Log("BackToMenu 2");
 		SceneLoader.Instance.ReturnToMenu();
+		Debug.Log("BackToMenu 3");
     }
 
     public void HideVideoControls()

@@ -44,6 +44,8 @@ public class ButtonAudio : MonoBehaviour
 
     void CollectButtonArray()
     {
+        Debug.Log("Collect Botton Array");
+
         ClearButtonArray();
 
         //Set btn to the array drawn up in the ButtonArray
@@ -52,8 +54,10 @@ public class ButtonAudio : MonoBehaviour
         // Make an array of all the GameObjects with the tag 'button'
         btn = GameObject.FindGameObjectsWithTag("button");
         
-
-        AddButtonsToList();
+        if (btn.Length != 0)
+            AddButtonsToList();
+        else
+            Debug.Log("Can't find any Buttons to attach audio to");
     }
 
     void AddButtonsToList()

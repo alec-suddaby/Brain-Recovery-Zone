@@ -12,13 +12,13 @@ public class PointerDownDetection : MonoBehaviour, IPointerUpHandler, IPointerDo
 	{
 		down = true;
         up = false;
-        Debug.Log("Down");
+        //Debug.Log("Down");
 	}
 
 	public void OnPointerUp(PointerEventData eventData)
 	{
 		down = false;
         up = true;
-        Debug.Log("Up");
+        //Debug.Log("Up");
 	}
 }
