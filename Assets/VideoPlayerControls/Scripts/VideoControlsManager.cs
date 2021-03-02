@@ -28,8 +28,10 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	private bool wasPlayingOnScrub;
 
 	public Slider audioVolumeSlider;
-	private float setAudioVolumeSliderValue = 1.0f;
+	private float setAudioVolumeSliderValue = 0.7f;
 	public GameObject audioVolumePanel;
+	// Saved app volume
+	public DefaultAppVolume defaultAppVolumeComponent;
 
 	[SerializeField]
 	private Toggle loopToggle;
@@ -74,6 +76,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	private Component[] pointerDetectionArray;
 	private bool pointerDownSwitch = false;
 
+	
+
 
     void GetDevice()
     {
@@ -114,12 +118,17 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
 		audioVolumePanel.SetActive(false);
 
+		defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
+		if(defaultAppVolumeComponent != null)
+			setAudioVolumeSliderValue = defaultAppVolumeComponent.defaultAppVolume;
+
+		//audioVolumeSlider.value = setAudioVolumeSliderValue;
+		//skyboxMediaPlayer.Control.SetVolume(setAudioVolumeSliderValue);
+
 		HideVideoControls();
 
-		//returningToMenu = false;
-		
-		// there is an issue here with the audioVolumeSlider not being found
-		//audioVolumeSlider.value = setAudioVolumeSliderValue;		
+
+		//returningToMenu = false;		
     }
 
     void OnDestroy()
@@ -261,10 +270,15 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 			OnPauseButton();
 			break;
 			case MediaPlayerEvent.EventType.ReadyToPlay:
+			//Debug.Log("Ready to play");
 			break;
 			case MediaPlayerEvent.EventType.Started:
+			//Debug.Log("Started");
 			break;
 			case MediaPlayerEvent.EventType.FirstFrameReady:
+			//Debug.Log("First frame ready");
+			skyboxMediaPlayer.Control.SetVolume(setAudioVolumeSliderValue);
+			audioVolumeSlider.value = setAudioVolumeSliderValue;
 			break;
 			case MediaPlayerEvent.EventType.FinishedPlaying:
 			BackToMenu();

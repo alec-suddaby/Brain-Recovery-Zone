@@ -1715,6 +1715,11 @@ PrefabInstance:
       propertyPath: OnLoadBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7624795785687882151, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: loopSettingSave
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8608190872972700456, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}
       propertyPath: m_Layer

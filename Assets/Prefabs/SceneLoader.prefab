@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7442293592104636108}
   - component: {fileID: 3419841541199783761}
   - component: {fileID: 7624795785687882151}
+  - component: {fileID: 7877548083535547789}
   m_Layer: 8
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -78,7 +79,6 @@ MonoBehaviour:
         m_CallState: 2
   screenFader: {fileID: 0}
   mainMenuName: MainMenuAddative
-  buttonAudio: {fileID: 0}
 --- !u!114 &3419841541199783761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +108,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca0c16e1d7dc2074e9a3b225cfec7da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopSettingSave: 0
+--- !u!114 &7877548083535547789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289175173496250956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d0c661ec3f8a847a7f6555da487b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3826686344165157102

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: 36317194c81eb984bb8b1b37c92896f3, type: 3}
-  hoverSound: {fileID: 8300000, guid: 52e61bb260beb44488b7b47df595f99a, type: 3}
+  hoverSound: {fileID: 0}
   audioVolume: 0.8
 --- !u!82 &2551210047709671717
 AudioSource:
