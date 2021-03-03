@@ -38,7 +38,8 @@ public class Panel : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
 
-        if (currentScrollRect)
+        // Setting the scrollrect back to 0 if there is one and canvas is active
+        if (currentScrollRect && canvas)
         {
             currentScrollRect.horizontalNormalizedPosition = 0;
             currentScrollRect.verticalNormalizedPosition = 0;
@@ -46,13 +47,17 @@ public class Panel : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
         if(!device.isValid)
         {
             GetDevice();
         }
 
-        ScrollAxis();
+        if(currentScrollRect && canvas.isActiveAndEnabled == true) 
+        {
+            ScrollAxis();
+            Debug.Log("scroll rect v: " + currentScrollRect.verticalNormalizedPosition);
+        }
     }
 
     public void Setup(MenuManager menuManger)

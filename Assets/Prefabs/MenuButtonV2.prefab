@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 5117010383203779395}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.5}
-  m_SizeDelta: {x: -20, y: -15}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -47.5}
+  m_SizeDelta: {x: 350, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7168720044961878889
 CanvasRenderer:
@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 2175719812086349818}
   - component: {fileID: 5420008124213711118}
   - component: {fileID: 8413234903417107448}
+  - component: {fileID: 5606856292925425918}
   m_Layer: 5
   m_Name: MenuButtonV2
   m_TagString: button
@@ -451,7 +452,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.39215687}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.09803922}
@@ -545,6 +546,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9da54f79b4a5b74783f840366e5106f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5606856292925425918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774275056727279214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21f5a8c6d13d86c4b9b315d53ab80dc1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4786116365627507361
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -215.9}
+  m_AnchoredPosition: {x: 0, y: -196}
   m_SizeDelta: {x: 340, y: 32.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6098856129955152176
