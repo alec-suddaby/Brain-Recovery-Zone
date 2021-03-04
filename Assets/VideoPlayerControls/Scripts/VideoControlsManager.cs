@@ -121,6 +121,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 		defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
 		if(defaultAppVolumeComponent != null)
 			setAudioVolumeSliderValue = defaultAppVolumeComponent.defaultAppVolume;
+			
+		
 
 		//audioVolumeSlider.value = setAudioVolumeSliderValue;
 		//skyboxMediaPlayer.Control.SetVolume(setAudioVolumeSliderValue);
@@ -278,6 +280,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 			case MediaPlayerEvent.EventType.FirstFrameReady:
 			//Debug.Log("First frame ready");
 			skyboxMediaPlayer.Control.SetVolume(setAudioVolumeSliderValue);
+			if(defaultAppVolumeComponent != null && defaultAppVolumeComponent.playVideoMute == true){OnMuteButton();}
 			audioVolumeSlider.value = setAudioVolumeSliderValue;
 			break;
 			case MediaPlayerEvent.EventType.FinishedPlaying:
@@ -303,11 +306,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
     public void BackToMenu()
     {
-        Debug.Log("BackToMenu 1");
 		returningToMenu = true;
-		Debug.Log("BackToMenu 2");
 		SceneLoader.Instance.ReturnToMenu();
-		Debug.Log("BackToMenu 3");
     }
 
     public void HideVideoControls()

@@ -24,6 +24,11 @@ public class VideoButtonDetails : MonoBehaviour
     // Loop save
     private LoopFunctionSave loopFunctionSave;
 
+    // Audio popup
+    [SerializeField]
+    private MenuManager menuManager;
+    [SerializeField]
+    private bool audioPopup;
 
     // Input Linked Video Bits
     [Header("Linked GameObjects")]
@@ -42,7 +47,7 @@ public class VideoButtonDetails : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {       
+    {             
         //Set Title
         if ( titleGameObject != null)
         {   
@@ -77,6 +82,15 @@ public class VideoButtonDetails : MonoBehaviour
     {
         loopFunctionSave = FindObjectOfType<LoopFunctionSave>();
         loopFunctionSave.loopSettingSave = menuVideoLoopCheck;
+    }
+
+    public void TriggerAudioPrompt()
+    {
+        menuManager = FindObjectOfType<MenuManager>();
+
+        if(menuManager)
+            menuManager.audioPrompt = audioPopup;
+            //Debug.Log ("Set prompt");
     }
 
 }

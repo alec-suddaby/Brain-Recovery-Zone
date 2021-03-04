@@ -38,15 +38,11 @@ public class SceneLoader : Singleton<SceneLoader>
     // sceneName is the string for the name of the new scene
     public void ReturnToMenu()
     {
-        Debug.Log("ReturnToMenu 1");
         sceneName = mainMenuName;
-        Debug.Log("ReturnToMenu 2");
         if(!isLoading)
         {
-          Debug.Log("ReturnToMenu 3");
           StartCoroutine(LoadScene(sceneName));
         }
-        Debug.Log("ReturnToMenu 4");
     }
 
     // sceneName is the string for the name of the new scene

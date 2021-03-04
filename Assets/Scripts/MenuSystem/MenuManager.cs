@@ -53,6 +53,15 @@ public class MenuManager : MonoBehaviour
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
 
+    [Header("Audio Prompt")]
+    public bool audioPrompt;
+    public GameObject audioPromptBox;
+    public Panel audioPromptBoxPanel;
+    private bool playMute;
+    private bool audioPromptGiven = false;
+    private string savedLevelString;
+    private DefaultAppVolume defaultAppVolume;
+
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -70,6 +79,11 @@ public class MenuManager : MonoBehaviour
     void Start()
     {       
         previousPanelMemory = FindObjectOfType<PreviousPanelMemory>();
+
+        defaultAppVolume = FindObjectOfType<DefaultAppVolume>();
+        audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();
+        playMute = false;
+        savedLevelString = "";
         
         ShowMenu();
         SetupPanels();
@@ -203,7 +217,37 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string level)
     {
-        SceneLoader.Instance.LoadNewScene(level);
+        if (audioPrompt == true && audioPromptGiven == false)
+        {
+            SetCurrent(audioPromptBoxPanel);
+            savedLevelString = level;
+            Debug.Log("saved level as: " + savedLevelString);
+        }
+        else if (audioPromptGiven == true)
+        {
+            audioPromptGiven = false;
+            defaultAppVolume.playVideoMute = playMute;
+            SceneLoader.Instance.LoadNewScene(level);
+        }
+        else
+        { 
+            defaultAppVolume.playVideoMute = false;
+            SceneLoader.Instance.LoadNewScene(level);
+        }   
+    }
+
+    public void playMuteLoadScene()
+    {
+        playMute = true;
+        audioPromptGiven = true;
+        LoadScene(savedLevelString);
+    }
+
+    public void playNotMuteLoadScene()
+    {
+        playMute = false;
+        audioPromptGiven = true;
+        LoadScene(savedLevelString);
     }
 
     public void HideMenu()

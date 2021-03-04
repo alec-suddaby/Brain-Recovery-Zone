@@ -6,6 +6,8 @@ public class DefaultAppVolume : MonoBehaviour
 { 
     public float defaultAppVolume = 0.6f;
 
+    public bool playVideoMute = false;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -56,7 +56,7 @@ public class Panel : MonoBehaviour
         if(currentScrollRect && canvas.isActiveAndEnabled == true) 
         {
             ScrollAxis();
-            Debug.Log("scroll rect v: " + currentScrollRect.verticalNormalizedPosition);
+            //Debug.Log("scroll rect v: " + currentScrollRect.verticalNormalizedPosition);
         }
     }
 
