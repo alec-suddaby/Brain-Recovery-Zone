@@ -7715,11 +7715,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 228583868}
+      objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetCurrentWithHistory
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
@@ -7730,7 +7730,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1862828228}
+      objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7745,6 +7745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: menuTitle
       value: Practice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
+        type: 3}
+      propertyPath: comingSoon
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
