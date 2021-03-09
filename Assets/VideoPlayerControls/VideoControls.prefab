@@ -784,12 +784,13 @@ MonoBehaviour:
   videoSeekerSlider: {fileID: 806581440490868283}
   audioVolumeSlider: {fileID: 806581438891137500}
   audioVolumePanel: {fileID: 5556307693901154203}
+  defaultAppVolumeComponent: {fileID: 0}
   loopToggle: {fileID: 7180756207445242849}
   skyboxMediaPlayer: {fileID: 0}
   timeCount: {fileID: 3453899433164659314}
   timeDuration: {fileID: 2622817411600273193}
   rotationOffset: {fileID: 806581440341296851}
-  xRNode: 5
+  xRNode: 4
   returningToMenu: 0
   videoControlsOn: 0
   followHeadPosition: 1

@@ -3176,7 +3176,7 @@ MonoBehaviour:
   previousPanelMemory: {fileID: 0}
   savedCurrentPanel: {fileID: 0}
   savedPanelHistory: []
-  xRNode: 5
+  xRNode: 4
   audioPrompt: 0
   audioPromptBox: {fileID: 1582156433}
   audioPromptBoxPanel: {fileID: 0}
@@ -7739,7 +7739,7 @@ PrefabInstance:
     - target: {fileID: 5537374205933482953, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}

@@ -459,6 +459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
         type: 3}
+      propertyPath: xRNode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
       propertyPath: videoLoop
       value: 1
       objectReference: {fileID: 0}
