@@ -22,6 +22,9 @@ public class PreviousPanelMemory : MonoBehaviour
     public List<string> savedPanelListString = new List<string>();
     public GameObject savedStringPanelHistoryGameObject;
 
+    //MenuManager
+    private MenuManager menuManager;
+    private string menuManagerDefaultPanel;
 
 
     // function that save the panels to strings
@@ -69,6 +72,14 @@ public class PreviousPanelMemory : MonoBehaviour
     {
       // Clear list of strings from any previous save
       savedPanelListString.Clear();
+
+      Debug.Log(savedPanelList);
+
+      if(savedPanelList == null)
+      {
+        Debug.Log("Saved Panel List is null");
+        //DO some code here to set it to the main menu default current panel, or to just load the main menu or something
+      }
 
       foreach (var panel in savedPanelList)
       {

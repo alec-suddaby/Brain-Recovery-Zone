@@ -20,14 +20,42 @@ public static class SceneMenu
     [MenuItem("Scenes/Discover/Brain")]
     public static void OpenDiscoverBrain()
     {
-        OpenScene("Videos/01_Discover/01_Discover_01_Brain");
+        OpenScene("Experiences/01_Discover/01_Discover_01_Brain");
     }
 
     //////////////
     //   Practise
     //////////////
 
-    [MenuItem("Scenes/Practise/")]
+    [MenuItem("Scenes/Practise/Communication")]
+    public static void OpenPractiseCommunication()
+    {
+        OpenScene("Experiences/02_Practice/02_Practice_01_Communication");
+    }
+
+    [MenuItem("Scenes/Practise/AttentionTraining/Menu")]
+    public static void OpenPractiseAttentionTraining()
+    {
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining");
+    }
+
+    [MenuItem("Scenes/Practise/AttentionTraining/Mild")]
+    public static void OpenPractiseAttentionTrainingMild()
+    {
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_01_Mild");
+    }
+
+    [MenuItem("Scenes/Practise/AttentionTraining/Moderate")]
+    public static void OpenPractiseAttentionTrainingModerate()
+    {
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_02_Moderate");
+    }
+
+    [MenuItem("Scenes/Practise/AttentionTraining/Severe")]
+    public static void OpenPractiseAttentionTrainingSevere()
+    {
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_03_Severe");
+    }
 
     //////////////
     //   Calm
@@ -36,72 +64,72 @@ public static class SceneMenu
     [MenuItem("Scenes/Calm/SpaceAnimation")]
     public static void OpenCalmSpace()
     {
-        OpenScene("Videos/03_Calm/03_Calm_01_SpaceAnimation");
+        OpenScene("Experiences/03_Calm/03_Calm_01_SpaceAnimation");
     }
 
     [MenuItem("Scenes/Calm/AshdownForest")]
     public static void OpenCalmAshdown()
     {
-        OpenScene("Videos/03_Calm/03_Calm_02_AshdownForest");
+        OpenScene("Experiences/03_Calm/03_Calm_02_AshdownForest");
     }
 
     [MenuItem("Scenes/Calm/AshdownForestCopse")]
     public static void OpenCalmCopse()
     {
-        OpenScene("Videos/03_Calm/03_Calm_03_AshdownForestCopse");
+        OpenScene("Experiences/03_Calm/03_Calm_03_AshdownForestCopse");
     }
 
     [MenuItem("Scenes/Calm/AshdownForestBench")]
     public static void OpenCalmBench()
     {
-        OpenScene("Videos/03_Calm/03_Calm_04_AshdownForestBench");
+        OpenScene("Experiences/03_Calm/03_Calm_04_AshdownForestBench");
     }
     [MenuItem("Scenes/Calm/AshdownForestSunset")]
     public static void OpenCalmSunset()
     {
-        OpenScene("Videos/03_Calm/03_Calm_05_AshdownForestSunset");
+        OpenScene("Experiences/03_Calm/03_Calm_05_AshdownForestSunset");
     }
 
     [MenuItem("Scenes/Calm/NorthernLights")]
     public static void OpenNorthernLights()
     {
-        OpenScene("Videos/03_Calm/03_Calm_06_NorthernLights");
+        OpenScene("Experiences/03_Calm/03_Calm_06_NorthernLights");
     }
 
     [MenuItem("Scenes/Calm/Beach")]
     public static void OpenBeach()
     {
-        OpenScene("Videos/03_Calm/03_Calm_07_Beach");
+        OpenScene("Experiences/03_Calm/03_Calm_07_Beach");
     }
 
     [MenuItem("Scenes/Calm/Lakeside")]
     public static void OpenLakeside()
     {
-        OpenScene("Videos/03_Calm/03_Calm_08_Lakeside");
+        OpenScene("Experiences/03_Calm/03_Calm_08_Lakeside");
     }
 
     [MenuItem("Scenes/Calm/Mountain")]
     public static void OpenMountain()
     {
-        OpenScene("Videos/03_Calm/03_Calm_09_Mountain");
+        OpenScene("Experiences/03_Calm/03_Calm_09_Mountain");
     }
 
     [MenuItem("Scenes/Calm/Waterfall")]
     public static void OpenWaterfall()
     {
-        OpenScene("Videos/03_Calm/03_Calm_10_Waterfall");
+        OpenScene("Experiences/03_Calm/03_Calm_10_Waterfall");
     }
 
     [MenuItem("Scenes/Calm/MindfulBreathing")]
     public static void OpenMindfulBreathing()
     {
-        OpenScene("Videos/03_Calm/03_Calm_11_MindfulBreathing");
+        OpenScene("Experiences/03_Calm/03_Calm_11_MindfulBreathing");
     }
     
     [MenuItem("Scenes/Calm/UnderwaterWorld")]
     public static void OpenUnderwaterWorld()
     {
-        OpenScene("Videos/03_Calm/03_Calm_12_UnderwaterWorld");
+        OpenScene("Experiences/03_Calm/03_Calm_12_UnderwaterWorld");
     }
 
 

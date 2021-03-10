@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
         previousPanelMemory = FindObjectOfType<PreviousPanelMemory>();
 
         defaultAppVolume = FindObjectOfType<DefaultAppVolume>();
-        audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();
+        if(audioPromptBox) {audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();}
         playMute = false;
         savedLevelString = "";
         
@@ -142,6 +142,11 @@ public class MenuManager : MonoBehaviour
         previousPanelMemory.SavedToString();
         panelHistory.Clear();
         Debug.Log("MenuManager was destroyed");
+    }
+
+    public void BackToMenu()
+    {
+		SceneLoader.Instance.ReturnToMenu();
     }
 
     void BackButtonPress()
@@ -263,13 +268,13 @@ public class MenuManager : MonoBehaviour
     {
         menuHidden = true;
         
-        menuHideButton.SetActive(false);
-        menuShowButton.SetActive(true);
+        if(menuHideButton) {menuHideButton.SetActive(false);}
+        if(menuShowButton) {menuShowButton.SetActive(true);}
         SetBackButtonState();
-        menuSettingsButton.SetActive(false);
+        if(menuSettingsButton) {menuSettingsButton.SetActive(false);}
 
         currentPanel.Hide();
-        persistentLogo.SetActive(false);
+        if(persistentLogo) {persistentLogo.SetActive(false);}
 
     }
 
@@ -277,24 +282,24 @@ public class MenuManager : MonoBehaviour
     {
         menuHidden = false;
         
-        menuHideButton.SetActive(true);
-        menuShowButton.SetActive(false);
+        if(menuHideButton) {menuHideButton.SetActive(true);}
+        if(menuShowButton) {menuShowButton.SetActive(false);}
         SettingsButtonState();
         SetBackButtonState();
 
         currentPanel.Show();
-        persistentLogo.SetActive(true);
+        if(persistentLogo) {persistentLogo.SetActive(true);}
     }
 
     void SetBackButtonState()
     {
         if(panelHistory.Count == 0 || menuHidden)
         {
-            menuBackButton.SetActive(false);
+            if(menuBackButton) {menuBackButton.SetActive(false);}
         }
         else
         {
-            menuBackButton.SetActive(true);
+            if(menuBackButton) {menuBackButton.SetActive(true);}
         }
     }
 
@@ -302,11 +307,11 @@ public class MenuManager : MonoBehaviour
     { 
         if(menuHidden)
         {
-            menuSettingsButton.SetActive(false);
+            if(menuSettingsButton) {menuSettingsButton.SetActive(false);}
         }
         else
         {
-            menuSettingsButton.SetActive(true);
+            if(menuSettingsButton) {menuSettingsButton.SetActive(true);}
         }
     }
 
