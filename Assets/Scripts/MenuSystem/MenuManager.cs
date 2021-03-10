@@ -53,6 +53,8 @@ public class MenuManager : MonoBehaviour
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
 
+    private bool primaryTouchIsPressed;
+
     [Header("Audio Prompt")]
     public bool audioPrompt;
     public GameObject audioPromptBox;
@@ -132,6 +134,7 @@ public class MenuManager : MonoBehaviour
 
         // This functions can be done using the XR Interactions ranther than through update
         BackButtonPress();
+
     }
 
     private void OnDestroy()
@@ -145,7 +148,11 @@ public class MenuManager : MonoBehaviour
     {
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
-        InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
+        //Oculus Secondary Button
+        //InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
+
+        //Pico Menu button
+        InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
         
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {

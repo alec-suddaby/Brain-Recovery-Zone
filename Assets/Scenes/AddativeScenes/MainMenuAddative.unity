@@ -895,7 +895,7 @@ MonoBehaviour:
   buttonWrap: {fileID: 1097881275}
   currentScrollRect: {fileID: 875310937}
   scrollRateModifier: 30
-  xRNode: 5
+  xRNode: 4
 --- !u!114 &63568906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7532,7 +7532,7 @@ MonoBehaviour:
   buttonWrap: {fileID: 1077653407}
   currentScrollRect: {fileID: 750412530}
   scrollRateModifier: 30
-  xRNode: 5
+  xRNode: 4
 --- !u!114 &651449376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11457,6 +11457,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 5268377600676004290, guid: 3e738c754c7071d4fbcf1252601f61c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e738c754c7071d4fbcf1252601f61c7, type: 3}
 --- !u!1 &875310934
@@ -14752,7 +14757,7 @@ MonoBehaviour:
   buttonWrap: {fileID: 1128586352}
   currentScrollRect: {fileID: 282736512}
   scrollRateModifier: 30
-  xRNode: 5
+  xRNode: 4
 --- !u!114 &1165338418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23122,7 +23127,7 @@ MonoBehaviour:
   buttonWrap: {fileID: 1833340553}
   currentScrollRect: {fileID: 1845311334}
   scrollRateModifier: 30
-  xRNode: 5
+  xRNode: 4
 --- !u!114 &1764364505
 MonoBehaviour:
   m_ObjectHideFlags: 0
