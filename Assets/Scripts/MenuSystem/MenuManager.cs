@@ -148,11 +148,13 @@ public class MenuManager : MonoBehaviour
     {
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
+
+
         //Oculus Secondary Button
-        //InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
+        InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
 
         //Pico Menu button
-        InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
+        //InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
         
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {
