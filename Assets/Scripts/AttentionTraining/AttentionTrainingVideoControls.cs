@@ -113,10 +113,10 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
                 //get current video time
                 float time = skyboxMediaPlayer.Control.GetCurrentTimeMs()/1000;
  
- 
                 int timeInSecondsInt = (int)time;
                 int minutes = (int)time / 60;
                 int seconds = timeInSecondsInt - (minutes * 60);
+                int milliseconds =  ( (int)skyboxMediaPlayer.Control.GetCurrentTimeMs() - ( timeInSecondsInt * 1000) ) / 10;
            
                 //get video length
                 float duration = skyboxMediaPlayer.Info.GetDurationMs()/1000;  
@@ -126,7 +126,7 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
                 int secondsDuration = durationInSecondsInt - (minutesDuration * 60);
  
                 string durationOfVideo = minutesDuration.ToString("D2") + ":" + secondsDuration.ToString("D2");
-                string currentTime = minutes.ToString("D2") + ":" + seconds.ToString("D2");
+                string currentTime = minutes.ToString("D2") + ":" + seconds.ToString("D2") + ":" + milliseconds.ToString("D2");
                 //string videoDuration = (string.Format("{0} / {1}", currentTime, durationOfVideo));
  
                 //this is for your text ui to display current time

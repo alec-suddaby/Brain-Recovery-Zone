@@ -80,15 +80,17 @@ public class PreviousPanelMemory : MonoBehaviour
         Debug.Log("Saved Panel List is null");
         //DO some code here to set it to the main menu default current panel, or to just load the main menu or something
       }
-
-      foreach (var panel in savedPanelList)
+      else
       {
-        // convert each panel to a string and remove the " (Panel)" from the end
-        savedPanelListSingleString = panel.ToString();
-        savedPanelListSingleString = savedPanelListSingleString.Substring(0, savedPanelListSingleString.Length - 8);
+        foreach (var panel in savedPanelList)
+        {
+          // convert each panel to a string and remove the " (Panel)" from the end
+          savedPanelListSingleString = panel.ToString();
+          savedPanelListSingleString = savedPanelListSingleString.Substring(0, savedPanelListSingleString.Length - 8);
 
-        // place each string into a string list
-        savedPanelListString.Add(savedPanelListSingleString);
+          // place each string into a string list
+          savedPanelListString.Add(savedPanelListSingleString);
+        }
       }
     }
 
