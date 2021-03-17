@@ -1,16 +1,15 @@
-## 685_KDW_BRZ1
-
-The BRZ is now going into stage 1 of development. So Here is the update to the github file.
-
-
 ## 670_KDL_MVPA
 Brain Recovery Zone VR App MVP
 
-### Audio on buttons
-Currently the audio on buttons is coming from the Button Array Script under the EventSystem. Each button needs to be manually added to this array. Moving forward it would be good to create a list of buttons in a scene that are tagged with 'button' or similar to add into the array
+### Scene Navigation within Unity
+The way I have developed this is to have a PersistentVR scene which hold the XR Rig and key XR Interaction elements that need to remain consistent throughout the app. By doing this, it also allows for scripts to continue unning between scene loads and save information into strings to save between scenes.
 
-### Change scenes
-Is done through a script that adds a top dropdown menu that adds each scene peristantly loaded in the correct order
+Therefore, each scene is loaded addativley using the SceneLoader prefab and script.
+
+Whilst in Unity Editor, to change scenes, go to the Scenes menu at the top of the screen and change scenes there. To edit which scenes are viewed there, edit the SceneMenu script within the Editor folder in Assets.
+
+### Accessing videos
+Because the amount of videos seen in the BRZ is around 10GB, they are installed separatley on the headset currently. Therefore only the menu background video is featured in the Streaming Assets folder, the rest are linked to on the headset locally. This link is file://mnt/sdcard/BrainRecoveryZoneVideos/01Discover/01brain.mp4 for Oculus and Pico. After some R&D from Jack, it is possble to add these to the /Android/OBB/com.visualise.brainrecoveryzone folder on the headset. Then encrypt them by offsetting the bits in command line and referencing that offset in AVPro video within Unity.
 
 ### Version history
 
