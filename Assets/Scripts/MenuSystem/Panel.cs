@@ -98,12 +98,12 @@ public class Panel : MonoBehaviour
         //Pico
         //primary2DAxisValue.y != -1
 
-        if (device.TryGetFeatureValue(primary2DAxisUsage, out primary2DAxisValue) && primary2DAxisValue != Vector2.zero /*&& !primary2DAxisIsChosen*/)
+        if (device.TryGetFeatureValue(primary2DAxisUsage, out primary2DAxisValue) && primary2DAxisValue.y != -1 /*&& !primary2DAxisIsChosen*/)
         {
             prevPrimary2DAxisValue = primary2DAxisValue;
             primary2DAxisIsChosen = true;  
         }
-        else if (primary2DAxisValue == Vector2.zero /*&& primary2DAxisIsChosen*/)
+        else if (primary2DAxisValue.y == -1 /*&& primary2DAxisIsChosen*/)
         {
             prevPrimary2DAxisValue = primary2DAxisValue;
             primary2DAxisIsChosen = false;
@@ -112,7 +112,7 @@ public class Panel : MonoBehaviour
         
         // Pico hack here
         // For whatever read the scrolling would default to -1 on the y axis rather than 0, So here i am checking to see if the value is -1 from the above functions then adding 1 to the y value if it is needed.
-        if(buttonWrap && currentScrollRect /*&& primary2DAxisIsChosen == false)
+        if(buttonWrap && currentScrollRect && primary2DAxisIsChosen == false)
         {
             Vector2 totalWidth = buttonWrap.GetComponent<RectTransform>().sizeDelta;
             Vector2 targetValue = new Vector2( (primary2DAxisValue.x * scrollRateModifier) / totalWidth.x , ((primary2DAxisValue.y + 1 ) * scrollRateModifier) / totalWidth.y ) ;
@@ -120,7 +120,7 @@ public class Panel : MonoBehaviour
 
             currentScrollRect.horizontalNormalizedPosition = currentScrollRect.horizontalNormalizedPosition + targetValue.x;
             currentScrollRect.verticalNormalizedPosition = currentScrollRect.verticalNormalizedPosition + targetValue.y;
-        } else if(buttonWrap && currentScrollRect && primary2DAxisIsChosen == true*/)
+        } else if(buttonWrap && currentScrollRect && primary2DAxisIsChosen == true)
         {
             Vector2 totalWidth = buttonWrap.GetComponent<RectTransform>().sizeDelta;
             Vector2 targetValue = new Vector2( (primary2DAxisValue.x * scrollRateModifier) / totalWidth.x , (primary2DAxisValue.y * scrollRateModifier) / totalWidth.y ) ;
@@ -129,5 +129,18 @@ public class Panel : MonoBehaviour
             currentScrollRect.horizontalNormalizedPosition = currentScrollRect.horizontalNormalizedPosition + targetValue.x;
             currentScrollRect.verticalNormalizedPosition = currentScrollRect.verticalNormalizedPosition + targetValue.y;
         }
+
+        // Oculus
+        /*
+        if(buttonWrap && currentScrollRect)
+        {
+            Vector2 totalWidth = buttonWrap.GetComponent<RectTransform>().sizeDelta;
+            Vector2 targetValue = new Vector2( (primary2DAxisValue.x * scrollRateModifier) / totalWidth.x , (primary2DAxisValue.y * scrollRateModifier) / totalWidth.y ) ;
+            //Vector2 targetPercentage = new Vector2 (targetValue/totalWidth; 
+
+            currentScrollRect.horizontalNormalizedPosition = currentScrollRect.horizontalNormalizedPosition + targetValue.x;
+            currentScrollRect.verticalNormalizedPosition = currentScrollRect.verticalNormalizedPosition + targetValue.y;
+        }
+        */
     }
 }

@@ -195,10 +195,10 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
         bool secondaryButtonValue = false;
 
         // Oculus Secondary Button back button
-		InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
+		//InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
 
 		// Pico Menu button as back button
-		//InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
+		InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
         
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {
