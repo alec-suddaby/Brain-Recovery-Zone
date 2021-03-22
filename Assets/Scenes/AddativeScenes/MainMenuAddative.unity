@@ -11651,7 +11651,7 @@ PrefabInstance:
     - target: {fileID: 5268377600676004290, guid: 3e738c754c7071d4fbcf1252601f61c7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e738c754c7071d4fbcf1252601f61c7, type: 3}
@@ -21341,7 +21341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: MenuBG/670_KDL_MVPA_BACKGROUNDVIDEO_V3.mp4
+  m_VideoPath: MenuBG/PicoBGVideo.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 1

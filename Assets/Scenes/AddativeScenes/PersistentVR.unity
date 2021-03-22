@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd4821b313876345bf5d5152cc13634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vrScale: 1
+  vrScale: 1.2
 --- !u!114 &1592084558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showFPS: 1
-  useDefaultFps: 0
+  useDefaultFps: 1
   customFps: 45
   screenFade: 0
   eyeTracking: 0
@@ -1743,10 +1743,20 @@ PrefabInstance:
       propertyPath: loopSettingSave
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7877548083535547789, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8608190872972700456, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611747183928294042, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

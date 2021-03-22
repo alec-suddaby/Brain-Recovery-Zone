@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PXR Settings
   m_EditorClassIdentifier: 
   stereoRenderingModeAndroid: 0
-  useDefaultRenderTexture: 1
-  antiAliasing: 1
-  eyeRenderTextureResolution: {x: 2048, y: 2048}
+  useDefaultRenderTexture: 0
+  antiAliasing: 4
+  eyeRenderTextureResolution: {x: 1600, y: 1600}
   renderTextureDepth: 24
