@@ -45,10 +45,10 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
     public GameObject rotationOffset;
 
     //XR Toolkit controllers
-    [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
+    private HandSelection masterHandSelection;
 
     //to avoid repeat readings
     private bool triggerButtonIsPressed;
@@ -76,7 +76,10 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	private Component[] pointerDetectionArray;
 	private bool pointerDownSwitch = false;
 
-	
+	[Header("Standalone Function")]
+	[Tooltip("Set this to true to set a custom back button location")]
+	public bool setVideoStandalone = false;
+	public string setBackScene;
 
 
     void GetDevice()
@@ -130,7 +133,12 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 		HideVideoControls();
 
 
-		//returningToMenu = false;		
+		//returningToMenu = false;
+
+		//Get Hand Selection
+        masterHandSelection = FindObjectOfType<HandSelection>();
+        xRNode = masterHandSelection.masterXRNode;	
+
     }
 
     void OnDestroy()
@@ -312,7 +320,15 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
     public void BackToMenu()
     {
 		returningToMenu = true;
-		SceneLoader.Instance.ReturnToMenu();
+		
+		if(setVideoStandalone == true)
+		{
+			SceneLoader.Instance.LoadNewScene(setBackScene);
+		}
+		else
+		{
+			SceneLoader.Instance.ReturnToMenu();
+		}		
     }
 
     public void HideVideoControls()

@@ -54,6 +54,21 @@ EditorBuildSettings:
     path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Communication.unity
     guid: dc83a9f40fa449749a63c827d71db713
   - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_01_Introduction.unity
+    guid: 35dc4837d2839ce4b8fe508232dd6f48
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_02_Respiration_Phonation.unity
+    guid: ab88d1bc6f683ae41bd4b831b4263865
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_03_Articulation.unity
+    guid: 49f00ea8fda69334e8f714aa47329cdd
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_04_Prosody.unity
+    guid: 8e5b4f154dbcfee4882f240cffe99de0
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_05_Other_Strategies.unity
+    guid: 468f3329cc1f9854283e2474b74b5f4e
+  - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining.unity
     guid: 4593a0045dd01b846ab8eb2e579eb343
   - enabled: 1

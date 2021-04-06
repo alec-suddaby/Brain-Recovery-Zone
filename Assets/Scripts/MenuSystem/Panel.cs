@@ -17,10 +17,10 @@ public class Panel : MonoBehaviour
 
     [Header("XR Controller")]
     //XR Toolkit controllers
-    [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
+    private HandSelection masterHandSelection;
 
     //to avoid repeat readings
     private bool primary2DAxisIsChosen;
@@ -44,6 +44,13 @@ public class Panel : MonoBehaviour
             currentScrollRect.horizontalNormalizedPosition = 0;
             currentScrollRect.verticalNormalizedPosition = 0;
         }
+    }
+
+    private void Start()
+    {
+        //Get Hand Selection
+        masterHandSelection = FindObjectOfType<HandSelection>();
+        xRNode = masterHandSelection.masterXRNode;
     }
 
     void Update()

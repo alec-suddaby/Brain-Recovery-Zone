@@ -24,6 +24,7 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
     private XRNode xRNode = XRNode.RightHand;
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
+    //private HandSelection masterHandSelection;
 
     //to avoid repeat readings
     private bool triggerButtonIsPressed;
@@ -40,9 +41,6 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 	private Component[] pointerDetectionArray;
 	private bool pointerDownSwitch = false;
 
-
-    // Attention Training PB Count Links
-    private AttentionTrainingPBCount attentionTrainingPBCount;
 
 	
 
@@ -69,9 +67,11 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 		
 		skyboxMediaPlayer.Events.AddListener(OnVideoEvent);
 
-        // Get Attention TrainingPB Count
-        attentionTrainingPBCount = FindObjectOfType<AttentionTrainingPBCount>();
+    
 	
+        //Get Hand Selection
+        //masterHandSelection = FindObjectOfType<HandSelection>();
+        //xRNode = masterHandSelection.masterXRNode;
     }
 
     void OnDestroy()
@@ -174,7 +174,11 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
     public void BackToAttentionTrainingMenu()
     {
         OnPauseButton();
-        attentionTrainingPBCount.timerSaveTest = timeCount.text.ToString();
+        string timeCountString = timeCount.text.ToString();
+        int mildSavedListCount = PlayerPrefs.GetInt("MildCount");
+        mildSavedListCount = mildSavedListCount + 1;
+        PlayerPrefs.SetString("MildResults" + mildSavedListCount, timeCountString);
+        PlayerPrefs.SetInt("MildCount", mildSavedListCount);
         returningToMenu = true;
         SceneLoader.Instance.LoadNewScene("02_Practice_02_AttentionTraining");
     }

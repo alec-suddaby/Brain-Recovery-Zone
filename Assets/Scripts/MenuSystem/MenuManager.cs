@@ -45,10 +45,10 @@ public class MenuManager : MonoBehaviour
     [Header("XR Controller")]
     //WIll aim to remove or update this function
     //XR Toolkit controllers
-    [SerializeField]
     private XRNode xRNode = XRNode.LeftHand;
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
+    private HandSelection masterHandSelection;
 
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
@@ -89,6 +89,10 @@ public class MenuManager : MonoBehaviour
         
         ShowMenu();
         SetupPanels();
+
+        //Get Hand Selection
+        masterHandSelection = FindObjectOfType<HandSelection>();
+        xRNode = masterHandSelection.masterXRNode;
     }
 
     void SetupPanels()
