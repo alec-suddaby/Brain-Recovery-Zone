@@ -18,13 +18,13 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
     public MediaPlayer skyboxMediaPlayer;
 	public TextMeshProUGUI timeCount;
 	public TextMeshProUGUI timeDuration;
+    private string currentTime;
 
     //XR Toolkit controllers
-    [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
-    //private HandSelection masterHandSelection;
+    private HandSelection masterHandSelection;
 
     //to avoid repeat readings
     private bool triggerButtonIsPressed;
@@ -41,9 +41,12 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 	private Component[] pointerDetectionArray;
 	private bool pointerDownSwitch = false;
 
-
+    [Header("Attention Training Level")]
+    public bool mildLevel = false;
+    public bool moderateLevel = false;
+    public bool severeLevel = false;
+    private bool dataSaved = false;
 	
-
 
     void GetDevice()
     {
@@ -61,17 +64,20 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 
     void Start()
     {
-		// Get all gameobjects with the pointer down detection on
+		returningToMenu = false;
+        
+        // Get all gameobjects with the pointer down detection on
 		pointerDetectionArray = GetComponentsInChildren<PointerDownDetection>();
 		//Debug.Log("Number in down detection array " + pointerDetectionArray.Length);
 		
 		skyboxMediaPlayer.Events.AddListener(OnVideoEvent);
 
+
     
 	
         //Get Hand Selection
-        //masterHandSelection = FindObjectOfType<HandSelection>();
-        //xRNode = masterHandSelection.masterXRNode;
+        masterHandSelection = FindObjectOfType<HandSelection>();
+        xRNode = masterHandSelection.masterXRNode;
     }
 
     void OnDestroy()
@@ -81,7 +87,8 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 
     void Update()
     {
-		if(!device.isValid)
+        
+        if(!device.isValid)
         {
             GetDevice();
         }
@@ -126,13 +133,15 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
                 int secondsDuration = durationInSecondsInt - (minutesDuration * 60);
  
                 string durationOfVideo = minutesDuration.ToString("D2") + ":" + secondsDuration.ToString("D2");
-                string currentTime = minutes.ToString("D2") + ":" + seconds.ToString("D2") + ":" + milliseconds.ToString("D2");
+                currentTime = minutes.ToString("D2") + ":" + seconds.ToString("D2") + ":" + milliseconds.ToString("D2");
                 //string videoDuration = (string.Format("{0} / {1}", currentTime, durationOfVideo));
  
                 //this is for your text ui to display current time
-				timeCount.text = currentTime;
-                timeDuration.text = durationOfVideo;
+				timeCount.text = "Video Current: " + currentTime;
+                timeDuration.text = "Video Duration: " + durationOfVideo;
             }
+
+        
     }
 
     // Callback function to handle events
@@ -152,7 +161,7 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 			//Debug.Log("First frame ready");
 			break;
 			case MediaPlayerEvent.EventType.FinishedPlaying:
-			BackToMenu();
+			BackToAttentionTrainingMenu();
 			break;
 		}
 
@@ -173,20 +182,71 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 
     public void BackToAttentionTrainingMenu()
     {
-        OnPauseButton();
-        string timeCountString = timeCount.text.ToString();
-        int mildSavedListCount = PlayerPrefs.GetInt("MildCount");
-        mildSavedListCount = mildSavedListCount + 1;
-        PlayerPrefs.SetString("MildResults" + mildSavedListCount, timeCountString);
-        PlayerPrefs.SetInt("MildCount", mildSavedListCount);
+        // Set loading to true
         returningToMenu = true;
+        // Pause the game
+        OnPauseButton();
+
+        // Check where to save data to
+        if (mildLevel && !dataSaved){mildSaveData();}
+        else if (moderateLevel && !dataSaved){moderateSaveData();}
+        else if (severeLevel && !dataSaved){severeSaveData();}
+        else{Debug.Log("Error saving Attention Training time");}
+        // Load back to the Attention Training Menu
         SceneLoader.Instance.LoadNewScene("02_Practice_02_AttentionTraining");
     }
+
 
 	public void OnPauseButton()
 	{
 		skyboxMediaPlayer.Control.Pause();
 	}
+
+    private void mildSaveData()
+    {
+        //Save time string to player prefs
+        PlayerPrefs.SetString("MildLastResult", currentTime);
+
+        // Get the current count value
+        int mildSavedListCount = PlayerPrefs.GetInt("MildCount"); 
+        // Save the latest result string to player prefs
+        PlayerPrefs.SetString("MildResults" + mildSavedListCount, currentTime);
+        // Add one more number to the count
+        mildSavedListCount = mildSavedListCount + 1;
+        // Save the new count back to player prefs
+        PlayerPrefs.SetInt("MildCount", mildSavedListCount);
+        dataSaved = true;
+    }
+    private void moderateSaveData()
+    {
+        //Save time string to player prefs
+        PlayerPrefs.SetString("ModerateLastResult", currentTime);
+
+        // Get the current count value
+        int moderateSavedListCount = PlayerPrefs.GetInt("ModerateCount"); 
+        // Save the latest result string to player prefs
+        PlayerPrefs.SetString("ModerateResults" + moderateSavedListCount, currentTime);
+        // Add one more number to the count
+        moderateSavedListCount = moderateSavedListCount + 1;
+        // Save the new count back to player prefs
+        PlayerPrefs.SetInt("ModerateCount", moderateSavedListCount);
+        dataSaved = true;
+    }
+    private void severeSaveData()
+    {
+        //Save time string to player prefs
+        PlayerPrefs.SetString("SevereLastResult", currentTime);
+
+        // Get the current count value
+        int severeSavedListCount = PlayerPrefs.GetInt("SevereCount"); 
+        // Save the latest result string to player prefs
+        PlayerPrefs.SetString("SevereResults" + severeSavedListCount, currentTime);
+        // Add one more number to the count
+        severeSavedListCount = severeSavedListCount + 1;
+        // Save the new count back to player prefs
+        PlayerPrefs.SetInt("SevereCount", severeSavedListCount);
+        dataSaved = true;
+    }
     
 }
 

@@ -22,17 +22,19 @@ public class AttentionTrainingMenu : MonoBehaviour
 
     // Null Count
     private int mildNullCount = 0;
+    private int moderateNullCount = 0;
+    private int severeNullCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadResults();
-        
         // Get last attempt
         MildResultsLastAttempt();
         ModerateResultsLastAttempt();
         SevereResultsLastAttempt();
-        
+
+        LoadResults();
+
         // Sort the lists
         MildResultsSort();
         ModerateResultsSort();
@@ -51,53 +53,71 @@ public class AttentionTrainingMenu : MonoBehaviour
         SaveReults();
     }
 
-    // Catch the last attempt that was added to the list
+    // Get the last result or set it to --:--:--, and then add to the list
     private void MildResultsLastAttempt()
     {
-        int mildResultsListCount = mildResultsList.Count;
-        if(mildResultsListCount > 0)
+        mildResultLastAttempt = PlayerPrefs.GetString("MildLastResult");
+
+        if(mildResultLastAttempt == "")
         {
-            mildResultLastAttempt = mildResultsList[mildResultsListCount - 1];
-        }
-        else {
             mildResultLastAttempt = "--:--:--";
         }
     }
     private void ModerateResultsLastAttempt()
     {
-        int moderateResultsListCount = moderateResultsList.Count;
-        if(moderateResultsListCount > 0)
+        moderateResultLastAttempt = PlayerPrefs.GetString("ModerateLastResult");
+
+        if(moderateResultLastAttempt == "")
         {
-            moderateResultLastAttempt = moderateResultsList[moderateResultsListCount - 1];
-        }
-        else {
             moderateResultLastAttempt = "--:--:--";
         }
     }
     private void SevereResultsLastAttempt()
     {
-        int severeResultsListCount = severeResultsList.Count;
-        if (severeResultsListCount > 0)
+        severeResultLastAttempt = PlayerPrefs.GetString("SevereLastResult");
+
+        if(severeResultLastAttempt == "")
         {
-            severeResultLastAttempt = severeResultsList[severeResultsListCount - 1];
-        }
-        else {
             severeResultLastAttempt = "--:--:--";
         }
     }
     
-    // Sort each list
+    // Sort each list from low to high then swap from high to low
     private void MildResultsSort()
     {
         mildResultsList.Sort();
+
+        List<string> reverseMildResultsList = new List<string>();
+        for (int i = mildResultsList.Count; i --> 0;)
+        {
+            reverseMildResultsList.Add(mildResultsList[i]);
+        }
+
+        mildResultsList = reverseMildResultsList;
     }
     private void ModerateResultsSort()
     {
         moderateResultsList.Sort();
+
+        List<string> reverseModerateResultsList = new List<string>();
+        for (int i = moderateResultsList.Count; i --> 0;)
+        {
+            reverseModerateResultsList.Add(moderateResultsList[i]);
+        }
+
+        moderateResultsList = reverseModerateResultsList;
     }
     private void SevereResultsSort()
     {
         severeResultsList.Sort();
+
+        List<string> reverseSevereResultsList = new List<string>();
+        for (int i = severeResultsList.Count; i --> 0;)
+        {
+            reverseSevereResultsList.Add(severeResultsList[i]);
+        }
+
+        severeResultsList = reverseSevereResultsList;
     }
 
     // Check the number of items in the list and for any item that isn't there, add the --:--:-- value into the list to top it up to at least 5
@@ -273,19 +293,41 @@ public class AttentionTrainingMenu : MonoBehaviour
     {
         for(int i = 0; i < moderateResultsList.Count; i++)
         {
-            PlayerPrefs.SetString("ModerateResults" + i, moderateResultsList[i]);
+            // Don't add the null string to the Player Prefs
+            if(moderateResultsList[i] != "--:--:--")
+            {
+                PlayerPrefs.SetString("ModerateResults" + i, moderateResultsList[i]);
+            }
+            else
+            {
+                // Count the amount of null strings
+                moderateNullCount = moderateNullCount + 1;
+            }
         }
 
-        PlayerPrefs.SetInt("ModerateCount", moderateResultsList.Count);
+        // Ensure the null strings are subtracted from the value of the count
+        int moderateCountSave =  moderateResultsList.Count - moderateNullCount;
+        PlayerPrefs.SetInt("ModerateCount", moderateCountSave);
     }
     private void SaveSevereResults()
     {
         for(int i = 0; i < severeResultsList.Count; i++)
         {
-            PlayerPrefs.SetString("SevereResults" + i, severeResultsList[i]);
+            // Don't add the null string to the Player Prefs
+            if(severeResultsList[i] != "--:--:--")
+            {
+                PlayerPrefs.SetString("SevereResults" + i, severeResultsList[i]);
+            }
+            else
+            {
+                // Count the amount of null strings
+                severeNullCount = severeNullCount + 1;
+            }
         }
 
-        PlayerPrefs.SetInt("SevereCount", severeResultsList.Count);
+        // Ensure the null strings are subtracted from the value of the count
+        int severeCountSave =  severeResultsList.Count - severeNullCount;
+        PlayerPrefs.SetInt("SevereCount", severeCountSave);
     }
 
     // Load results from player prefs. If there are no resuts, nothing will load.
@@ -305,6 +347,8 @@ public class AttentionTrainingMenu : MonoBehaviour
             string mildResult = PlayerPrefs.GetString("MildResults" + i);
             mildResultsList.Add(mildResult);
         }
+
+        Debug.Log(mildResultsList.Count);
     }
     private void LoadModerateResults()
     {
@@ -316,6 +360,8 @@ public class AttentionTrainingMenu : MonoBehaviour
             string moderateResult = PlayerPrefs.GetString("ModerateResults" + i);
             moderateResultsList.Add(moderateResult);
         }
+
+        Debug.Log(moderateResultsList.Count);
     }
     private void LoadSevereResults()
     {
@@ -327,6 +373,8 @@ public class AttentionTrainingMenu : MonoBehaviour
             string severeResult = PlayerPrefs.GetString("SevereResults" + i);
             severeResultsList.Add(severeResult);
         }
+
+        Debug.Log(severeResultsList.Count);
     }
 
     // Reset results from player prefs
@@ -335,6 +383,26 @@ public class AttentionTrainingMenu : MonoBehaviour
         ResetMildResults();
         ResetModerateResults();
         ResetSevereResults();
+        
+        // Get last attempt
+        MildResultsLastAttempt();
+        ModerateResultsLastAttempt();
+        SevereResultsLastAttempt();
+
+        // Reload the results
+        LoadResults();
+
+        // Set any null values
+        MildResultsLengthCheck();
+        ModerateResultsLengthCheck();
+        SevereResultsLengthCheck();
+
+        // Print Lists
+        MildResultsListPrint();
+        ModerateResultsListPrint();
+        SevereResultsListPrint();
+
+        SaveReults();
     }
     private void ResetMildResults()
     {
@@ -345,6 +413,7 @@ public class AttentionTrainingMenu : MonoBehaviour
             PlayerPrefs.DeleteKey("MildResults" + i);
         }
         
+        PlayerPrefs.DeleteKey("MildLastResult");
         PlayerPrefs.DeleteKey("MildCount");
     }
     private void ResetModerateResults()
@@ -356,7 +425,8 @@ public class AttentionTrainingMenu : MonoBehaviour
             PlayerPrefs.DeleteKey("ModerateResults" + i);
         }
         
-        PlayerPrefs.DeleteKey("ModerateCount");
+        PlayerPrefs.DeleteKey("ModerateLastResult");
+        PlayerPrefs.DeleteKey("MorderateCount");
     }
     private void ResetSevereResults()
     {
@@ -367,6 +437,7 @@ public class AttentionTrainingMenu : MonoBehaviour
             PlayerPrefs.DeleteKey("SevereResults" + i);
         }
         
+        PlayerPrefs.DeleteKey("SevereLastResult");
         PlayerPrefs.DeleteKey("SevereCount");
     }
 }
