@@ -5,28 +5,28 @@ using UnityEngine.UI;
 
 public class DefaultAppVolumeOutput : MonoBehaviour
 {
-    private DefaultAppVolume defaultAppVolumeComponent;
-
     private Slider defaultVolumeSlider;
+
+    [Range(0,1)]
+    public float defaultAppVolume = 0.6f;
     
     void Start()
     {
-        defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
         defaultVolumeSlider = gameObject.GetComponent<Slider>();
 
-        if(defaultAppVolumeComponent == null)
+        // Set the value on the first load with no player prefs
+        if(PlayerPrefs.GetInt("SetDefaultAppVolume") == 0)
         {
-            Debug.Log("Connection to 'DefaultAppVolume' could not be made");
-        }
-        else
-        {
-            defaultVolumeSlider.value = defaultAppVolumeComponent.defaultAppVolume;
+            PlayerPrefs.SetFloat("DefaultAppVolume", defaultAppVolume);
+            PlayerPrefs.SetInt("SetDefaultAppVolume", 1);
         }
         
+        defaultVolumeSlider.value = PlayerPrefs.GetFloat("DefaultAppVolume");
     }
 
-    void Update()
+    public void UpdateAppVolume()
     {
-        defaultAppVolumeComponent.defaultAppVolume = defaultVolumeSlider.value;
+        PlayerPrefs.SetFloat("DefaultAppVolume", defaultVolumeSlider.value);
+        Debug.Log("App Volume Player Prefs: " + PlayerPrefs.GetFloat("DefaultAppVolume"));
     }
 }

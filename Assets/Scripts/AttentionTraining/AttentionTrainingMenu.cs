@@ -11,9 +11,9 @@ public class AttentionTrainingMenu : MonoBehaviour
     public TextMeshProUGUI severeResultsTextBox;
 
     // Lists
-    [SerializeField] private List<string> mildResultsList = new List<string>() {"00:01:00", "01:00:00" , "00:00:00", "00:00:01"};
-    [SerializeField] private List<string> moderateResultsList = new List<string>() {"00:50:00", "03:00:00"};
-    [SerializeField] private List<string> severeResultsList = new List<string>();
+    private List<string> mildResultsList = new List<string>() {"00:01:00", "01:00:00" , "00:00:00", "00:00:01"};
+    private List<string> moderateResultsList = new List<string>() {"00:50:00", "03:00:00"};
+    private List<string> severeResultsList = new List<string>();
 
     // Last items added
     private string mildResultLastAttempt;
@@ -24,6 +24,10 @@ public class AttentionTrainingMenu : MonoBehaviour
     private int mildNullCount = 0;
     private int moderateNullCount = 0;
     private int severeNullCount = 0;
+
+    [Header("Audio Button")]
+    public GameObject enableAudioButton;
+    public GameObject disableAudioButton;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,19 @@ public class AttentionTrainingMenu : MonoBehaviour
         SevereResultsListPrint();
 
         SaveReults();
+
+        if(PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 0)
+        {
+            EnableAudioPlaySound();
+        }
+        else if(PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 1)
+        {
+            DisableAudioPlayMute();
+        }
+        else
+        {
+            EnableAudioPlaySound();
+        }
     }
 
     // Get the last result or set it to --:--:--, and then add to the list
@@ -469,5 +486,19 @@ public class AttentionTrainingMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("SevereCount");
         PlayerPrefs.SetInt("SevereCount", 0);
         severeNullCount = 0;
+    }
+
+    public void EnableAudioPlaySound()
+    {
+        PlayerPrefs.SetInt("PlayAttentionTrainingMute", 0);
+        enableAudioButton.SetActive(false);
+        disableAudioButton.SetActive(true);
+    }
+
+    public void DisableAudioPlayMute()
+    {
+        PlayerPrefs.SetInt("PlayAttentionTrainingMute", 1);
+        enableAudioButton.SetActive(true);
+        disableAudioButton.SetActive(false);
     }
 }

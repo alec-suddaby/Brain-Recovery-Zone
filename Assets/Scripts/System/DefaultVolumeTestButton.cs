@@ -6,19 +6,19 @@ public class DefaultVolumeTestButton : MonoBehaviour
 {
     private AudioSource testVolumeAudioSource;
 
-    private DefaultAppVolume defaultAppVolumeComponent;
+    //private DefaultAppVolume defaultAppVolumeComponent;
     
     // Start is called before the first frame update
     void Start()
     {
         testVolumeAudioSource = gameObject.GetComponent<AudioSource>();
 
-        defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
+        //defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        testVolumeAudioSource.volume = defaultAppVolumeComponent.defaultAppVolume;
+        testVolumeAudioSource.volume = PlayerPrefs.GetFloat("DefaultAppVolume");
     }
 }

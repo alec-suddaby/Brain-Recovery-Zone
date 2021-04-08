@@ -46,6 +46,11 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
     public bool moderateLevel = false;
     public bool severeLevel = false;
     private bool dataSaved = false;
+
+
+    // Check Audio Toggle
+    private bool isMute = false;
+    private string muteIndication;
 	
 
     void GetDevice()
@@ -72,12 +77,11 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 		
 		skyboxMediaPlayer.Events.AddListener(OnVideoEvent);
 
-
-    
-	
         //Get Hand Selection
         masterHandSelection = FindObjectOfType<HandSelection>();
         xRNode = masterHandSelection.masterXRNode;
+
+        CheckAudioToggle();
     }
 
     void OnDestroy()
@@ -159,6 +163,8 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 			break;
 			case MediaPlayerEvent.EventType.FirstFrameReady:
 			//Debug.Log("First frame ready");
+			if(PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 1){OnMute();}
+            else{OnUnmute();}
 			break;
 			case MediaPlayerEvent.EventType.FinishedPlaying:
 			BackToAttentionTrainingMenu();
@@ -203,14 +209,14 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 	}
 
     private void mildSaveData()
-    {
+    {        
         //Save time string to player prefs
-        PlayerPrefs.SetString("MildLastResult", currentTime);
+        PlayerPrefs.SetString("MildLastResult", currentTime + muteIndication);
 
         // Get the current count value
         int mildSavedListCount = PlayerPrefs.GetInt("MildCount"); 
         // Save the latest result string to player prefs
-        PlayerPrefs.SetString("MildResults" + mildSavedListCount, currentTime);
+        PlayerPrefs.SetString("MildResults" + mildSavedListCount, currentTime + muteIndication);
         // Add one more number to the count
         mildSavedListCount = mildSavedListCount + 1;
         // Save the new count back to player prefs
@@ -220,12 +226,12 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
     private void moderateSaveData()
     {
         //Save time string to player prefs
-        PlayerPrefs.SetString("ModerateLastResult", currentTime);
+        PlayerPrefs.SetString("ModerateLastResult", currentTime + muteIndication);
 
         // Get the current count value
         int moderateSavedListCount = PlayerPrefs.GetInt("ModerateCount"); 
         // Save the latest result string to player prefs
-        PlayerPrefs.SetString("ModerateResults" + moderateSavedListCount, currentTime);
+        PlayerPrefs.SetString("ModerateResults" + moderateSavedListCount, currentTime + muteIndication);
         // Add one more number to the count
         moderateSavedListCount = moderateSavedListCount + 1;
         // Save the new count back to player prefs
@@ -235,17 +241,47 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
     private void severeSaveData()
     {
         //Save time string to player prefs
-        PlayerPrefs.SetString("SevereLastResult", currentTime);
+        PlayerPrefs.SetString("SevereLastResult", currentTime + muteIndication);
 
         // Get the current count value
         int severeSavedListCount = PlayerPrefs.GetInt("SevereCount"); 
         // Save the latest result string to player prefs
-        PlayerPrefs.SetString("SevereResults" + severeSavedListCount, currentTime);
+        PlayerPrefs.SetString("SevereResults" + severeSavedListCount, currentTime + muteIndication);
         // Add one more number to the count
         severeSavedListCount = severeSavedListCount + 1;
         // Save the new count back to player prefs
         PlayerPrefs.SetInt("SevereCount", severeSavedListCount);
         dataSaved = true;
+    }
+
+    private void OnMute()
+	{
+		skyboxMediaPlayer.Control.MuteAudio(true);
+	}
+
+	private void OnUnmute()
+	{
+		skyboxMediaPlayer.Control.MuteAudio(false);
+	}
+
+    private void CheckAudioToggle()
+    {
+        if(PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 1)
+        {
+            isMute = true;
+            muteIndication = " [Mute]";
+        }
+        else if (PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 0)
+        {
+            isMute = false;
+            muteIndication = " [Vol]";
+        }
+        else
+        {
+            isMute = true;
+            muteIndication = " [Err]";
+            Debug.Log("Error deteching the Attention Training audio toggle state");
+        }
     }
     
 }

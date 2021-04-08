@@ -59,10 +59,8 @@ public class MenuManager : MonoBehaviour
     public bool audioPrompt;
     public GameObject audioPromptBox;
     public Panel audioPromptBoxPanel;
-    private bool playMute;
     private bool audioPromptGiven = false;
     private string savedLevelString;
-    private DefaultAppVolume defaultAppVolume;
 
     void GetDevice()
     {
@@ -82,9 +80,9 @@ public class MenuManager : MonoBehaviour
     {       
         previousPanelMemory = FindObjectOfType<PreviousPanelMemory>();
 
-        defaultAppVolume = FindObjectOfType<DefaultAppVolume>();
         if(audioPromptBox) {audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();}
-        playMute = false;
+
+        PlayerPrefs.SetInt("PlayMute", 0);
         savedLevelString = "";
         
         ShowMenu();
@@ -244,26 +242,24 @@ public class MenuManager : MonoBehaviour
         else if (audioPromptGiven == true)
         {
             audioPromptGiven = false;
-            defaultAppVolume.playVideoMute = playMute;
             SceneLoader.Instance.LoadNewScene(level);
         }
         else
         { 
-            defaultAppVolume.playVideoMute = false;
             SceneLoader.Instance.LoadNewScene(level);
         }   
     }
 
     public void playMuteLoadScene()
     {
-        playMute = true;
+        PlayerPrefs.SetInt("PlayMute", 1);
         audioPromptGiven = true;
         LoadScene(savedLevelString);
     }
 
     public void playNotMuteLoadScene()
     {
-        playMute = false;
+        PlayerPrefs.SetInt("PlayMute", 0);
         audioPromptGiven = true;
         LoadScene(savedLevelString);
     }

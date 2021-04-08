@@ -31,7 +31,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	private float setAudioVolumeSliderValue = 0.7f;
 	public GameObject audioVolumePanel;
 	// Saved app volume
-	public DefaultAppVolume defaultAppVolumeComponent;
+	//public DefaultAppVolume defaultAppVolumeComponent;
 
 	[SerializeField]
 	private Toggle loopToggle;
@@ -121,10 +121,11 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
 		audioVolumePanel.SetActive(false);
 
-		defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
-		if(defaultAppVolumeComponent != null)
-			setAudioVolumeSliderValue = defaultAppVolumeComponent.defaultAppVolume;
-			
+		//defaultAppVolumeComponent = FindObjectOfType<DefaultAppVolume>();
+		//if(defaultAppVolumeComponent != null)
+		//	setAudioVolumeSliderValue = defaultAppVolumeComponent.defaultAppVolume;
+
+		setAudioVolumeSliderValue = PlayerPrefs.GetFloat("DefaultAppVolume");	
 		
 
 		//audioVolumeSlider.value = setAudioVolumeSliderValue;
@@ -293,7 +294,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 			case MediaPlayerEvent.EventType.FirstFrameReady:
 			//Debug.Log("First frame ready");
 			skyboxMediaPlayer.Control.SetVolume(setAudioVolumeSliderValue);
-			if(defaultAppVolumeComponent != null && defaultAppVolumeComponent.playVideoMute == true){OnMuteButton();}
+			if(/*defaultAppVolumeComponent != null && */ PlayerPrefs.GetInt("PlayMute") == 1){OnMuteButton();}
 			audioVolumeSlider.value = setAudioVolumeSliderValue;
 			break;
 			case MediaPlayerEvent.EventType.FinishedPlaying:
