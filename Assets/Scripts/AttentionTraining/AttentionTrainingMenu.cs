@@ -285,9 +285,17 @@ public class AttentionTrainingMenu : MonoBehaviour
             }
         }
 
-        // Ensure the null strings are subtracted from the value of the count
-        int mildCountSave =  mildResultsList.Count - mildNullCount;
-        PlayerPrefs.SetInt("MildCount", mildCountSave);
+        // Check if the count is == 0 because if you subtract the null count from 0 you get a negative count and results won't save
+        if (mildResultsList.Count != 0)
+        {
+            // Ensure the null strings are subtracted from the value of the count
+            int mildCountSave =  mildResultsList.Count - mildNullCount;
+            PlayerPrefs.SetInt("MildCount", mildCountSave);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("MildCount", 0);
+        }
     }
     private void SaveModerateResults()
     {
@@ -305,9 +313,17 @@ public class AttentionTrainingMenu : MonoBehaviour
             }
         }
 
-        // Ensure the null strings are subtracted from the value of the count
-        int moderateCountSave =  moderateResultsList.Count - moderateNullCount;
-        PlayerPrefs.SetInt("ModerateCount", moderateCountSave);
+        // Check if the count is == 0 because if you subtract the null count from 0 you get a negative count and results won't save
+        if (moderateResultsList.Count != 0)
+        {
+            // Ensure the null strings are subtracted from the value of the count
+            int moderateCountSave =  moderateResultsList.Count - moderateNullCount;
+            PlayerPrefs.SetInt("ModerateCount", moderateCountSave);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ModerateCount", 0);
+        }
     }
     private void SaveSevereResults()
     {
@@ -325,9 +341,17 @@ public class AttentionTrainingMenu : MonoBehaviour
             }
         }
 
-        // Ensure the null strings are subtracted from the value of the count
-        int severeCountSave =  severeResultsList.Count - severeNullCount;
-        PlayerPrefs.SetInt("SevereCount", severeCountSave);
+        // Check if the count is == 0 because if you subtract the null count from 0 you get a negative count and results won't save
+        if (severeResultsList.Count != 0)
+        {
+            // Ensure the null strings are subtracted from the value of the count
+            int severeCountSave =  severeResultsList.Count - severeNullCount;
+            PlayerPrefs.SetInt("SevereCount", severeCountSave);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("SevereCount", 0);
+        }
     }
 
     // Load results from player prefs. If there are no resuts, nothing will load.
@@ -348,7 +372,7 @@ public class AttentionTrainingMenu : MonoBehaviour
             mildResultsList.Add(mildResult);
         }
 
-        Debug.Log(mildResultsList.Count);
+        //Debug.Log("load end count: " + mildResultsList.Count);
     }
     private void LoadModerateResults()
     {
@@ -361,7 +385,7 @@ public class AttentionTrainingMenu : MonoBehaviour
             moderateResultsList.Add(moderateResult);
         }
 
-        Debug.Log(moderateResultsList.Count);
+        //Debug.Log("load end moderate count: " + moderateResultsList.Count);
     }
     private void LoadSevereResults()
     {
@@ -374,7 +398,7 @@ public class AttentionTrainingMenu : MonoBehaviour
             severeResultsList.Add(severeResult);
         }
 
-        Debug.Log(severeResultsList.Count);
+        //Debug.Log(severeResultsList.Count);
     }
 
     // Reset results from player prefs
@@ -415,6 +439,8 @@ public class AttentionTrainingMenu : MonoBehaviour
         
         PlayerPrefs.DeleteKey("MildLastResult");
         PlayerPrefs.DeleteKey("MildCount");
+        PlayerPrefs.SetInt("MildCount", 0);
+        mildNullCount = 0;
     }
     private void ResetModerateResults()
     {
@@ -427,6 +453,8 @@ public class AttentionTrainingMenu : MonoBehaviour
         
         PlayerPrefs.DeleteKey("ModerateLastResult");
         PlayerPrefs.DeleteKey("MorderateCount");
+        PlayerPrefs.SetInt("ModerateCount", 0);
+        moderateNullCount = 0;
     }
     private void ResetSevereResults()
     {
@@ -439,5 +467,7 @@ public class AttentionTrainingMenu : MonoBehaviour
         
         PlayerPrefs.DeleteKey("SevereLastResult");
         PlayerPrefs.DeleteKey("SevereCount");
+        PlayerPrefs.SetInt("SevereCount", 0);
+        severeNullCount = 0;
     }
 }
