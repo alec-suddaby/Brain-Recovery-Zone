@@ -10,6 +10,7 @@ public class ResetApp : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         //menuManager.LoadScene(MainMenuAddative);
+        menuManager.ClearHistory();
         menuManager.BackToMenu();
     }
 }

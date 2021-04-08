@@ -27,20 +27,10 @@ public class MenuManager : MonoBehaviour
     
     [Header("Panel Navigation")]
     [Tooltip("Set this as your default panel to show on load")]
-    [SerializeField]
-    public Panel currentPanel = null;
-    [SerializeField]
-    public Component[] canvasInPanels;
-    [SerializeField]
-    public List<Panel> panelHistory = new List<Panel>();
-    //Panel history debug
-    private string panelList = "List Panel History: ";
-    private string savedPanelList = "Saved List Panel History: ";
-
-    [Header("Saved Panel Navigation")]
-    public PreviousPanelMemory previousPanelMemory;
-    public Panel savedCurrentPanel = null;
-    public List<Panel> savedPanelHistory;
+    private Panel currentPanel = null;
+    public Panel defaultPanel = null;
+    private Component[] canvasInPanels;
+    private List<Panel> panelHistory = new List<Panel>();
 
     [Header("XR Controller")]
     //WIll aim to remove or update this function
@@ -58,7 +48,7 @@ public class MenuManager : MonoBehaviour
     [Header("Audio Prompt")]
     public bool audioPrompt;
     public GameObject audioPromptBox;
-    public Panel audioPromptBoxPanel;
+    private Panel audioPromptBoxPanel;
     private bool audioPromptGiven = false;
     private string savedLevelString;
 
@@ -78,15 +68,13 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {       
-        previousPanelMemory = FindObjectOfType<PreviousPanelMemory>();
-
         if(audioPromptBox) {audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();}
 
         PlayerPrefs.SetInt("PlayMute", 0);
         savedLevelString = "";
         
-        ShowMenu();
         SetupPanels();
+        ShowMenu();
 
         //Get Hand Selection
         masterHandSelection = FindObjectOfType<HandSelection>();
@@ -100,23 +88,8 @@ public class MenuManager : MonoBehaviour
         foreach(Panel panel in panels)
             panel.Setup(this);
 
-        // triggering the saved histry to convert from saved string to panels
-        previousPanelMemory.SavedFromString();
-
-        // Checking if there is a saved panel and setting it to current
-        if (previousPanelMemory.savedPanel != null)
-        {
-            currentPanel = previousPanelMemory.savedPanel;
-        }
-
-        // Checking if there is a saved panel history and setting it to current
-        if (panelHistory.Count == 0 && previousPanelMemory.savedPanelListString.Count != 0)
-        {
-            panelHistory = previousPanelMemory.savedPanelList;
-        }
-        
+        GetPanelHistoryMemory();
         currentPanel.Show();
-
         CurrentPanelButtonWrap();
     }
 
@@ -141,7 +114,7 @@ public class MenuManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        previousPanelMemory.SavedToString();
+        SavePanelHistory();
         panelHistory.Clear();
         Debug.Log("MenuManager was destroyed");
     }
@@ -185,36 +158,30 @@ public class MenuManager : MonoBehaviour
             int lastIndex = panelHistory.Count - 1;
             SetCurrent(panelHistory[lastIndex]);
             panelHistory.RemoveAt(lastIndex);
-            //DebugList();
-            SavePanelHistory();
         }
         else if(menuHidden == true)
         {
             ShowMenu();
         }
         else {
-            //DebugList();
-            SavePanelHistory();
+            //SavePanelHistory();
             return;
         }
     }
  
+    // Call to set current panel with history
     public void SetCurrentWithHistory(Panel newPanel)
     {
-        panelHistory.Add(currentPanel);
+        panelHistory.Add(currentPanel);;
         SetCurrent(newPanel);
-        //DebugList();
-        SavePanelHistory();
     }
 
+    // Set the current panel using the new panel or call to make current panel without history
     public void SetCurrent(Panel newPanel)
     {
         currentPanel.Hide();
-
         currentPanel = newPanel;
-
         CurrentPanelButtonWrap();
-
         currentPanel.Show();
     }
 
@@ -291,6 +258,15 @@ public class MenuManager : MonoBehaviour
         if(persistentLogo) {persistentLogo.SetActive(true);}
     }
 
+    public void ClearHistory()
+    {
+        panelHistory.Clear();
+        PlayerPrefs.DeleteKey("SavedCurrentPanel");
+        PlayerPrefs.DeleteKey("SavedPanelHistory");
+        PlayerPrefs.DeleteKey("SavedPanelHistoryCount");
+        SetCurrent(defaultPanel);
+    }
+
     void SetBackButtonState()
     {
         if(panelHistory.Count == 0 || menuHidden)
@@ -328,37 +304,53 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void DebugList()
-    {
-        Debug.Log("Current Panel: " + currentPanel.ToString());
+    void SavePanelHistory()
+    {        
+        // Save the current panel to Player Prefs
+        PlayerPrefs.SetString("SavedCurrentPanel", currentPanel.ToString());
 
-        foreach (var panel in panelHistory)
+        // Save Panel history to Player Prefs history
+        int panelHistoryCount = panelHistory.Count;
+        for(int i = 0; i < panelHistoryCount; i++)
         {
-            panelList += panel.ToString() + ", ";
+            string panelString = panelHistory[i].ToString();
+            PlayerPrefs.SetString("SavedPanelHistory" + i, panelString);
         }
-
-        Debug.Log(panelList);
+        PlayerPrefs.SetInt("SavedPanelHistoryCount", panelHistoryCount);
     }
 
-    void SavePanelHistory()
+    void GetPanelHistoryMemory()
     {
-        savedCurrentPanel = currentPanel;
-        previousPanelMemory.savedPanel = currentPanel;
-        //Debug.Log("Saved Current Panel: " + savedCurrentPanel.ToString());
+        panelHistory.Clear();
         
-        
-        savedPanelHistory = panelHistory;
-        previousPanelMemory.savedPanelList = panelHistory;
-        foreach (var panel in savedPanelHistory)
+        if (PlayerPrefs.GetString("SavedCurrentPanel") != "")
         {
-            savedPanelList += panel.ToString() + ", ";
+            string savedCurrentPanelString = PlayerPrefs.GetString("SavedCurrentPanel");
+            savedCurrentPanelString = savedCurrentPanelString.Substring(0, savedCurrentPanelString.Length -8);
+            GameObject tempCurrentPanelGameObject = GameObject.Find(savedCurrentPanelString);
+            Panel savedCurrentPanel = tempCurrentPanelGameObject.GetComponent<Panel>();
+            currentPanel = savedCurrentPanel;
+        }
+        else
+        {
+            currentPanel = defaultPanel;
+        }
+        
+        int panelHistoryCount = PlayerPrefs.GetInt("SavedPanelHistoryCount");
+        for(int i = 0; i < panelHistoryCount; i++)
+        {
+            // Get the string from Player Prefs
+            string panelString = PlayerPrefs.GetString("SavedPanelHistory" + i);
+            // Remove the last 8 characters from the string
+            panelString = panelString.Substring(0, panelString.Length - 8);
+            // Use the string to search for the GameObject name
+            GameObject tempGameObjectSearch = GameObject.Find(panelString);
+            // Find the Panel component on that GameObject
+            Panel panelLocation = tempGameObjectSearch.GetComponent<Panel>();
+            // Add the Panel to the panelHistroy List
+            panelHistory.Add(panelLocation);
         }
 
-        //Debug.Log("String list from Menu Manager: " + savedPanelList);
-
-        
-        
-        
         
         
     }

@@ -11,8 +11,8 @@ public class AttentionTrainingMenu : MonoBehaviour
     public TextMeshProUGUI severeResultsTextBox;
 
     // Lists
-    private List<string> mildResultsList = new List<string>() {"00:01:00", "01:00:00" , "00:00:00", "00:00:01"};
-    private List<string> moderateResultsList = new List<string>() {"00:50:00", "03:00:00"};
+    private List<string> mildResultsList = new List<string>();
+    private List<string> moderateResultsList = new List<string>();
     private List<string> severeResultsList = new List<string>();
 
     // Last items added

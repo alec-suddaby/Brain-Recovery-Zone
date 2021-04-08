@@ -3168,12 +3168,7 @@ MonoBehaviour:
   menuHideButton: {fileID: 1334735762}
   menuShowButton: {fileID: 1937429969}
   menuSettingsButton: {fileID: 213774559}
-  currentPanel: {fileID: 2125607538}
-  canvasInPanels: []
-  panelHistory: []
-  previousPanelMemory: {fileID: 0}
-  savedCurrentPanel: {fileID: 0}
-  savedPanelHistory: []
+  defaultPanel: {fileID: 2125607538}
   audioPrompt: 0
   audioPromptBox: {fileID: 1582156433}
   audioPromptBoxPanel: {fileID: 0}
