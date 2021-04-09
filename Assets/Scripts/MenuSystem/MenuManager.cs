@@ -70,6 +70,10 @@ public class MenuManager : MonoBehaviour
     {       
         if(audioPromptBox) {audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();}
 
+        // Reset Loop function
+        PlayerPrefs.SetInt("LoopVideo", 0);
+
+        // Reset Mute function
         PlayerPrefs.SetInt("PlayMute", 0);
         savedLevelString = "";
         

@@ -34,6 +34,7 @@ public class ConnectMainCamera : MonoBehaviour
            //Debug.Log("Looking for Main Camera for MediaPlayer");
            findMediaPlayer = GetComponent<MediaPlayer>();
            findMediaPlayer.AudioHeadTransform = Camera.main.transform;
+           findMediaPlayer.AudioFocusTransform = Camera.main.transform;
        }
 
        //Debug.Log("end of camera search");

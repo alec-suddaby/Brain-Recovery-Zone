@@ -27,40 +27,10 @@ public static class SceneMenu
     //   Practise
     //////////////
 
-    [MenuItem("Scenes/Practise/Communication/Menu")]
-    public static void OpenPractiseCommunication()
+    [MenuItem("Scenes/Practise/Communication/Speech")]
+    public static void OpenPractiseCommunicationSpeech()
     {
-        OpenScene("Experiences/02_Practice/02_Practice_01_Communication");
-    }
-
-    [MenuItem("Scenes/Practise/Communication/Introduction")]
-    public static void OpenPractiseCommunicationIntroduction()
-    {
-        OpenScene("Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_01_Introduction");
-    }
-
-    [MenuItem("Scenes/Practise/Communication/Respiration")]
-    public static void OpenPractiseCommunicationRespiration()
-    {
-        OpenScene("Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_02_Respiration_Phonation");
-    }
-
-    [MenuItem("Scenes/Practise/Communication/Articulation")]
-    public static void OpenPractiseCommunicationArticulation()
-    {
-        OpenScene("Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_03_Articulation");
-    }
-
-    [MenuItem("Scenes/Practise/Communication/Prosody")]
-    public static void OpenPractiseCommunicationProsody()
-    {
-        OpenScene("Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_04_Prosody");
-    }
-
-    [MenuItem("Scenes/Practise/Communication/OtherStrats")]
-    public static void OpenPractiseCommunicationOtherStrats()
-    {
-        OpenScene("Experiences/02_Practice/02_Practice_01_Communication/02_Practice_01_Communication_05_Other_Strategies");
+        OpenScene("Experiences/02_Practice/02_Practice_01_Speech");
     }
 
     [MenuItem("Scenes/Practise/AttentionTraining/Menu")]

@@ -6,10 +6,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.Events;
+using RenderHeads.Media.AVProVideo;
 
 public class StandaloneSingleMenuManager : MonoBehaviour
 {
+    [Header("Persistent Menu")]
+    public GameObject persistentLogo;
 
+    [Header("Persistent Menu Tools")]
+    //public string topPanelName;
+    public GameObject menuBackButton;
+    private bool menuHidden = false;
+    
     [Header("XR Controller")]
     //WIll aim to remove or update this function
     //XR Toolkit controllers
@@ -17,6 +25,12 @@ public class StandaloneSingleMenuManager : MonoBehaviour
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
     private HandSelection masterHandSelection;
+
+    [Header("MenuSystemComponents")]
+    public Panel defaultPanel = null;
+
+    private GameObject planeNameSave;
+
 
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
@@ -98,6 +112,36 @@ public class StandaloneSingleMenuManager : MonoBehaviour
     public void LoadScene(string level)
     {
         SceneLoader.Instance.LoadNewScene(level);
+    }
+
+    public void OpenVideoPlane(GameObject planeName)
+    {
+        HideMenu();
+        planeNameSave = planeName;
+        planeNameSave.SetActive(true);
+        planeNameSave.GetComponentInChildren<MediaPlayer>().Control.Play();
+    }
+
+    public void CloseVideoPlane()
+    {
+        ShowMenu();
+        planeNameSave.SetActive(false);
+        planeNameSave = null;
+    }
+
+    public void HideMenu()
+    {
+        menuHidden = true;
+        defaultPanel.Hide();
+        if(persistentLogo) {persistentLogo.SetActive(false);}
+
+    }
+
+    public void ShowMenu()
+    {
+        menuHidden = false;
+        defaultPanel.Show();
+        if(persistentLogo) {persistentLogo.SetActive(true);}
     }
      
 }

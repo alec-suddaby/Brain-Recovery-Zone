@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2551210047709671715}
   - component: {fileID: 2551210047709671712}
   - component: {fileID: 2551210047709671717}
-  - component: {fileID: 5042593434820854580}
   m_Layer: 0
   m_Name: ButtonAudio
   m_TagString: buttonAudio
@@ -144,11 +143,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &5042593434820854580
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2551210047709671713}
-  m_Enabled: 1

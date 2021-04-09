@@ -14,9 +14,6 @@ public class VideoControlsLineRenderer : MonoBehaviour
     private Gradient savedGradient;
     private Vector3 savedControllerModelTransform;
 
-    public string rightHandControllerString = "RightHand Controller";
-    public string leftHandControllerString = "LeftHand Controller";
-
     //Default Gradient
     private Gradient hiddenGradient;
     GradientColorKey[] colorKey;
@@ -28,12 +25,7 @@ public class VideoControlsLineRenderer : MonoBehaviour
     {
         videoControlsManager = gameObject.GetComponent<VideoControlsManager>();
 
-        if(GameObject.Find(rightHandControllerString) != null)
-            activeController = GameObject.Find(rightHandControllerString);
-        else if(GameObject.Find(leftHandControllerString) != null)
-            activeController = GameObject.Find(leftHandControllerString);
-        else
-            return;
+        activeController = GameObject.Find("Controller");
 
         //Line Renderer
         savedGradient = activeController.GetComponent<XRInteractorLineVisual>().invalidColorGradient;

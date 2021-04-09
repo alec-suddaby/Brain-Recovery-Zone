@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.UI;
+using Unity.XR.PXR;
 
 public class controllerButtonActiveDetection : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class controllerButtonActiveDetection : MonoBehaviour
         {
             gameObject.GetComponent<Button>().interactable = true;
         }
+
+        //Debug.Log("Controller hand: " + PXR_Input.GetDominantHand());
     }
 
     public void SetXRNodeLeft()

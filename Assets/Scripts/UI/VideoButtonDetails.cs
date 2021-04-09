@@ -21,9 +21,6 @@ public class VideoButtonDetails : MonoBehaviour
     public Sprite videoBackground; 
     public bool menuVideoLoopCheck = false;
 
-    // Loop save
-    private LoopFunctionSave loopFunctionSave;
-
     // Audio popup
     [SerializeField]
     private MenuManager menuManager;
@@ -80,8 +77,15 @@ public class VideoButtonDetails : MonoBehaviour
     // Manually call this function when this video button is pressed. It will then send a save of the bool to the Persistent VR if the video should loop or not.
     public void SaveLoopPreferance()
     {
-        loopFunctionSave = FindObjectOfType<LoopFunctionSave>();
-        loopFunctionSave.loopSettingSave = menuVideoLoopCheck;
+        // Loop video 1 = yes 0 = no
+        if(menuVideoLoopCheck == true)
+        {
+            PlayerPrefs.SetInt("LoopVideo", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("LoopVideo", 0);
+        }
     }
 
     public void TriggerAudioPrompt()

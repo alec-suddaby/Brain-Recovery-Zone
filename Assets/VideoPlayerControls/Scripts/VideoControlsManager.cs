@@ -68,10 +68,6 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	public bool followHeadPosition = true;
 	private float cameraYRotation;
 
-	//If video should loop
-	public bool videoLoop = false;
-	private LoopFunctionSave loopFunctionSave;
-
 	//Clickable Down Objects
 	private Component[] pointerDetectionArray;
 	private bool pointerDownSwitch = false;
@@ -80,7 +76,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	[Tooltip("Set this to true to set a custom back button location")]
 	public bool setVideoStandalone = false;
 	public string setBackScene;
-
+	public StandaloneSingleMenuManager standaloneMenuManager;
 
     void GetDevice()
     {
@@ -111,13 +107,19 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
 		muteButton.SetActive(true);
 		unmuteButton.SetActive(false);
-
-		loopFunctionSave = FindObjectOfType<LoopFunctionSave>();
-		videoLoop = loopFunctionSave.loopSettingSave;
-		loopToggle.isOn = videoLoop;
+		
+		if(PlayerPrefs.GetInt("LoopVideo") == 1)
+		{
+			loopToggle.isOn = true;
+		}
+		else
+		{
+			loopToggle.isOn = false;
+		}
 		loopToggle.onValueChanged.AddListener(delegate {
 			LoopToggleValueChanged(loopToggle);
 		});
+
 
 		audioVolumePanel.SetActive(false);
 
@@ -286,13 +288,13 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 			OnPauseButton();
 			break;
 			case MediaPlayerEvent.EventType.ReadyToPlay:
-			//Debug.Log("Ready to play");
+			Debug.Log("Ready to play");
 			break;
 			case MediaPlayerEvent.EventType.Started:
-			//Debug.Log("Started");
+			Debug.Log("Started");
 			break;
 			case MediaPlayerEvent.EventType.FirstFrameReady:
-			//Debug.Log("First frame ready");
+			Debug.Log("First frame ready");
 			skyboxMediaPlayer.Control.SetVolume(setAudioVolumeSliderValue);
 			if(/*defaultAppVolumeComponent != null && */ PlayerPrefs.GetInt("PlayMute") == 1){OnMuteButton();}
 			audioVolumeSlider.value = setAudioVolumeSliderValue;
@@ -322,15 +324,32 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
     {
 		returningToMenu = true;
 		
-		if(setVideoStandalone == true)
+		if(setVideoStandalone == true && standaloneMenuManager == null)
 		{
 			SceneLoader.Instance.LoadNewScene(setBackScene);
+		}
+		else if(setVideoStandalone == true && standaloneMenuManager != null)
+		{
+			skyboxMediaPlayer.Control.Stop();
+			skyboxMediaPlayer.Control.Rewind();
+			standaloneMenuManager.CloseVideoPlane();
 		}
 		else
 		{
 			SceneLoader.Instance.ReturnToMenu();
 		}		
     }
+
+	// Only for SLT videos within the same scene
+	public void ExitSameSceneVideo()
+	{
+		
+		
+		// pause video
+		// reset it
+		// hide current layer
+		// enable the menu layer
+	}
 
     public void HideVideoControls()
     {

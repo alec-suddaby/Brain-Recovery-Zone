@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 1638441166}
   - component: {fileID: 1638441169}
   - component: {fileID: 1638441170}
+  - component: {fileID: 1638441171}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -809,6 +810,14 @@ MonoBehaviour:
   _intensity: 1
   _color: {r: 0, g: 0, b: 0, a: 1}
   _fadeMaterial: {fileID: 2100000, guid: 3b16a9eba83cf8044894efc6565c05fa, type: 2}
+--- !u!81 &1638441171
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638441165}
+  m_Enabled: 1
 --- !u!1 &1662852626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,8 +1237,13 @@ PrefabInstance:
     - target: {fileID: 2921009128364378681, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}
       propertyPath: masterXRNode
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2921009128364378681, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: xRController
+      value: 
+      objectReference: {fileID: 1662852631}
     - target: {fileID: 3419841541199783761, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}
       propertyPath: menuStatus
@@ -1328,6 +1342,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 7877548083535547789, guid: ca39a9a09043c58488042940e079d1fb, type: 3}
+    - {fileID: 3419841541199783761, guid: ca39a9a09043c58488042940e079d1fb, type: 3}
+    - {fileID: 7624795785687882151, guid: ca39a9a09043c58488042940e079d1fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca39a9a09043c58488042940e079d1fb, type: 3}
 --- !u!114 &1745851943 stripped
 MonoBehaviour:
