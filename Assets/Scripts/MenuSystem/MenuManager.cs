@@ -310,8 +310,17 @@ public class MenuManager : MonoBehaviour
 
     void SavePanelHistory()
     {        
-        // Save the current panel to Player Prefs
-        PlayerPrefs.SetString("SavedCurrentPanel", currentPanel.ToString());
+        // Check if the current panel is the audio popup
+        if(currentPanel.ToString() == "Panel_Audio (Panel)")
+        {
+            int panelHistoryCountTotal = panelHistory.Count;
+            PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal].ToString());
+        }
+        else
+        {
+            // Save the current panel to Player Prefs
+            PlayerPrefs.SetString("SavedCurrentPanel", currentPanel.ToString());
+        }
 
         // Save Panel history to Player Prefs history
         int panelHistoryCount = panelHistory.Count;

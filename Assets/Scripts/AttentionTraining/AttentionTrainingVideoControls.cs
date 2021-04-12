@@ -11,9 +11,6 @@ using TMPro;
 
 public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 {
- 
-
-
     [Header("Media Player")]
     public MediaPlayer skyboxMediaPlayer;
 	public TextMeshProUGUI timeCount;
@@ -269,12 +266,12 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
         if(PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 1)
         {
             isMute = true;
-            muteIndication = " [Mute]";
+            muteIndication = "<sprite index=[1]>";
         }
         else if (PlayerPrefs.GetInt("PlayAttentionTrainingMute") == 0)
         {
             isMute = false;
-            muteIndication = " [Vol]";
+            muteIndication = "<sprite index=[0]>";
         }
         else
         {

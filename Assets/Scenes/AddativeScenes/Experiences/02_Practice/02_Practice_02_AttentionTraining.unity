@@ -659,6 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c00a806f8628c41835cbe90a936d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistentLogo: {fileID: 873199251}
+  menuBackButton: {fileID: 8488745}
+  defaultPanel: {fileID: 1087116186}
 --- !u!224 &310924794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1003,7 +1006,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 641f4e3328f9f8a4c9eb0b4e1175bf8e, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -2937,9 +2940,6 @@ MonoBehaviour:
   mildResultsTextBox: {fileID: 1544550362}
   moderateResultsTextBox: {fileID: 313682380}
   severeResultsTextBox: {fileID: 1312865532}
-  mildResultsList: []
-  moderateResultsList: []
-  severeResultsList: []
   enableAudioButton: {fileID: 376917004}
   disableAudioButton: {fileID: 725758042}
 --- !u!222 &1087116191
@@ -3272,7 +3272,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 641f4e3328f9f8a4c9eb0b4e1175bf8e, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -3650,7 +3650,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 641f4e3328f9f8a4c9eb0b4e1175bf8e, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
