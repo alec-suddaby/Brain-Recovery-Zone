@@ -379,10 +379,10 @@ MonoBehaviour:
   m_SubtitleLocation: 2
   m_SubtitlePath: 
   m_AudioHeadTransform: {fileID: 0}
-  m_AudioFocusEnabled: 1
+  m_AudioFocusEnabled: 0
   m_AudioFocusTransform: {fileID: 0}
-  m_AudioFocusWidthDegrees: 90
-  m_AudioFocusOffLevelDB: 0
+  m_AudioFocusWidthDegrees: 47.9
+  m_AudioFocusOffLevelDB: -21.21
   m_events:
     m_PersistentCalls:
       m_Calls: []
@@ -407,7 +407,7 @@ MonoBehaviour:
     forceAudioOutputDeviceName: 
     preferredFilters: []
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
   _optionsMacOSX:
     overridePath: 0
     pathLocation: 2
@@ -450,7 +450,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
@@ -2515,7 +2515,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &558960404
 Canvas:
   m_ObjectHideFlags: 0

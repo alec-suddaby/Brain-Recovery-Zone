@@ -13,9 +13,9 @@ public class ConnectMainCamera : MonoBehaviour
     private UpdateStereoMaterial findStereoMaterial;
     private MediaPlayer findMediaPlayer;
     
-    void Awake()
+    void Start()
     {
-       if(GetComponent<Canvas>() != null)
+        if(GetComponent<Canvas>() != null)
        {
             //Debug.Log("Looking for Main Camera for Canvas");
             findCanvas = GetComponent<Canvas>();
@@ -29,12 +29,19 @@ public class ConnectMainCamera : MonoBehaviour
             findStereoMaterial._camera = Camera.main;
        }
 
-       if(GetComponent<MediaPlayer>() != null)
+        if(GetComponent<MediaPlayer>() != null)
        {
            //Debug.Log("Looking for Main Camera for MediaPlayer");
            findMediaPlayer = GetComponent<MediaPlayer>();
            findMediaPlayer.AudioHeadTransform = Camera.main.transform;
            findMediaPlayer.AudioFocusTransform = Camera.main.transform;
+       }
+
+        if(GetComponent<UpdateStereoMaterial>() != null)
+       {
+           //Debug.Log("Looking for Main Camera for Update Stereo Material");
+           findStereoMaterial = GetComponent<UpdateStereoMaterial>();
+           findStereoMaterial._camera = Camera.main;
        }
 
        //Debug.Log("end of camera search");

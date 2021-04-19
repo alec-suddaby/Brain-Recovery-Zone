@@ -125,16 +125,33 @@ public class Panel : MonoBehaviour
             Vector2 targetValue = new Vector2( (primary2DAxisValue.x * scrollRateModifier) / totalWidth.x , ((primary2DAxisValue.y + 1 ) * scrollRateModifier) / totalWidth.y ) ;
             //Vector2 targetPercentage = new Vector2 (targetValue/totalWidth; 
 
+            // Debug
+            //Debug.Log("total height = " + totalWidth.y);
+            //Debug.Log("target Value Y = " + targetValue.y);
+            //Debug.Log("primary Y Axis Value = " + primary2DAxisValue.y);
+            //Debug.Log("scroll Rect Position Before = " + currentScrollRect.verticalNormalizedPosition);
+
             currentScrollRect.horizontalNormalizedPosition = currentScrollRect.horizontalNormalizedPosition + targetValue.x;
             currentScrollRect.verticalNormalizedPosition = currentScrollRect.verticalNormalizedPosition + targetValue.y;
+
+            //Debug.Log("scroll Rect Position After = " + currentScrollRect.verticalNormalizedPosition);
+
         } else if(buttonWrap && currentScrollRect && primary2DAxisIsChosen == true)
         {
             Vector2 totalWidth = buttonWrap.GetComponent<RectTransform>().sizeDelta;
             Vector2 targetValue = new Vector2( (primary2DAxisValue.x * scrollRateModifier) / totalWidth.x , (primary2DAxisValue.y * scrollRateModifier) / totalWidth.y ) ;
             //Vector2 targetPercentage = new Vector2 (targetValue/totalWidth; 
 
+            // Debug
+            //Debug.Log("total height = " + totalWidth.y);
+            //Debug.Log("target Value Y = " + targetValue.y);
+            //Debug.Log("primary Y Axis Value = " + primary2DAxisValue.y);
+            //Debug.Log("scroll Rect Position Before = " + currentScrollRect.verticalNormalizedPosition);
+
             currentScrollRect.horizontalNormalizedPosition = currentScrollRect.horizontalNormalizedPosition + targetValue.x;
             currentScrollRect.verticalNormalizedPosition = currentScrollRect.verticalNormalizedPosition + targetValue.y;
+
+            //Debug.Log("scroll Rect Position After = " + currentScrollRect.verticalNormalizedPosition);
         }
 
         // Oculus
@@ -149,5 +166,8 @@ public class Panel : MonoBehaviour
             currentScrollRect.verticalNormalizedPosition = currentScrollRect.verticalNormalizedPosition + targetValue.y;
         }
         */
+
+
+        
     }
 }
