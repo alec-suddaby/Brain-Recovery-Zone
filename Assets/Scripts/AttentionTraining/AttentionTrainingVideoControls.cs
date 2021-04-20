@@ -39,9 +39,9 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 	private bool pointerDownSwitch = false;
 
     [Header("Attention Training Level")]
-    public bool mildLevel = false;
-    public bool moderateLevel = false;
-    public bool severeLevel = false;
+    public bool level1Level = false;
+    public bool level2Level = false;
+    public bool level3Level = false;
     private bool dataSaved = false;
 
 
@@ -191,9 +191,9 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
         OnPauseButton();
 
         // Check where to save data to
-        if (mildLevel && !dataSaved){mildSaveData();}
-        else if (moderateLevel && !dataSaved){moderateSaveData();}
-        else if (severeLevel && !dataSaved){severeSaveData();}
+        if (level1Level && !dataSaved){level1SaveData();}
+        else if (level2Level && !dataSaved){level2SaveData();}
+        else if (level3Level && !dataSaved){level3SaveData();}
         else{Debug.Log("Error saving Attention Training time");}
         // Load back to the Attention Training Menu
         SceneLoader.Instance.LoadNewScene("02_Practice_02_AttentionTraining");
@@ -205,49 +205,49 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 		skyboxMediaPlayer.Control.Pause();
 	}
 
-    private void mildSaveData()
+    private void level1SaveData()
     {        
         //Save time string to player prefs
-        PlayerPrefs.SetString("MildLastResult", currentTime + muteIndication);
+        PlayerPrefs.SetString("Level1LastResult", currentTime + muteIndication);
 
         // Get the current count value
-        int mildSavedListCount = PlayerPrefs.GetInt("MildCount"); 
+        int level1SavedListCount = PlayerPrefs.GetInt("Level1Count"); 
         // Save the latest result string to player prefs
-        PlayerPrefs.SetString("MildResults" + mildSavedListCount, currentTime + muteIndication);
+        PlayerPrefs.SetString("Level1Results" + level1SavedListCount, currentTime + muteIndication);
         // Add one more number to the count
-        mildSavedListCount = mildSavedListCount + 1;
+        level1SavedListCount = level1SavedListCount + 1;
         // Save the new count back to player prefs
-        PlayerPrefs.SetInt("MildCount", mildSavedListCount);
+        PlayerPrefs.SetInt("Level1Count", level1SavedListCount);
         dataSaved = true;
     }
-    private void moderateSaveData()
+    private void level2SaveData()
     {
         //Save time string to player prefs
-        PlayerPrefs.SetString("ModerateLastResult", currentTime + muteIndication);
+        PlayerPrefs.SetString("Level2LastResult", currentTime + muteIndication);
 
         // Get the current count value
-        int moderateSavedListCount = PlayerPrefs.GetInt("ModerateCount"); 
+        int level2SavedListCount = PlayerPrefs.GetInt("Level2Count"); 
         // Save the latest result string to player prefs
-        PlayerPrefs.SetString("ModerateResults" + moderateSavedListCount, currentTime + muteIndication);
+        PlayerPrefs.SetString("Level2Results" + level2SavedListCount, currentTime + muteIndication);
         // Add one more number to the count
-        moderateSavedListCount = moderateSavedListCount + 1;
+        level2SavedListCount = level2SavedListCount + 1;
         // Save the new count back to player prefs
-        PlayerPrefs.SetInt("ModerateCount", moderateSavedListCount);
+        PlayerPrefs.SetInt("Level2Count", level2SavedListCount);
         dataSaved = true;
     }
-    private void severeSaveData()
+    private void level3SaveData()
     {
         //Save time string to player prefs
-        PlayerPrefs.SetString("SevereLastResult", currentTime + muteIndication);
+        PlayerPrefs.SetString("Level3LastResult", currentTime + muteIndication);
 
         // Get the current count value
-        int severeSavedListCount = PlayerPrefs.GetInt("SevereCount"); 
+        int level3SavedListCount = PlayerPrefs.GetInt("Level3Count"); 
         // Save the latest result string to player prefs
-        PlayerPrefs.SetString("SevereResults" + severeSavedListCount, currentTime + muteIndication);
+        PlayerPrefs.SetString("Level3Results" + level3SavedListCount, currentTime + muteIndication);
         // Add one more number to the count
-        severeSavedListCount = severeSavedListCount + 1;
+        level3SavedListCount = level3SavedListCount + 1;
         // Save the new count back to player prefs
-        PlayerPrefs.SetInt("SevereCount", severeSavedListCount);
+        PlayerPrefs.SetInt("Level3Count", level3SavedListCount);
         dataSaved = true;
     }
 

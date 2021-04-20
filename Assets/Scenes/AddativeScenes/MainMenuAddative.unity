@@ -5050,7 +5050,9 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: menuDescription
-      value: Description
+      value: Following injury, attention can be affected and our brains can quickly
+        become overloaded. Using real life, meaningful environments to increase stimulation
+        can help your brain cope with the demands of the outside world
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831a95603d27d194da6a7a65d811f014, type: 3}
@@ -8547,33 +8549,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
+        type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 228583868}
+      objectReference: {fileID: 1810095980}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetCurrentWithHistory
+      value: PlayClickSoundLinked
       objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
+      value: FindButtonAudioGameObject, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1211833530}
+      objectReference: {fileID: 0}
     - target: {fileID: 5420008124213711118, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Panel, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5537374205933482953, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
@@ -8588,7 +8595,7 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: comingSoon
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
@@ -14943,7 +14950,8 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: menuDescription
-      value: Description
+      value: Following injury and trauma, getting enough sleep can be a challenge.
+        Develop your own personalised action plan here
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831a95603d27d194da6a7a65d811f014, type: 3}
@@ -19532,7 +19540,9 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: menuDescription
-      value: Description
+      value: Our brains can find it difficult to keep a lid on how we feel and think
+        following injury. Learn to identify triggers and develop an action plan to
+        help
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831a95603d27d194da6a7a65d811f014, type: 3}
@@ -28212,6 +28222,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807059597}
   m_CullTransparentMesh: 1
+--- !u!114 &1810095980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8413234903417107448, guid: 831a95603d27d194da6a7a65d811f014,
+    type: 3}
+  m_PrefabInstance: {fileID: 654697419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9da54f79b4a5b74783f840366e5106f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1823918689
 GameObject:
   m_ObjectHideFlags: 0
@@ -30562,7 +30584,7 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: menuDescription
-      value: description
+      value: Exercises, advice and information to support communication after a stroke
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831a95603d27d194da6a7a65d811f014, type: 3}

@@ -50,20 +50,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_12_UnderwaterWorld.unity
     guid: f890453c6b9a63b47b202b503fea2c5e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Speech.unity
     guid: dc83a9f40fa449749a63c827d71db713
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining.unity
     guid: 4593a0045dd01b846ab8eb2e579eb343
-  - enabled: 1
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_01_Mild.unity
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level1.unity
     guid: 6c776a693fc7bfa409cc1d7f704fff05
-  - enabled: 1
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_02_Moderate.unity
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level2.unity
     guid: 1a7363e550ff60e4f885627d96de76d0
-  - enabled: 1
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_03_Severe.unity
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level3.unity
     guid: 9f35367fbfbd5534db5a85fde50e99d9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,

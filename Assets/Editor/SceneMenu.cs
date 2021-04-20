@@ -39,22 +39,22 @@ public static class SceneMenu
         OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining");
     }
 
-    [MenuItem("Scenes/Practise/AttentionTraining/Mild")]
-    public static void OpenPractiseAttentionTrainingMild()
+    [MenuItem("Scenes/Practise/AttentionTraining/Level1")]
+    public static void OpenPractiseAttentionTrainingLevel1()
     {
-        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_01_Mild");
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level1");
     }
 
-    [MenuItem("Scenes/Practise/AttentionTraining/Moderate")]
-    public static void OpenPractiseAttentionTrainingModerate()
+    [MenuItem("Scenes/Practise/AttentionTraining/Level2")]
+    public static void OpenPractiseAttentionTrainingLevel2()
     {
-        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_02_Moderate");
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level2");
     }
 
-    [MenuItem("Scenes/Practise/AttentionTraining/Severe")]
-    public static void OpenPractiseAttentionTrainingSevere()
+    [MenuItem("Scenes/Practise/AttentionTraining/Level3")]
+    public static void OpenPractiseAttentionTrainingLevel3()
     {
-        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_03_Severe");
+        OpenScene("Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level3");
     }
 
     //////////////

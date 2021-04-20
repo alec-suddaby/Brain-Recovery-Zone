@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 91533584}
   - component: {fileID: 91533585}
   m_Layer: 5
-  m_Name: Col_Severe
+  m_Name: Col_Level3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 02_Practice_02_AttentionTraining_02_Moderate
+            m_StringArgument: 02_Practice_02_AttentionTraining_Level2
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 608909463}
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 497236581}
   - component: {fileID: 497236582}
   m_Layer: 5
-  m_Name: Col_Moderate
+  m_Name: Col_Level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1823,7 +1823,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 02_Practice_02_AttentionTraining_01_Mild
+            m_StringArgument: 02_Practice_02_AttentionTraining_Level1
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 608909463}
@@ -2265,7 +2265,7 @@ GameObject:
   - component: {fileID: 867082973}
   - component: {fileID: 867082974}
   m_Layer: 5
-  m_Name: Col_Mild
+  m_Name: Col_Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2733,7 +2733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moderate
+  m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6cb6ed8e19bb0548ba49494e49adf61, type: 2}
   m_sharedMaterial: {fileID: -4530269119624719380, guid: d6cb6ed8e19bb0548ba49494e49adf61,
@@ -2937,9 +2937,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaf8473cf9f49547a43aeb1d4bd6164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mildResultsTextBox: {fileID: 1544550362}
-  moderateResultsTextBox: {fileID: 313682380}
-  severeResultsTextBox: {fileID: 1312865532}
+  level1ResultsTextBox: {fileID: 1544550362}
+  level2ResultsTextBox: {fileID: 313682380}
+  level3ResultsTextBox: {fileID: 1312865532}
   enableAudioButton: {fileID: 376917004}
   disableAudioButton: {fileID: 725758042}
 --- !u!222 &1087116191
@@ -4300,7 +4300,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 02_Practice_02_AttentionTraining_03_Severe
+            m_StringArgument: 02_Practice_02_AttentionTraining_Level3
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 608909463}
@@ -4471,7 +4471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mild
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6cb6ed8e19bb0548ba49494e49adf61, type: 2}
   m_sharedMaterial: {fileID: -4530269119624719380, guid: d6cb6ed8e19bb0548ba49494e49adf61,
@@ -5003,7 +5003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Severe
+  m_text: Level 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6cb6ed8e19bb0548ba49494e49adf61, type: 2}
   m_sharedMaterial: {fileID: -4530269119624719380, guid: d6cb6ed8e19bb0548ba49494e49adf61,

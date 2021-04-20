@@ -6,24 +6,24 @@ using TMPro;
 public class AttentionTrainingMenu : MonoBehaviour
 {
     // Text areas
-    public TextMeshProUGUI mildResultsTextBox;
-    public TextMeshProUGUI moderateResultsTextBox;
-    public TextMeshProUGUI severeResultsTextBox;
+    public TextMeshProUGUI level1ResultsTextBox;
+    public TextMeshProUGUI level2ResultsTextBox;
+    public TextMeshProUGUI level3ResultsTextBox;
 
     // Lists
-    private List<string> mildResultsList = new List<string>();
-    private List<string> moderateResultsList = new List<string>();
-    private List<string> severeResultsList = new List<string>();
+    private List<string> level1ResultsList = new List<string>();
+    private List<string> level2ResultsList = new List<string>();
+    private List<string> level3ResultsList = new List<string>();
 
     // Last items added
-    private string mildResultLastAttempt;
-    private string moderateResultLastAttempt;
-    private string severeResultLastAttempt;
+    private string level1ResultLastAttempt;
+    private string level2ResultLastAttempt;
+    private string level3ResultLastAttempt;
 
     // Null Count
-    private int mildNullCount = 0;
-    private int moderateNullCount = 0;
-    private int severeNullCount = 0;
+    private int level1NullCount = 0;
+    private int level2NullCount = 0;
+    private int level3NullCount = 0;
 
     [Header("Audio Button")]
     public GameObject enableAudioButton;
@@ -33,26 +33,26 @@ public class AttentionTrainingMenu : MonoBehaviour
     void Start()
     {
         // Get last attempt
-        MildResultsLastAttempt();
-        ModerateResultsLastAttempt();
-        SevereResultsLastAttempt();
+        Level1ResultsLastAttempt();
+        Level2ResultsLastAttempt();
+        Level3ResultsLastAttempt();
 
         LoadResults();
 
         // Sort the lists
-        MildResultsSort();
-        ModerateResultsSort();
-        SevereResultsSort();
+        Level1ResultsSort();
+        Level2ResultsSort();
+        Level3ResultsSort();
         
         // Topup any values that need to be null
-        MildResultsLengthCheck();
-        ModerateResultsLengthCheck();
-        SevereResultsLengthCheck();
+        Level1ResultsLengthCheck();
+        Level2ResultsLengthCheck();
+        Level3ResultsLengthCheck();
   
         // Print Lists
-        MildResultsListPrint();
-        ModerateResultsListPrint();
-        SevereResultsListPrint();
+        Level1ResultsListPrint();
+        Level2ResultsListPrint();
+        Level3ResultsListPrint();
 
         SaveReults();
 
@@ -71,421 +71,421 @@ public class AttentionTrainingMenu : MonoBehaviour
     }
 
     // Get the last result or set it to --:--:--, and then add to the list
-    private void MildResultsLastAttempt()
+    private void Level1ResultsLastAttempt()
     {
-        mildResultLastAttempt = PlayerPrefs.GetString("MildLastResult");
+        level1ResultLastAttempt = PlayerPrefs.GetString("Level1LastResult");
 
-        if(mildResultLastAttempt == "")
+        if(level1ResultLastAttempt == "")
         {
-            mildResultLastAttempt = "--:--:--";
+            level1ResultLastAttempt = "--:--:--";
         }
     }
-    private void ModerateResultsLastAttempt()
+    private void Level2ResultsLastAttempt()
     {
-        moderateResultLastAttempt = PlayerPrefs.GetString("ModerateLastResult");
+        level2ResultLastAttempt = PlayerPrefs.GetString("Level2LastResult");
 
-        if(moderateResultLastAttempt == "")
+        if(level2ResultLastAttempt == "")
         {
-            moderateResultLastAttempt = "--:--:--";
+            level2ResultLastAttempt = "--:--:--";
         }
     }
-    private void SevereResultsLastAttempt()
+    private void Level3ResultsLastAttempt()
     {
-        severeResultLastAttempt = PlayerPrefs.GetString("SevereLastResult");
+        level3ResultLastAttempt = PlayerPrefs.GetString("Level3LastResult");
 
-        if(severeResultLastAttempt == "")
+        if(level3ResultLastAttempt == "")
         {
-            severeResultLastAttempt = "--:--:--";
+            level3ResultLastAttempt = "--:--:--";
         }
     }
     
     // Sort each list from low to high then swap from high to low
-    private void MildResultsSort()
+    private void Level1ResultsSort()
     {
-        mildResultsList.Sort();
+        level1ResultsList.Sort();
 
-        List<string> reverseMildResultsList = new List<string>();
-        for (int i = mildResultsList.Count; i --> 0;)
+        List<string> reverseLevel1ResultsList = new List<string>();
+        for (int i = level1ResultsList.Count; i --> 0;)
         {
-            reverseMildResultsList.Add(mildResultsList[i]);
+            reverseLevel1ResultsList.Add(level1ResultsList[i]);
         }
 
-        mildResultsList = reverseMildResultsList;
+        level1ResultsList = reverseLevel1ResultsList;
     }
-    private void ModerateResultsSort()
+    private void Level2ResultsSort()
     {
-        moderateResultsList.Sort();
+        level2ResultsList.Sort();
 
-        List<string> reverseModerateResultsList = new List<string>();
-        for (int i = moderateResultsList.Count; i --> 0;)
+        List<string> reverseLevel2ResultsList = new List<string>();
+        for (int i = level2ResultsList.Count; i --> 0;)
         {
-            reverseModerateResultsList.Add(moderateResultsList[i]);
+            reverseLevel2ResultsList.Add(level2ResultsList[i]);
         }
 
-        moderateResultsList = reverseModerateResultsList;
+        level2ResultsList = reverseLevel2ResultsList;
     }
-    private void SevereResultsSort()
+    private void Level3ResultsSort()
     {
-        severeResultsList.Sort();
+        level3ResultsList.Sort();
 
-        List<string> reverseSevereResultsList = new List<string>();
-        for (int i = severeResultsList.Count; i --> 0;)
+        List<string> reverseLevel3ResultsList = new List<string>();
+        for (int i = level3ResultsList.Count; i --> 0;)
         {
-            reverseSevereResultsList.Add(severeResultsList[i]);
+            reverseLevel3ResultsList.Add(level3ResultsList[i]);
         }
 
-        severeResultsList = reverseSevereResultsList;
+        level3ResultsList = reverseLevel3ResultsList;
     }
 
     // Check the number of items in the list and for any item that isn't there, add the --:--:-- value into the list to top it up to at least 5
-    private void MildResultsLengthCheck()
+    private void Level1ResultsLengthCheck()
     {
-        if(mildResultsList.Count == 0)
+        if(level1ResultsList.Count == 0)
         {
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
         }
-        else if(mildResultsList.Count == 1)
+        else if(level1ResultsList.Count == 1)
         {
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
         }
-        else if(mildResultsList.Count == 2)
+        else if(level1ResultsList.Count == 2)
         {
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
         }
-        else if(mildResultsList.Count == 3)
+        else if(level1ResultsList.Count == 3)
         {
-            mildResultsList.Add("--:--:--");
-            mildResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
         }
-        else if(mildResultsList.Count == 4)
+        else if(level1ResultsList.Count == 4)
         {
-            mildResultsList.Add("--:--:--");
+            level1ResultsList.Add("--:--:--");
         }
     }
-    private void ModerateResultsLengthCheck()
+    private void Level2ResultsLengthCheck()
     {
-        if(moderateResultsList.Count == 0)
+        if(level2ResultsList.Count == 0)
         {
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
         }
-        else if(moderateResultsList.Count == 1)
+        else if(level2ResultsList.Count == 1)
         {
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
         }
-        else if(moderateResultsList.Count == 2)
+        else if(level2ResultsList.Count == 2)
         {
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
         }
-        else if(moderateResultsList.Count == 3)
+        else if(level2ResultsList.Count == 3)
         {
-            moderateResultsList.Add("--:--:--");
-            moderateResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
         }
-        else if(moderateResultsList.Count == 4)
+        else if(level2ResultsList.Count == 4)
         {
-            moderateResultsList.Add("--:--:--");
+            level2ResultsList.Add("--:--:--");
         }
     }
-    private void SevereResultsLengthCheck()
+    private void Level3ResultsLengthCheck()
     {
-        if(severeResultsList.Count == 0)
+        if(level3ResultsList.Count == 0)
         {
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
         }
-        else if(severeResultsList.Count == 1)
+        else if(level3ResultsList.Count == 1)
         {
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
         }
-        else if(severeResultsList.Count == 2)
+        else if(level3ResultsList.Count == 2)
         {
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
         }
-        else if(severeResultsList.Count == 3)
+        else if(level3ResultsList.Count == 3)
         {
-            severeResultsList.Add("--:--:--");
-            severeResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
         }
-        else if(severeResultsList.Count == 4)
+        else if(level3ResultsList.Count == 4)
         {
-            severeResultsList.Add("--:--:--");
+            level3ResultsList.Add("--:--:--");
         }
     }
 
     // Print the list top 5 and the latest values that was added
-    private void MildResultsListPrint()
+    private void Level1ResultsListPrint()
     {
-        mildResultsTextBox.text = 
+        level1ResultsTextBox.text = 
         "Last attempt" + "\n" +
-        mildResultLastAttempt + "\n" + "\n" + "\n" +
+        level1ResultLastAttempt + "\n" + "\n" + "\n" +
         "Personal Best" + "\n" +
-        mildResultsList[0] + "\n" +
-        mildResultsList[1] + "\n" +
-        mildResultsList[2] + "\n" +
-        mildResultsList[3] + "\n" +
-        mildResultsList[4] + "\n"
+        level1ResultsList[0] + "\n" +
+        level1ResultsList[1] + "\n" +
+        level1ResultsList[2] + "\n" +
+        level1ResultsList[3] + "\n" +
+        level1ResultsList[4] + "\n"
         ;
     }
-    private void ModerateResultsListPrint()
+    private void Level2ResultsListPrint()
     {
-        moderateResultsTextBox.text = 
+        level2ResultsTextBox.text = 
         "Last attempt" + "\n" +
-        moderateResultLastAttempt + "\n" + "\n" + "\n" +
+        level2ResultLastAttempt + "\n" + "\n" + "\n" +
         "Personal Best" + "\n" +
-        moderateResultsList[0] + "\n" +
-        moderateResultsList[1] + "\n" +
-        moderateResultsList[2] + "\n" +
-        moderateResultsList[3] + "\n" +
-        moderateResultsList[4] + "\n"
+        level2ResultsList[0] + "\n" +
+        level2ResultsList[1] + "\n" +
+        level2ResultsList[2] + "\n" +
+        level2ResultsList[3] + "\n" +
+        level2ResultsList[4] + "\n"
         ;
     }
-    private void SevereResultsListPrint()
+    private void Level3ResultsListPrint()
     {
-        severeResultsTextBox.text = 
+        level3ResultsTextBox.text = 
         "Last attempt" + "\n" +
-        severeResultLastAttempt + "\n" + "\n" + "\n" +
+        level3ResultLastAttempt + "\n" + "\n" + "\n" +
         "Personal Best" + "\n" +
-        severeResultsList[0] + "\n" +
-        severeResultsList[1] + "\n" +
-        severeResultsList[2] + "\n" +
-        severeResultsList[3] + "\n" +
-        severeResultsList[4] + "\n"
+        level3ResultsList[0] + "\n" +
+        level3ResultsList[1] + "\n" +
+        level3ResultsList[2] + "\n" +
+        level3ResultsList[3] + "\n" +
+        level3ResultsList[4] + "\n"
         ;
     }
     
     // Save the results to player prefs
     public void SaveReults()
     {
-        SaveMildResults();
-        SaveModerateResults();
-        SaveSevereResults();
+        SaveLevel1Results();
+        SaveLevel2Results();
+        SaveLevel3Results();
     }
-    private void SaveMildResults()
+    private void SaveLevel1Results()
     {
-        for(int i = 0; i < mildResultsList.Count; i++)
+        for(int i = 0; i < level1ResultsList.Count; i++)
         {
             // Don't add the null string to the Player Prefs
-            if(mildResultsList[i] != "--:--:--")
+            if(level1ResultsList[i] != "--:--:--")
             {
-                PlayerPrefs.SetString("MildResults" + i, mildResultsList[i]);
+                PlayerPrefs.SetString("Level1Results" + i, level1ResultsList[i]);
             }
             else
             {
                 // Count the amount of null strings
-                mildNullCount = mildNullCount + 1;
+                level1NullCount = level1NullCount + 1;
             }
         }
 
         // Check if the count is == 0 because if you subtract the null count from 0 you get a negative count and results won't save
-        if (mildResultsList.Count != 0)
+        if (level1ResultsList.Count != 0)
         {
             // Ensure the null strings are subtracted from the value of the count
-            int mildCountSave =  mildResultsList.Count - mildNullCount;
-            PlayerPrefs.SetInt("MildCount", mildCountSave);
+            int level1CountSave =  level1ResultsList.Count - level1NullCount;
+            PlayerPrefs.SetInt("Level1Count", level1CountSave);
         }
         else
         {
-            PlayerPrefs.SetInt("MildCount", 0);
+            PlayerPrefs.SetInt("Level1Count", 0);
         }
     }
-    private void SaveModerateResults()
+    private void SaveLevel2Results()
     {
-        for(int i = 0; i < moderateResultsList.Count; i++)
+        for(int i = 0; i < level2ResultsList.Count; i++)
         {
             // Don't add the null string to the Player Prefs
-            if(moderateResultsList[i] != "--:--:--")
+            if(level2ResultsList[i] != "--:--:--")
             {
-                PlayerPrefs.SetString("ModerateResults" + i, moderateResultsList[i]);
+                PlayerPrefs.SetString("Level2Results" + i, level2ResultsList[i]);
             }
             else
             {
                 // Count the amount of null strings
-                moderateNullCount = moderateNullCount + 1;
+                level2NullCount = level2NullCount + 1;
             }
         }
 
         // Check if the count is == 0 because if you subtract the null count from 0 you get a negative count and results won't save
-        if (moderateResultsList.Count != 0)
+        if (level2ResultsList.Count != 0)
         {
             // Ensure the null strings are subtracted from the value of the count
-            int moderateCountSave =  moderateResultsList.Count - moderateNullCount;
-            PlayerPrefs.SetInt("ModerateCount", moderateCountSave);
+            int level2CountSave =  level2ResultsList.Count - level2NullCount;
+            PlayerPrefs.SetInt("Level2Count", level2CountSave);
         }
         else
         {
-            PlayerPrefs.SetInt("ModerateCount", 0);
+            PlayerPrefs.SetInt("Level2Count", 0);
         }
     }
-    private void SaveSevereResults()
+    private void SaveLevel3Results()
     {
-        for(int i = 0; i < severeResultsList.Count; i++)
+        for(int i = 0; i < level3ResultsList.Count; i++)
         {
             // Don't add the null string to the Player Prefs
-            if(severeResultsList[i] != "--:--:--")
+            if(level3ResultsList[i] != "--:--:--")
             {
-                PlayerPrefs.SetString("SevereResults" + i, severeResultsList[i]);
+                PlayerPrefs.SetString("Level3Results" + i, level3ResultsList[i]);
             }
             else
             {
                 // Count the amount of null strings
-                severeNullCount = severeNullCount + 1;
+                level3NullCount = level3NullCount + 1;
             }
         }
 
         // Check if the count is == 0 because if you subtract the null count from 0 you get a negative count and results won't save
-        if (severeResultsList.Count != 0)
+        if (level3ResultsList.Count != 0)
         {
             // Ensure the null strings are subtracted from the value of the count
-            int severeCountSave =  severeResultsList.Count - severeNullCount;
-            PlayerPrefs.SetInt("SevereCount", severeCountSave);
+            int level3CountSave =  level3ResultsList.Count - level3NullCount;
+            PlayerPrefs.SetInt("Level3Count", level3CountSave);
         }
         else
         {
-            PlayerPrefs.SetInt("SevereCount", 0);
+            PlayerPrefs.SetInt("Level3Count", 0);
         }
     }
 
     // Load results from player prefs. If there are no resuts, nothing will load.
     public void LoadResults()
     {
-        LoadMildResults();
-        LoadModerateResults();
-        LoadSevereResults();
+        LoadLevel1Results();
+        LoadLevel2Results();
+        LoadLevel3Results();
     }
-    private void LoadMildResults()
+    private void LoadLevel1Results()
     {
-        mildResultsList.Clear();
-        int mildSavedListCount = PlayerPrefs.GetInt("MildCount");
+        level1ResultsList.Clear();
+        int level1SavedListCount = PlayerPrefs.GetInt("Level1Count");
 
-        for(int i = 0; i < mildSavedListCount; i++)
+        for(int i = 0; i < level1SavedListCount; i++)
         {
-            string mildResult = PlayerPrefs.GetString("MildResults" + i);
-            mildResultsList.Add(mildResult);
+            string level1Result = PlayerPrefs.GetString("Level1Results" + i);
+            level1ResultsList.Add(level1Result);
         }
 
-        //Debug.Log("load end count: " + mildResultsList.Count);
+        //Debug.Log("load end count: " + level1ResultsList.Count);
     }
-    private void LoadModerateResults()
+    private void LoadLevel2Results()
     {
-        moderateResultsList.Clear();
-        int moderateSavedListCount = PlayerPrefs.GetInt("ModerateCount");
+        level2ResultsList.Clear();
+        int level2SavedListCount = PlayerPrefs.GetInt("Level2Count");
 
-        for(int i = 0; i < moderateSavedListCount; i++)
+        for(int i = 0; i < level2SavedListCount; i++)
         {
-            string moderateResult = PlayerPrefs.GetString("ModerateResults" + i);
-            moderateResultsList.Add(moderateResult);
+            string level2Result = PlayerPrefs.GetString("Level2Results" + i);
+            level2ResultsList.Add(level2Result);
         }
 
-        //Debug.Log("load end moderate count: " + moderateResultsList.Count);
+        //Debug.Log("load end level2 count: " + level2ResultsList.Count);
     }
-    private void LoadSevereResults()
+    private void LoadLevel3Results()
     {
-        severeResultsList.Clear();
-        int severeSavedListCount = PlayerPrefs.GetInt("SevereCount");
+        level3ResultsList.Clear();
+        int level3SavedListCount = PlayerPrefs.GetInt("Level3Count");
 
-        for(int i = 0; i < severeSavedListCount; i++)
+        for(int i = 0; i < level3SavedListCount; i++)
         {
-            string severeResult = PlayerPrefs.GetString("SevereResults" + i);
-            severeResultsList.Add(severeResult);
+            string level3Result = PlayerPrefs.GetString("Level3Results" + i);
+            level3ResultsList.Add(level3Result);
         }
 
-        //Debug.Log(severeResultsList.Count);
+        //Debug.Log(level3ResultsList.Count);
     }
 
     // Reset results from player prefs
     public void ResetResults()
     {
-        ResetMildResults();
-        ResetModerateResults();
-        ResetSevereResults();
+        ResetLevel1Results();
+        ResetLevel2Results();
+        ResetLevel3Results();
         
         // Get last attempt
-        MildResultsLastAttempt();
-        ModerateResultsLastAttempt();
-        SevereResultsLastAttempt();
+        Level1ResultsLastAttempt();
+        Level2ResultsLastAttempt();
+        Level3ResultsLastAttempt();
 
         // Reload the results
         LoadResults();
 
         // Set any null values
-        MildResultsLengthCheck();
-        ModerateResultsLengthCheck();
-        SevereResultsLengthCheck();
+        Level1ResultsLengthCheck();
+        Level2ResultsLengthCheck();
+        Level3ResultsLengthCheck();
 
         // Print Lists
-        MildResultsListPrint();
-        ModerateResultsListPrint();
-        SevereResultsListPrint();
+        Level1ResultsListPrint();
+        Level2ResultsListPrint();
+        Level3ResultsListPrint();
 
         SaveReults();
     }
-    private void ResetMildResults()
+    private void ResetLevel1Results()
     {
-        int mildSavedListCount = PlayerPrefs.GetInt("MildCount");
+        int level1SavedListCount = PlayerPrefs.GetInt("Level1Count");
 
-        for(int i = 0; i < mildSavedListCount; i++)
+        for(int i = 0; i < level1SavedListCount; i++)
         {
-            PlayerPrefs.DeleteKey("MildResults" + i);
+            PlayerPrefs.DeleteKey("Level1Results" + i);
         }
         
-        PlayerPrefs.DeleteKey("MildLastResult");
-        PlayerPrefs.DeleteKey("MildCount");
-        PlayerPrefs.SetInt("MildCount", 0);
-        mildNullCount = 0;
+        PlayerPrefs.DeleteKey("Level1LastResult");
+        PlayerPrefs.DeleteKey("Level1Count");
+        PlayerPrefs.SetInt("Level1Count", 0);
+        level1NullCount = 0;
     }
-    private void ResetModerateResults()
+    private void ResetLevel2Results()
     {
-        int moderateSavedListCount = PlayerPrefs.GetInt("ModerateCount");
+        int level2SavedListCount = PlayerPrefs.GetInt("Level2Count");
 
-        for(int i = 0; i < moderateSavedListCount; i++)
+        for(int i = 0; i < level2SavedListCount; i++)
         {
-            PlayerPrefs.DeleteKey("ModerateResults" + i);
+            PlayerPrefs.DeleteKey("Level2Results" + i);
         }
         
-        PlayerPrefs.DeleteKey("ModerateLastResult");
+        PlayerPrefs.DeleteKey("Level2LastResult");
         PlayerPrefs.DeleteKey("MorderateCount");
-        PlayerPrefs.SetInt("ModerateCount", 0);
-        moderateNullCount = 0;
+        PlayerPrefs.SetInt("Level2Count", 0);
+        level2NullCount = 0;
     }
-    private void ResetSevereResults()
+    private void ResetLevel3Results()
     {
-        int severeSavedListCount = PlayerPrefs.GetInt("SevereCount");
+        int level3SavedListCount = PlayerPrefs.GetInt("Level3Count");
 
-        for(int i = 0; i < severeSavedListCount; i++)
+        for(int i = 0; i < level3SavedListCount; i++)
         {
-            PlayerPrefs.DeleteKey("SevereResults" + i);
+            PlayerPrefs.DeleteKey("Level3Results" + i);
         }
         
-        PlayerPrefs.DeleteKey("SevereLastResult");
-        PlayerPrefs.DeleteKey("SevereCount");
-        PlayerPrefs.SetInt("SevereCount", 0);
-        severeNullCount = 0;
+        PlayerPrefs.DeleteKey("Level3LastResult");
+        PlayerPrefs.DeleteKey("Level3Count");
+        PlayerPrefs.SetInt("Level3Count", 0);
+        level3NullCount = 0;
     }
 
     public void EnableAudioPlaySound()

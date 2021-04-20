@@ -557,6 +557,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 28700218264788094, guid: 1781139c41c7f314f905f5f05971b6cf,
         type: 3}
+      propertyPath: level1Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 28700218264788094, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
       propertyPath: skyboxMediaPlayer
       value: 
       objectReference: {fileID: 1582668818}
