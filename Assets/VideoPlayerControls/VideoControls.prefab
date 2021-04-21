@@ -784,17 +784,17 @@ MonoBehaviour:
   videoSeekerSlider: {fileID: 806581440490868283}
   audioVolumeSlider: {fileID: 806581438891137500}
   audioVolumePanel: {fileID: 5556307693901154203}
-  defaultAppVolumeComponent: {fileID: 0}
   loopToggle: {fileID: 7180756207445242849}
   skyboxMediaPlayer: {fileID: 0}
   timeCount: {fileID: 3453899433164659314}
   timeDuration: {fileID: 2622817411600273193}
   rotationOffset: {fileID: 806581440341296851}
-  xRNode: 4
   returningToMenu: 0
   videoControlsOn: 0
   followHeadPosition: 1
-  videoLoop: 0
+  setVideoStandalone: 0
+  setBackScene: 
+  standaloneMenuManager: {fileID: 0}
 --- !u!223 &806581438868165022
 Canvas:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &806581438868165008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,8 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029a4e49a1cbeb443bebcfa5d11174b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandControllerString: RightHand Controller
-  leftHandControllerString: LeftHand Controller
 --- !u!1 &806581438891137502
 GameObject:
   m_ObjectHideFlags: 0
