@@ -185,24 +185,34 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
 
     public void BackToAttentionTrainingMenu()
     {
+        Debug.Log("Back to attention training menu 1");
+        
         // Set loading to true
         returningToMenu = true;
+
+        Debug.Log("Back to attention training menu 2");
         // Pause the game
         OnPauseButton();
 
+        Debug.Log("Back to attention training menu 4");
+
         // Check where to save data to
-        if (level1Level && !dataSaved){level1SaveData();}
-        else if (level2Level && !dataSaved){level2SaveData();}
-        else if (level3Level && !dataSaved){level3SaveData();}
+        if (level1Level && !dataSaved){level1SaveData();Debug.Log("Back to attention training menu 5");}
+        else if (level2Level && !dataSaved){level2SaveData();Debug.Log("Back to attention training menu 5");}
+        else if (level3Level && !dataSaved){level3SaveData();Debug.Log("Back to attention training menu 5");}
         else{Debug.Log("Error saving Attention Training time");}
+        Debug.Log("Back to attention training menu 6");
         // Load back to the Attention Training Menu
         SceneLoader.Instance.LoadNewScene("02_Practice_02_AttentionTraining");
+        Debug.Log("Back to attention training menu 7");
     }
 
 
 	public void OnPauseButton()
 	{
-		skyboxMediaPlayer.Control.Pause();
+		Debug.Log("Back to attention training menu 3 On pause Button 1");
+        skyboxMediaPlayer.Control.Pause();
+        Debug.Log("Back to attention training menu 3 On pause Button 2");
 	}
 
     private void level1SaveData()

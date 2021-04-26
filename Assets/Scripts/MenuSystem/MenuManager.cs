@@ -52,6 +52,11 @@ public class MenuManager : MonoBehaviour
     private bool audioPromptGiven = false;
     private string savedLevelString;
 
+    [Header("Likert Scale Popup")]
+    public bool likertScalePopup;
+    public Panel likertScalePopupPanel;
+    private bool likertScaleGiven = false;
+
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -118,8 +123,7 @@ public class MenuManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        SavePanelHistory();
-        panelHistory.Clear();
+        
         Debug.Log("MenuManager was destroyed");
     }
 
@@ -204,21 +208,42 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string level)
     {
+        // A video button to selected to load to that video
+
+        // Check to see if the audio prompt should be shown and if a selection has already been made
         if (audioPrompt == true && audioPromptGiven == false)
         {
-            SetCurrent(audioPromptBoxPanel);
+            // Sets the current panel to audio prompt
+            SetCurrentWithHistory(audioPromptBoxPanel);
+            // Save the level string to use in a moment to load the video
             savedLevelString = level;
-            Debug.Log("saved level as: " + savedLevelString);
+            //Debug.Log("saved level as: " + savedLevelString);
+
+            // End: a user selects their audio preference which also recalls LoadScene
+            return;
         }
-        else if (audioPromptGiven == true)
+        // Check if the likert scale popup should be shown and if a selection has already been made
+        else if(likertScalePopup == true && likertScaleGiven == false)
         {
-            audioPromptGiven = false;
-            SceneLoader.Instance.LoadNewScene(level);
+            // Sets the current panel to the likert popup
+            SetCurrentWithHistory(likertScalePopupPanel);
+            // Save the level string to use in a moment to load the video
+            savedLevelString = level;
+
+            // End: a user makes a selection and calls LoadScene again
+            return;
         }
-        else
-        { 
-            SceneLoader.Instance.LoadNewScene(level);
-        }   
+        // Checks if the audio prompt has been given
+        else if (audioPromptGiven == true || likertScaleGiven == true)
+        {    
+            // Resets the bools
+            audioPromptGiven = false;
+            likertScaleGiven = false;
+        }
+
+        SceneLoader.Instance.LoadNewScene(level);
+        SavePanelHistory();
+        panelHistory.Clear();   
     }
 
     public void playMuteLoadScene()
@@ -232,6 +257,13 @@ public class MenuManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("PlayMute", 0);
         audioPromptGiven = true;
+        LoadScene(savedLevelString);
+    }
+
+    public void LikertScaleContinueLoadScene()
+    {
+        // save likert value here
+        likertScaleGiven = true;
         LoadScene(savedLevelString);
     }
 
@@ -309,12 +341,32 @@ public class MenuManager : MonoBehaviour
     }
 
     void SavePanelHistory()
-    {        
+    {            
+        // Get temp the current panel to string
+        string currentPanelTemp = currentPanel.ToString();
+        // Get temp the amount of items within the history count
+        int panelHistoryCountTotal = panelHistory.Count - 1;
+        
         // Check if the current panel is the audio popup
-        if(currentPanel.ToString() == "Panel_Audio (Panel)")
+        if(currentPanelTemp == "Panel_Audio (Panel)") 
         {
-            int panelHistoryCountTotal = panelHistory.Count;
+            // Save the panel before the audio popup as the current panel
             PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal].ToString());
+        }
+        // Check if there likert panel is current panel
+        else if(currentPanelTemp == "Panel_Likert (Panel)")
+        {
+            // Check if the audio popup came before the likert scale
+            if(panelHistory[panelHistoryCountTotal].ToString() == "Panel_Audio (Panel)") 
+            {
+                // Save the panel before the audio popup as current
+                PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal - 1].ToString());
+            }
+            else
+            {
+                // Otherwise save the panel before the Likert scale as current
+                PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal].ToString());
+            }
         }
         else
         {

@@ -150,6 +150,7 @@ MonoBehaviour:
   menuVideoLoopCheck: 0
   menuManager: {fileID: 0}
   audioPopup: 0
+  likertScalePopup: 0
   titleGameObject: {fileID: 4406427893436942483}
   descriptionGameObject: {fileID: 4406427894133790657}
   durationGameObject: {fileID: 4406427892981145757}
@@ -271,6 +272,18 @@ MonoBehaviour:
         - m_Target: {fileID: 2506649722254074263}
           m_TargetAssemblyTypeName: VideoButtonDetails, Assembly-CSharp
           m_MethodName: TriggerAudioPrompt
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2506649722254074263}
+          m_TargetAssemblyTypeName: VideoButtonDetails, Assembly-CSharp
+          m_MethodName: TriggerLikertPopup
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

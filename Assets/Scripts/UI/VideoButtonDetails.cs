@@ -27,6 +27,10 @@ public class VideoButtonDetails : MonoBehaviour
     [SerializeField]
     private bool audioPopup;
 
+    // Likert Scale
+    [SerializeField]
+    private bool likertScalePopup;
+
     // Input Linked Video Bits
     [Header("Linked GameObjects")]
     public GameObject titleGameObject;
@@ -94,6 +98,15 @@ public class VideoButtonDetails : MonoBehaviour
 
         if(menuManager)
             menuManager.audioPrompt = audioPopup;
+            //Debug.Log ("Set prompt");
+    }
+
+    public void TriggerLikertPopup()
+    {
+        menuManager = FindObjectOfType<MenuManager>();
+
+        if(menuManager)
+            menuManager.likertScalePopup = likertScalePopup;
             //Debug.Log ("Set prompt");
     }
 

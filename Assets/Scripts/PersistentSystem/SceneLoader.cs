@@ -28,6 +28,8 @@ public class SceneLoader : Singleton<SceneLoader>
     private void OnDestroy()
     {
       SceneManager.sceneLoaded -= SetActiveScene;
+
+      ClearPlayerPrefPanelHistory();
     }
 
     private void LoadPersistent()
@@ -114,6 +116,14 @@ public class SceneLoader : Singleton<SceneLoader>
     {
         SceneManager.SetActiveScene(scene);
 
+    }
+
+    private void ClearPlayerPrefPanelHistory()
+    {
+      PlayerPrefs.DeleteKey("SavedCurrentPanel");
+      PlayerPrefs.DeleteKey("SavedPanelHistory");
+      PlayerPrefs.DeleteKey("SavedPanelHistoryCount");
+      Debug.Log("History Cleared from palyer prefs in scene loader script");
     }
 }
 
