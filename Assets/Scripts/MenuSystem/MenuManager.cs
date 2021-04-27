@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
     // Hide and show Game Objects
     [Header("Persistent Menu Tools")]
     //public string topPanelName;
+    public GameObject menuHomeButton;
     public GameObject menuBackButton;
     public GameObject menuHideButton;
     public GameObject menuShowButton;
@@ -176,6 +177,11 @@ public class MenuManager : MonoBehaviour
             return;
         }
     }
+
+    public void GoToTop()
+    {
+        if(defaultPanel != null) {SetCurrent(defaultPanel);}
+    }
  
     // Call to set current panel with history
     public void SetCurrentWithHistory(Panel newPanel)
@@ -305,13 +311,23 @@ public class MenuManager : MonoBehaviour
 
     void SetBackButtonState()
     {
-        if(panelHistory.Count == 0 || menuHidden)
+        if(menuHidden)
         {
             if(menuBackButton) {menuBackButton.SetActive(false);}
+            if(menuHomeButton) {menuHomeButton.SetActive(false);}
+
+        }
+        else if(panelHistory.Count == 0)
+        {
+            if(menuBackButton) {menuBackButton.SetActive(false);}
+            if(menuHomeButton && currentPanel != defaultPanel) {menuHomeButton.SetActive(true);}
+            else if (menuHomeButton && currentPanel == defaultPanel) {menuHomeButton.SetActive(false);}
+
         }
         else
         {
             if(menuBackButton) {menuBackButton.SetActive(true);}
+            if(menuHomeButton) {menuHomeButton.SetActive(false);}
         }
     }
 
@@ -416,7 +432,6 @@ public class MenuManager : MonoBehaviour
             panelHistory.Add(panelLocation);
         }
 
-        
         
     }
 }

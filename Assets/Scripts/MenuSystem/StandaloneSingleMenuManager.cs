@@ -31,6 +31,7 @@ public class StandaloneSingleMenuManager : MonoBehaviour
 
     private GameObject planeNameSave;
 
+    public bool allowReturnToMenu = true;
 
     //to avoid repeat readings
     private bool secondaryButtonIsPressed;
@@ -94,10 +95,11 @@ public class StandaloneSingleMenuManager : MonoBehaviour
         //Pico Menu button
         InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
         
-        if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
+        if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed && allowReturnToMenu)
         {
             //disabled the back button here
             secondaryButtonIsPressed = true;
+            Debug.Log("Back menu standalone");
             BackToMenu();
         }
         else if (!secondaryButtonValue && secondaryButtonIsPressed)
@@ -117,8 +119,10 @@ public class StandaloneSingleMenuManager : MonoBehaviour
     public void OpenVideoPlane(GameObject planeName)
     {
         HideMenu();
+        allowReturnToMenu = false;
         planeNameSave = planeName;
         planeNameSave.SetActive(true);
+        planeNameSave.GetComponentInChildren<MediaPlayer>().OpenVideoFromFile(planeNameSave.GetComponentInChildren<MediaPlayer>().m_VideoLocation, planeNameSave.GetComponentInChildren<MediaPlayer>().m_VideoPath);
         planeNameSave.GetComponentInChildren<MediaPlayer>().Control.Play();
     }
 
@@ -134,7 +138,7 @@ public class StandaloneSingleMenuManager : MonoBehaviour
         menuHidden = true;
         defaultPanel.Hide();
         if(persistentLogo) {persistentLogo.SetActive(false);}
-
+        if(menuBackButton) {menuBackButton.SetActive(false);}
     }
 
     public void ShowMenu()
@@ -142,6 +146,20 @@ public class StandaloneSingleMenuManager : MonoBehaviour
         menuHidden = false;
         defaultPanel.Show();
         if(persistentLogo) {persistentLogo.SetActive(true);}
+        if(menuBackButton) {menuBackButton.SetActive(true);}
+        AllowReturnToMenuCount();
+    }
+
+    public void AllowReturnToMenuCount()
+    {
+        StartCoroutine(returnToMenuCount());
+    }
+
+    // Wait 1 second before allowing the back button controller press as there is an issue with double tapping from the video controls manager
+    IEnumerator returnToMenuCount()
+    {
+        yield return new WaitForSeconds(1);
+        allowReturnToMenu = true;
     }
      
 }

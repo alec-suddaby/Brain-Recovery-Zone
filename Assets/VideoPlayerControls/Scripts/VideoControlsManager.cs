@@ -211,10 +211,11 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 		// Pico Menu button as back button
 		InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
         
-        if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
+        if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed && !returningToMenu)
         {
             //disabled the back button here
             secondaryButtonIsPressed = true;
+			Debug.Log("Back menu video controls");
             BackToMenu();
         }
         else if (!secondaryButtonValue && secondaryButtonIsPressed)
@@ -332,24 +333,17 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 		{
 			skyboxMediaPlayer.Control.Stop();
 			skyboxMediaPlayer.Control.Rewind();
+			skyboxMediaPlayer.CloseVideo();
+			HideVideoControls();
 			standaloneMenuManager.CloseVideoPlane();
 		}
 		else
 		{
 			SceneLoader.Instance.ReturnToMenu();
-		}		
-    }
+		}
 
-	// Only for SLT videos within the same scene
-	public void ExitSameSceneVideo()
-	{
-		
-		
-		// pause video
-		// reset it
-		// hide current layer
-		// enable the menu layer
-	}
+		returningToMenu = false;		
+    }
 
     public void HideVideoControls()
     {

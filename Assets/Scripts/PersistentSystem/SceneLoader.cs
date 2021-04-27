@@ -28,7 +28,10 @@ public class SceneLoader : Singleton<SceneLoader>
     private void OnDestroy()
     {
       SceneManager.sceneLoaded -= SetActiveScene;
+    }
 
+    private void OnApplicationQuit()
+    {
       ClearPlayerPrefPanelHistory();
     }
 
