@@ -54,8 +54,8 @@ public class MenuManager : MonoBehaviour
     private string savedLevelString;
 
     [Header("Likert Scale Popup")]
+    public LikertScaleInteractionManager likertScaleInteractionManager;
     public bool likertScalePopup;
-    public Panel likertScalePopupPanel;
     private bool likertScaleGiven = false;
 
     void GetDevice()
@@ -214,7 +214,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string level)
     {
-        // A video button to selected to load to that video
+        // A video button to selected to load to that video.
 
         // Check to see if the audio prompt should be shown and if a selection has already been made
         if (audioPrompt == true && audioPromptGiven == false)
@@ -232,9 +232,13 @@ public class MenuManager : MonoBehaviour
         else if(likertScalePopup == true && likertScaleGiven == false)
         {
             // Sets the current panel to the likert popup
-            SetCurrentWithHistory(likertScalePopupPanel);
+            SetCurrentWithHistory(likertScaleInteractionManager.preVideoLikertScalePanel);
             // Save the level string to use in a moment to load the video
             savedLevelString = level;
+            // Save the video string name to playerPrefs so that it can be written to JSON later
+            likertScaleInteractionManager.LikertRecordVideoSceneString();
+            // Set binary int to trigger the post video popup on return to the menu 0=no 1=yes
+            PlayerPrefs.SetInt("ShowPostLikert", 1);
 
             // End: a user makes a selection and calls LoadScene again
             return;
@@ -403,6 +407,8 @@ public class MenuManager : MonoBehaviour
     void GetPanelHistoryMemory()
     {
         panelHistory.Clear();
+
+        
         
         if (PlayerPrefs.GetString("SavedCurrentPanel") != "")
         {
@@ -432,6 +438,6 @@ public class MenuManager : MonoBehaviour
             panelHistory.Add(panelLocation);
         }
 
-        
+        // Add something here to check if the likert scale is needed to be shown on the way out
     }
 }
