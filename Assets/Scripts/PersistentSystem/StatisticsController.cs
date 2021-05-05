@@ -16,9 +16,9 @@ public class StatisticsController : Singleton<StatisticsController>
     [Serializable]
     public class BRZStatistic
     {
-        public int startRating;
-        public int finishRating;
         public string experienceName;
+        public float startRating;
+        public float finishRating;
         public string timeStamp;
     }
 
@@ -36,7 +36,8 @@ public class StatisticsController : Singleton<StatisticsController>
     private void LoadStatistics()
     {
         
-        fileLocation = Application.persistentDataPath;
+        fileLocation = Application.dataPath + "/mnt/sdcard/BrainRecoveryZoneVideos/Files/";
+        //fileLocation = Application.persistentDataPath;
         Debug.Log(fileLocation);
         if(!File.Exists(fileLocation + fileName))
         {
@@ -62,7 +63,7 @@ public class StatisticsController : Singleton<StatisticsController>
         string statsString = JsonUtility.ToJson(statisticsList);
         File.WriteAllText(fileLocation + fileName, statsString);
     }
-
+/*
     public void RegisterStartValue(int startValue, string experienceName)
     {
         if(statisticsList == null)
@@ -86,9 +87,24 @@ public class StatisticsController : Singleton<StatisticsController>
         }
         currentStatistic.finishRating = endValue;
         SaveStatistics();
-        return currentStatistic.finishRating - currentStatistic.startRating;
+        return currentStatistic.finishRating - currentStatistic.startRating; 
+    }
+*/
+    public void RecordLikertToJSON(float startValue, string experienceName, float endValue)
+    {
+        if(statisticsList == null)
+        {
+            LoadStatistics();
+        }
 
-        
+        currentStatistic = new BRZStatistic();
+        currentStatistic.startRating = startValue;
+        currentStatistic.experienceName = experienceName;
+        currentStatistic.timeStamp = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+        currentStatistic.finishRating = endValue;
+        statisticsList.statistics.Add(currentStatistic);
+
+        SaveStatistics();
     }
 
     

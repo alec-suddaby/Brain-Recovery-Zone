@@ -18,11 +18,11 @@ public class JSONTest : MonoBehaviour
 
     public void TriggerStart()
     {
-        StatisticsController.Instance.RegisterStartValue(Random.Range(1, 5), "test experience");
+        //StatisticsController.Instance.RegisterStartValue(Random.Range(1, 5), "test experience");
     }
 
     public void TriggerEnd()
     {
-        StatisticsController.Instance.RegisterEndValue(Random.Range(1, 5));
+        //StatisticsController.Instance.RegisterEndValue(Random.Range(1, 5));
     }
 }

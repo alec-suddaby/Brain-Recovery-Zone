@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: MenuBG/PicoBGVideo.mp4
+  m_VideoPath: TempVideos/LONDON_STOCK_8K_0007.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0

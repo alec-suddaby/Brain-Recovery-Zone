@@ -87,7 +87,7 @@ public class LikertScaleInteractionManager : MonoBehaviour
     {
         Debug.Log("Begin Write Likert to JSON");
 
-        Debug.Log("Submit Time: " + System.DateTime.Now.ToString());
+        StatisticsController.Instance.RecordLikertToJSON(PlayerPrefs.GetFloat("PreLikert"), PlayerPrefs.GetString("LikertVideoTitle"), PlayerPrefs.GetFloat("PostLikert"));
 
         Debug.Log("Video Name: " + PlayerPrefs.GetString("LikertVideoTitle"));
         //PlayerPrefs.GetString("LikertVideoTitle");
