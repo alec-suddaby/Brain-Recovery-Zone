@@ -21,7 +21,7 @@ public class VideoControlsLineRenderer : MonoBehaviour
 
     private bool offsetSwitch = true;
 
-    void Awake()
+    void Start()
     {
         videoControlsManager = gameObject.GetComponent<VideoControlsManager>();
 
@@ -29,10 +29,7 @@ public class VideoControlsLineRenderer : MonoBehaviour
 
         //Line Renderer
         savedGradient = activeController.GetComponent<XRInteractorLineVisual>().invalidColorGradient;
-    }
-
-    void Start()
-    {
+        
         //Line Renderer
         hiddenGradient = new Gradient();
 
@@ -50,15 +47,25 @@ public class VideoControlsLineRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (videoControlsManager.videoControlsOn == false)
+        if (videoControlsManager.videoControlsOn == false && videoControlsManager.returningToMenu == false)
         {
-            //Line Renderer
-            activeController.GetComponent<XRInteractorLineVisual>().invalidColorGradient = hiddenGradient;       
+            hideControllerLine();   
         }
-        else if (videoControlsManager.videoControlsOn == true)
+        else if (videoControlsManager.videoControlsOn == true && videoControlsManager.returningToMenu == false)
         {
-            //Line Renderer
-            activeController.GetComponent<XRInteractorLineVisual>().invalidColorGradient = savedGradient;
+            showControllerLine();
         }
+    }
+
+    private void hideControllerLine()
+    {
+        //Line Renderer
+        activeController.GetComponent<XRInteractorLineVisual>().invalidColorGradient = hiddenGradient;
+    }
+
+    public void showControllerLine()
+    {
+        //Line Renderer
+        activeController.GetComponent<XRInteractorLineVisual>().invalidColorGradient = savedGradient;
     }
 }

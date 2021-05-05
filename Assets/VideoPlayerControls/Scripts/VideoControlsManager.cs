@@ -42,10 +42,11 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 	public TextMeshProUGUI timeDuration;
 
     [Header("XR Controls")]
+	private VideoControlsLineRenderer videoLineRenderer;
     public GameObject rotationOffset;
 
     //XR Toolkit controllers
-    private XRNode xRNode = XRNode.RightHand;
+    private XRNode xRNode = XRNode.LeftHand;
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
     private HandSelection masterHandSelection;
@@ -137,6 +138,8 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 
 
 		//returningToMenu = false;
+
+		videoLineRenderer = GetComponent<VideoControlsLineRenderer>();
 
 		//Get Hand Selection
         masterHandSelection = FindObjectOfType<HandSelection>();
@@ -324,6 +327,11 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
     public void BackToMenu()
     {
 		returningToMenu = true;
+
+		if(videoLineRenderer != null)
+		{
+			videoLineRenderer.showControllerLine();
+		}
 		
 		if(setVideoStandalone == true && standaloneMenuManager == null)
 		{
@@ -342,7 +350,7 @@ public class VideoControlsManager : MonoBehaviour, IPointerEnterHandler, IPointe
 			SceneLoader.Instance.ReturnToMenu();
 		}
 
-		returningToMenu = false;		
+		//returningToMenu = false;		
     }
 
     public void HideVideoControls()

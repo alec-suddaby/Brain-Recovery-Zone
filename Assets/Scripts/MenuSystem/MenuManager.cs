@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     public GameObject menuShowButton;
     public GameObject menuSettingsButton;
     private bool menuHidden = false;
+    private bool overrideHideBackButton = false;
 
     // Current panel buttonWrap
     private GameObject currentButtonWrap;
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
     public Panel defaultPanel = null;
     private Component[] canvasInPanels;
     private List<Panel> panelHistory = new List<Panel>();
+    private bool sceneLoading = false;
 
     [Header("XR Controller")]
     //WIll aim to remove or update this function
@@ -109,6 +111,7 @@ public class MenuManager : MonoBehaviour
         {
             SetCurrent(likertScaleInteractionManager.postVideoLikertScalePanel);
             likertLock = true;
+            overrideHideBackButton = true;
             likertScaleInteractionManager.SetPostLikertScaleValue();
             showPostLikert = false;
         }
@@ -136,7 +139,6 @@ public class MenuManager : MonoBehaviour
 
         // This functions can be done using the XR Interactions ranther than through update
         BackButtonPress();
-
     }
 
     private void OnDestroy()
@@ -178,7 +180,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToPrevious()
     {        
-        if(likertLock == true) // check if the current panel is the post video likert scale, if so, don't go to previous
+        if(likertLock) // check if the current panel is the post video likert scale, if so, don't go to previous
         {
             return;
         }
@@ -271,6 +273,7 @@ public class MenuManager : MonoBehaviour
             likertScaleGiven = false;
         }
 
+        sceneLoading = true;
         SceneLoader.Instance.LoadNewScene(level);
         SavePanelHistory();
         panelHistory.Clear();   
@@ -304,6 +307,7 @@ public class MenuManager : MonoBehaviour
             likertScaleInteractionManager.LikertWriteToJSON();
             likertScaleInteractionManager.LikertCompareCheck();
             likertLock = false;
+            overrideHideBackButton = false;
 
             if(likertScaleInteractionManager.showReviewMessage == true)
             {
@@ -358,7 +362,7 @@ public class MenuManager : MonoBehaviour
 
     void SetBackButtonState()
     {
-        if(menuHidden)
+        if(menuHidden || overrideHideBackButton)
         {
             if(menuBackButton) {menuBackButton.SetActive(false);}
             if(menuHomeButton) {menuHomeButton.SetActive(false);}
@@ -367,7 +371,7 @@ public class MenuManager : MonoBehaviour
         else if(panelHistory.Count == 0)
         {
             if(menuBackButton) {menuBackButton.SetActive(false);}
-            if(menuHomeButton && currentPanel != defaultPanel) {menuHomeButton.SetActive(true);}
+            if(menuHomeButton && currentPanel != defaultPanel && !sceneLoading) {menuHomeButton.SetActive(true);}
             else if (menuHomeButton && currentPanel == defaultPanel) {menuHomeButton.SetActive(false);}
 
         }
@@ -380,7 +384,7 @@ public class MenuManager : MonoBehaviour
 
     void SettingsButtonState()
     { 
-        if(menuHidden)
+        if(menuHidden || overrideHideBackButton)
         {
             if(menuSettingsButton) {menuSettingsButton.SetActive(false);}
         }
