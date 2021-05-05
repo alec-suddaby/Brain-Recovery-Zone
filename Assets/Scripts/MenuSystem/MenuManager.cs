@@ -48,15 +48,16 @@ public class MenuManager : MonoBehaviour
 
     [Header("Audio Prompt")]
     public bool audioPrompt;
-    public GameObject audioPromptBox;
-    private Panel audioPromptBoxPanel;
+    public Panel audioPromptBoxPanel;
     private bool audioPromptGiven = false;
     private string savedLevelString;
 
     [Header("Likert Scale Popup")]
     public LikertScaleInteractionManager likertScaleInteractionManager;
-    public bool likertScalePopup;
+    public bool likertScalePopup; // Is set true or faulse when hovering over a video button, set by the VideoButtonDetails script
     private bool likertScaleGiven = false;
+    private bool showPostLikert;
+    private bool likertLock = false;
 
     void GetDevice()
     {
@@ -74,14 +75,18 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {       
-        if(audioPromptBox) {audioPromptBoxPanel = audioPromptBox.GetComponent<Panel>();}
-
         // Reset Loop function
         PlayerPrefs.SetInt("LoopVideo", 0);
 
         // Reset Mute function
         PlayerPrefs.SetInt("PlayMute", 0);
         savedLevelString = "";
+
+        // Setting up if the post video Likert sacle should show
+        float showPostLikertFloat = PlayerPrefs.GetInt("ShowPostLikert");
+        if (showPostLikertFloat == 1) {showPostLikert = true;}
+        else {showPostLikert = false;}
+        PlayerPrefs.SetInt("ShowPostLikert", 0);
         
         SetupPanels();
         ShowMenu();
@@ -98,8 +103,20 @@ public class MenuManager : MonoBehaviour
         foreach(Panel panel in panels)
             panel.Setup(this);
 
-        GetPanelHistoryMemory();
-        currentPanel.Show();
+        GetPanelHistoryMemory(); // Pulls the current panel and panel history from the player prefs
+    
+        if (showPostLikert == true && likertScaleInteractionManager.postVideoLikertScalePanel != null)
+        {
+            SetCurrent(likertScaleInteractionManager.postVideoLikertScalePanel);
+            likertLock = true;
+            likertScaleInteractionManager.SetPostLikertScaleValue();
+            showPostLikert = false;
+        }
+        else
+        {
+            currentPanel.Show();
+        }
+        
         CurrentPanelButtonWrap();
     }
 
@@ -138,7 +155,6 @@ public class MenuManager : MonoBehaviour
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
 
-
         //Oculus Secondary Button
         //InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
 
@@ -162,7 +178,11 @@ public class MenuManager : MonoBehaviour
 
     public void GoToPrevious()
     {        
-        if(menuHidden == false && panelHistory.Count != 0)
+        if(likertLock == true) // check if the current panel is the post video likert scale, if so, don't go to previous
+        {
+            return;
+        }
+        else if(menuHidden == false && panelHistory.Count != 0)
         {
             int lastIndex = panelHistory.Count - 1;
             SetCurrent(panelHistory[lastIndex]);
@@ -270,11 +290,34 @@ public class MenuManager : MonoBehaviour
         LoadScene(savedLevelString);
     }
 
-    public void LikertScaleContinueLoadScene()
+    public void LikertLoadScene()
     {
-        // save likert value here
+        likertScaleInteractionManager.UpdateLikertSliderValue();
         likertScaleGiven = true;
         LoadScene(savedLevelString);
+    }
+
+    public void LikertScaleFinish()
+    {
+        if(currentPanel == likertScaleInteractionManager.postVideoLikertScalePanel)
+        {
+            likertScaleInteractionManager.LikertWriteToJSON();
+            likertScaleInteractionManager.LikertCompareCheck();
+            likertLock = false;
+
+            if(likertScaleInteractionManager.showReviewMessage == true)
+            {
+                SetCurrent(likertScaleInteractionManager.postLikertScaleMessagePanel);
+            }
+            else
+            {
+                GoToPrevious();
+            }
+        }
+        else 
+        {
+            GoToPrevious();
+        }
     }
 
     public void HideMenu()
@@ -374,7 +417,7 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal].ToString());
         }
         // Check if there likert panel is current panel
-        else if(currentPanelTemp == "Panel_Likert (Panel)")
+        else if(currentPanelTemp == "Panel_Likert_Pre (Panel)")
         {
             // Check if the audio popup came before the likert scale
             if(panelHistory[panelHistoryCountTotal].ToString() == "Panel_Audio (Panel)") 
@@ -407,23 +450,21 @@ public class MenuManager : MonoBehaviour
     void GetPanelHistoryMemory()
     {
         panelHistory.Clear();
-
-        
         
         if (PlayerPrefs.GetString("SavedCurrentPanel") != "")
         {
-            string savedCurrentPanelString = PlayerPrefs.GetString("SavedCurrentPanel");
-            savedCurrentPanelString = savedCurrentPanelString.Substring(0, savedCurrentPanelString.Length -8);
-            GameObject tempCurrentPanelGameObject = GameObject.Find(savedCurrentPanelString);
-            Panel savedCurrentPanel = tempCurrentPanelGameObject.GetComponent<Panel>();
-            currentPanel = savedCurrentPanel;
+            string savedCurrentPanelString = PlayerPrefs.GetString("SavedCurrentPanel"); // Take the saved string and hold it in a temp string
+            savedCurrentPanelString = savedCurrentPanelString.Substring(0, savedCurrentPanelString.Length -8); // remove the " (Panel)" from the end of the string so it will relink correctly
+            GameObject tempCurrentPanelGameObject = GameObject.Find(savedCurrentPanelString); // Find the GameObject of that string
+            Panel savedCurrentPanel = tempCurrentPanelGameObject.GetComponent<Panel>(); // Find the Panel on that GameObject
+            currentPanel = savedCurrentPanel; // Set the temp panel as the current panel
         }
         else
         {
-            currentPanel = defaultPanel;
+            currentPanel = defaultPanel; // Otherwise use the defaultPanel given in the editor
         }
         
-        int panelHistoryCount = PlayerPrefs.GetInt("SavedPanelHistoryCount");
+        int panelHistoryCount = PlayerPrefs.GetInt("SavedPanelHistoryCount"); // Set the history count from the player prefs
         for(int i = 0; i < panelHistoryCount; i++)
         {
             // Get the string from Player Prefs
@@ -437,7 +478,5 @@ public class MenuManager : MonoBehaviour
             // Add the Panel to the panelHistroy List
             panelHistory.Add(panelLocation);
         }
-
-        // Add something here to check if the likert scale is needed to be shown on the way out
     }
 }

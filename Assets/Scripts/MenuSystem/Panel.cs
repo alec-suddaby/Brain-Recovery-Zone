@@ -6,7 +6,7 @@ using UnityEngine.XR;
 
 public class Panel : MonoBehaviour
 {
-    private Canvas canvas = null;
+    public Canvas canvas = null;
     private MenuManager menuManager = null;
 
     //public GameObject scrollBar;
