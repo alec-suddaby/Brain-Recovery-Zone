@@ -3424,6 +3424,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8658688116333942264, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
         type: 3}
       propertyPath: skyboxMediaPlayer
@@ -4007,6 +4012,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8658688116333942264, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
         type: 3}
       propertyPath: skyboxMediaPlayer
@@ -4382,6 +4392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658688116333942264, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
         type: 3}
@@ -6025,6 +6040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97aacbab5b45964da64cd4a2e919dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   buttonWrap: {fileID: 0}
   currentScrollRect: {fileID: 0}
   scrollRateModifier: 30
@@ -9184,6 +9200,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8658688116333942264, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
         type: 3}
       propertyPath: skyboxMediaPlayer
@@ -9988,6 +10009,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046202555461225494, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658688116333942264, guid: dad5fe1daadd44a4799389f0380ce858,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8822475665270221417, guid: dad5fe1daadd44a4799389f0380ce858,
         type: 3}

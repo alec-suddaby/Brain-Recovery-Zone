@@ -157,11 +157,12 @@ public class MenuManager : MonoBehaviour
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
 
+        // Check if the app is running in the editor and presents Oculus based interactions, otherwise presents Pico controls
+        InputFeatureUsage<bool> secondaryButtonUsage;
         //Oculus Secondary Button
-        //InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
-
+        if(Application.isEditor){secondaryButtonUsage = CommonUsages.secondaryButton;}
         //Pico Menu button
-        InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
+        else{secondaryButtonUsage = CommonUsages.menuButton;}
         
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {
@@ -426,6 +427,9 @@ public class MenuManager : MonoBehaviour
             // Check if the audio popup came before the likert scale
             if(panelHistory[panelHistoryCountTotal].ToString() == "Panel_Audio (Panel)") 
             {
+                // Remove Audio panel from list history
+                panelHistory.RemoveAt(panelHistoryCountTotal);
+               
                 // Save the panel before the audio popup as current
                 PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal - 1].ToString());
             }

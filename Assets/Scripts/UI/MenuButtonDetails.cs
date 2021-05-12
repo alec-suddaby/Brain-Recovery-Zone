@@ -57,4 +57,16 @@ public class MenuButtonDetails : MonoBehaviour
 
     }
 
+    public void DisablePrompts()
+    {
+        MenuManager menuManager = FindObjectOfType<MenuManager>();
+
+        if(menuManager)
+        {
+            menuManager.audioPrompt = false;
+            menuManager.likertScalePopup = false;
+        }
+
+    }
+
 }

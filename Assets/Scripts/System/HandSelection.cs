@@ -14,6 +14,10 @@ public class HandSelection : MonoBehaviour
 
     private void Start()
     {
+        // Check if the app is running in the editor and presents Oculus based interactions, otherwise presents Pico controls
+        if(Application.isEditor){masterXRNode = XRNode.RightHand;}
+        else{masterXRNode = XRNode.LeftHand;}
+        
         ChangeControllerHand();
     }
 

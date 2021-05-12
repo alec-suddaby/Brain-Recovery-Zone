@@ -35,10 +35,11 @@ public class StatisticsController : Singleton<StatisticsController>
 
     private void LoadStatistics()
     {
-        
-        fileLocation = Application.dataPath + "/mnt/sdcard/BrainRecoveryZoneVideos/Files/";
-        //fileLocation = Application.persistentDataPath;
-        Debug.Log(fileLocation);
+        // Check if editor
+        if (Application.isEditor){fileLocation = Application.persistentDataPath;}
+        else{fileLocation = "/mnt/sdcard/BrainRecoveryZoneVideos/Files/";}
+        Debug.Log("JSON File Path Location" + fileLocation);
+
         if(!File.Exists(fileLocation + fileName))
         {
             Debug.Log("file not found");
