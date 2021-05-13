@@ -23,6 +23,12 @@ public static class SceneMenu
         OpenScene("Experiences/01_Discover/01_Discover_01_Brain");
     }
 
+    [MenuItem("Scenes/Discover/Stroke")]
+    public static void OpenDiscoverStroke()
+    {
+        OpenScene("Experiences/01_Discover/01_Discover_02_Stroke");
+    }
+
     //////////////
     //   Practise
     //////////////

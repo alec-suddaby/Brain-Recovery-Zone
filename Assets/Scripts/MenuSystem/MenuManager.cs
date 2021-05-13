@@ -260,8 +260,6 @@ public class MenuManager : MonoBehaviour
             savedLevelString = level;
             // Save the video string name to playerPrefs so that it can be written to JSON later
             likertScaleInteractionManager.LikertRecordVideoSceneString();
-            // Set binary int to trigger the post video popup on return to the menu 0=no 1=yes
-            PlayerPrefs.SetInt("ShowPostLikert", 1);
 
             // End: a user makes a selection and calls LoadScene again
             return;
@@ -298,6 +296,8 @@ public class MenuManager : MonoBehaviour
     {
         likertScaleInteractionManager.UpdateLikertSliderValue();
         likertScaleGiven = true;
+        // Set binary int to trigger the post video popup on return to the menu 0=no 1=yes
+        PlayerPrefs.SetInt("ShowPostLikert", 1);
         LoadScene(savedLevelString);
     }
 
@@ -485,6 +485,21 @@ public class MenuManager : MonoBehaviour
             Panel panelLocation = tempGameObjectSearch.GetComponent<Panel>();
             // Add the Panel to the panelHistroy List
             panelHistory.Add(panelLocation);
+        }
+
+        // Check if the current panel is a panel that shouldn't be shown and jumps back until it is an acceptable pannel
+        PopupCheckForPanelHistory();  
+    }
+
+    void PopupCheckForPanelHistory()
+    {
+        Debug.Log("Starting while loop check for current panel");
+        while((currentPanel.ToString() == "Panel_Likert_Pre (Panel)") || (currentPanel.ToString() == "Panel_Likert_Post (Panel)") || (currentPanel.ToString() == "Panel_Likert_Message (Panel)") || (currentPanel.ToString() == "Panel_Audio (Panel)"))
+        {
+            Debug.Log("Current panel is identified as a one to be removed");
+            // set current panel to the one before
+            GoToPrevious();
+            // Restart loop
         }
     }
 }
