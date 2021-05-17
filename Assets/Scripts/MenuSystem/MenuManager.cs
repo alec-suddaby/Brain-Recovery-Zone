@@ -191,6 +191,10 @@ public class MenuManager : MonoBehaviour
             SetCurrent(panelHistory[lastIndex]);
             panelHistory.RemoveAt(lastIndex);
         }
+        else if(panelHistory.Count == 0)
+        {
+            GoToTop();
+        }
         else if(menuHidden == true)
         {
             ShowMenu();

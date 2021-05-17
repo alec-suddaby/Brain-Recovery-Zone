@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Panel : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class Panel : MonoBehaviour
     [Header("XR Controller")]
     //XR Toolkit controllers
     private XRNode xRNode = XRNode.RightHand;
+    [SerializeField]
     private List<InputDevice> devices = new List<InputDevice>();
+    [SerializeField]
     private InputDevice device;
     private HandSelection masterHandSelection;
 
@@ -58,9 +61,14 @@ public class Panel : MonoBehaviour
         if(!device.isValid)
         {
             GetDevice();
+            //Debug.Log("device not valid " + device.isValid + device.ToString());
+        }
+        else
+        {
+           //Debug.Log("device valid " + device.isValid + device.ToString());
         }
 
-        if(currentScrollRect && canvas.isActiveAndEnabled == true) 
+        if(currentScrollRect && canvas.isActiveAndEnabled == true && device.isValid) 
         {
             ScrollAxis();
             //Debug.Log("value y " + primary2DAxisValue.y);
@@ -153,6 +161,7 @@ public class Panel : MonoBehaviour
 
             //Debug.Log("scroll Rect Position After = " + currentScrollRect.verticalNormalizedPosition);
         }
+        
 
         // Oculus
         /*
