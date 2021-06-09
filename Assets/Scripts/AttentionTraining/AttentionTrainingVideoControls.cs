@@ -97,11 +97,28 @@ public class AttentionTrainingVideoControls : MonoBehaviour, IEventSystemHandler
         // capturing secondary button press and release
         bool secondaryButtonValue = false;
 
-        // Oculus Secondary Button back button
-		InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.secondaryButton;
-
-		// Pico Menu button as back button
-		//InputFeatureUsage<bool> secondaryButtonUsage = CommonUsages.menuButton;
+        
+        // capturing trigger button press and release
+        bool triggerButtonValue = false;
+        InputFeatureUsage<bool> triggerButtonUsage = CommonUsages.triggerButton;
+        
+        if (device.TryGetFeatureValue(triggerButtonUsage, out triggerButtonValue) && triggerButtonValue && !triggerButtonIsPressed)
+        {
+            triggerButtonIsPressed = true;
+            BackToAttentionTrainingMenu();
+        }
+        else if (!triggerButtonValue && triggerButtonIsPressed)
+        {
+            triggerButtonIsPressed = false;
+        }
+    
+        
+        // Check if the app is running in the editor and presents Oculus based interactions, otherwise presents Pico controls
+        InputFeatureUsage<bool> secondaryButtonUsage;
+        //Oculus Secondary Button
+        if(Application.isEditor){secondaryButtonUsage = CommonUsages.secondaryButton;}
+        //Pico Menu button
+        else{secondaryButtonUsage = CommonUsages.menuButton;}
         
         if (device.TryGetFeatureValue(secondaryButtonUsage, out secondaryButtonValue) && secondaryButtonValue && !secondaryButtonIsPressed)
         {

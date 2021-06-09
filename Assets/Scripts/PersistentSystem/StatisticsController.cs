@@ -39,12 +39,12 @@ public class StatisticsController : Singleton<StatisticsController>
 
         // Check if editor
         if (Application.isEditor){fileLocation = Application.persistentDataPath;}
-        else{fileLocation = "/mnt/sdcard/BrainRecoveryZoneVideos/Files/";}
+        else{fileLocation = "/mnt/sdcard/BRZ_ASSETS/data/";}
         Debug.Log("JSON File Path Location: " + fileLocation);
 
-        if(!File.Exists(fileLocation + fileName))
+        if(!File.Exists(fileLocation + fileName) || !Directory.Exists(fileLocation))
         {
-            Debug.Log("file not found");
+            Debug.Log("ERROR: JSON file or directory not found");
             statisticsList = new BRZStatisticsList();
             return;
         }
