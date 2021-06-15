@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/01Discover/02stroke.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/00201.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 

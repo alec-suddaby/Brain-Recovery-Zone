@@ -523,6 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582668819}
   - component: {fileID: 1582668818}
+  - component: {fileID: 1582668820}
   m_Layer: 0
   m_Name: SkyboxMediaPlayer
   m_TagString: Untagged
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/03Calm/11mindfulbreathing.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/01603.mkv
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -636,7 +637,7 @@ MonoBehaviour:
     videoApi: 2
     useFastOesPath: 0
     showPosterFrame: 0
-    enableAudio360: 0
+    enableAudio360: 1
     audio360ChannelMode: 0
     preferSoftwareDecoder: 0
     httpHeaders: []
@@ -685,3 +686,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582668820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582668817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4c918821de64343b61c37f13fdfb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: V1.0 This script will, on awake, link the Canvas, UpdateStereoMaterial
+    or MediaPlayer to the main camera when placed on the same GameObject

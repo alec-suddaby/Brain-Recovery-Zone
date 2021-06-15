@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/02Practise/BRZ_HOLLY_4-3_V2_01INTRO.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02102.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -381,12 +381,12 @@ MonoBehaviour:
   m_AudioHeadTransform: {fileID: 0}
   m_AudioFocusEnabled: 0
   m_AudioFocusTransform: {fileID: 0}
-  m_AudioFocusWidthDegrees: 47.9
-  m_AudioFocusOffLevelDB: -21.21
+  m_AudioFocusWidthDegrees: 40
+  m_AudioFocusOffLevelDB: -9.49
   m_events:
     m_PersistentCalls:
       m_Calls: []
-  m_eventMask: 0
+  m_eventMask: -1
   m_forceFileFormat: 0
   _pauseMediaOnAppPause: 1
   _playMediaOnAppUnpause: 1
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/02Practise/BRZ_HOLLY_4-3_V2_05OTHER.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02502.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_SubtitleLocation: 2
   m_SubtitlePath: 
   m_AudioHeadTransform: {fileID: 0}
-  m_AudioFocusEnabled: 1
+  m_AudioFocusEnabled: 0
   m_AudioFocusTransform: {fileID: 0}
   m_AudioFocusWidthDegrees: 90
   m_AudioFocusOffLevelDB: 0
@@ -1353,7 +1353,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
@@ -5419,7 +5419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/02Practise/BRZ_HOLLY_4-3_V2_03ARTICULATION.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02302.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -5442,7 +5442,7 @@ MonoBehaviour:
   m_SubtitleLocation: 2
   m_SubtitlePath: 
   m_AudioHeadTransform: {fileID: 0}
-  m_AudioFocusEnabled: 1
+  m_AudioFocusEnabled: 0
   m_AudioFocusTransform: {fileID: 0}
   m_AudioFocusWidthDegrees: 90
   m_AudioFocusOffLevelDB: 0
@@ -5513,7 +5513,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
@@ -6771,7 +6771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/02Practise/BRZ_HOLLY_4-3_V2_02RESPIRATION.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02202.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -6794,7 +6794,7 @@ MonoBehaviour:
   m_SubtitleLocation: 2
   m_SubtitlePath: 
   m_AudioHeadTransform: {fileID: 0}
-  m_AudioFocusEnabled: 1
+  m_AudioFocusEnabled: 0
   m_AudioFocusTransform: {fileID: 0}
   m_AudioFocusWidthDegrees: 90
   m_AudioFocusOffLevelDB: 0
@@ -6865,7 +6865,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
@@ -7686,7 +7686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/02Practise/BRZ_HOLLY_4-3_V2_04PROSODY.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02402.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -7709,7 +7709,7 @@ MonoBehaviour:
   m_SubtitleLocation: 2
   m_SubtitlePath: 
   m_AudioHeadTransform: {fileID: 0}
-  m_AudioFocusEnabled: 1
+  m_AudioFocusEnabled: 0
   m_AudioFocusTransform: {fileID: 0}
   m_AudioFocusWidthDegrees: 90
   m_AudioFocusOffLevelDB: 0
@@ -7780,7 +7780,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 0
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
@@ -8513,13 +8513,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: MenuBG/PicoBGVideo.mp4
+  m_VideoPath: MenuBG/00903.mkv
   m_AutoOpen: 0
   m_AutoStart: 0
   m_Loop: 1
   m_Volume: 0.62
   m_Balance: 0
-  m_Muted: 0
+  m_Muted: 1
   m_PlaybackRate: 1
   m_Resample: 0
   m_ResampleMode: 0
@@ -8607,7 +8607,7 @@ MonoBehaviour:
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 21
+    audio360ChannelMode: 0
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 

@@ -6694,7 +6694,7 @@ PrefabInstance:
     - target: {fileID: 5537374205933482953, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
@@ -6704,7 +6704,7 @@ PrefabInstance:
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
       propertyPath: comingSoon
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7452962581817084610, guid: 831a95603d27d194da6a7a65d811f014,
         type: 3}
@@ -31132,7 +31132,7 @@ MonoBehaviour:
   _optionsWindows:
     overridePath: 0
     pathLocation: 2
-    path: 
+    path: MenuBG/PicoBGVideo.mp4
     videoApi: 0
     useHardwareDecoding: 1
     useUnityAudio: 0
@@ -31182,15 +31182,15 @@ MonoBehaviour:
     overridePath: 0
     pathLocation: 2
     path: 
-    videoApi: 2
+    videoApi: 1
     useFastOesPath: 0
     showPosterFrame: 0
     enableAudio360: 0
-    audio360ChannelMode: 21
+    audio360ChannelMode: 26
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
-    fileOffset: 314
+    fileOffset: 0
   _optionsWindowsPhone:
     overridePath: 0
     pathLocation: 2

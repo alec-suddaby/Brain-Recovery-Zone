@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/03Calm/08lakeside.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/01203.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0

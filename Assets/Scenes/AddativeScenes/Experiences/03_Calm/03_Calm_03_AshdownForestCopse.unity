@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/03Calm/03forest-copse.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/00803.mkv
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -458,8 +458,8 @@ MonoBehaviour:
     videoApi: 2
     useFastOesPath: 0
     showPosterFrame: 0
-    enableAudio360: 0
-    audio360ChannelMode: 21
+    enableAudio360: 1
+    audio360ChannelMode: 0
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 
