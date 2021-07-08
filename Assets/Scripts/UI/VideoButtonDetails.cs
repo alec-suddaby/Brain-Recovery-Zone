@@ -33,6 +33,12 @@ public class VideoButtonDetails : MonoBehaviour
     [SerializeField]
     private LikertScaleInteractionManager likertScaleInteractionManager;
 
+    // Custom popup
+    [SerializeField]
+    private bool customPopup;
+    [Tooltip("Fill the custom popup manager here")]
+    public Panel customPopupPanel;
+
     // Input Linked Video Bits
     [Header("Linked GameObjects")]
     public GameObject titleGameObject;
@@ -117,6 +123,17 @@ public class VideoButtonDetails : MonoBehaviour
         {
             likertScaleInteractionManager.upcomingVideoTitle = videoTitle;
             //Debug.Log ("Set inbound video title");
+        }
+    }
+
+    public void TriggerCustomPopup()
+    {
+        menuManager = FindObjectOfType<MenuManager>();
+        if(menuManager)
+        {
+            menuManager.customPopup = customPopup;
+            menuManager.customPopupPanelLink = customPopupPanel;
+            //Debug.Log ("Set prompt");
         }
     }
 

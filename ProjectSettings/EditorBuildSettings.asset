@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/AddativeScenes/Experiences/01_Discover/01_Discover_02_Stroke.unity
     guid: 7d32f6e5415ff2b4a9ddf757ce498834
   - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/01_Discover/01_Discover_03_Fatigue.unity
+    guid: 4e1b132d3e64da444b7649feebcb64e0
+  - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_01_SpaceAnimation.unity
     guid: 510c88b4675ef6f4f8a6ca782efc1daf
   - enabled: 1
@@ -53,6 +56,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_12_UnderwaterWorld.unity
     guid: f890453c6b9a63b47b202b503fea2c5e
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_13_SleepWindDown.unity
+    guid: b31896cbd5fc9fe46a3996639d89d4c0
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_13B_SleepWindDownAtmos.unity
+    guid: 3da68cc25ea7ac24192e63be9f3d67e1
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Speech.unity
     guid: dc83a9f40fa449749a63c827d71db713

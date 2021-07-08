@@ -61,6 +61,12 @@ public class MenuManager : MonoBehaviour
     private bool showPostLikert;
     private bool likertLock = false;
 
+    [Header("Custom Popup")]
+    public bool customPopup;
+    private bool customPopupGiven = false;
+    public Panel customPopupPanelLink;
+    private CustomPopupManager customPopupManager;
+
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -243,8 +249,18 @@ public class MenuManager : MonoBehaviour
     {
         // A video button to selected to load to that video.
 
+        // Check to see if the custom prompt should be shown and if a selection has already been made
+        if(customPopup == true && customPopupGiven == false)
+        {
+            // Sets the current panel to audio prompt
+            SetCurrentWithHistory(customPopupPanelLink);
+            // Save the level string to use in a moment to load the video
+            savedLevelString = level;
+            // End: a user selects how to proceed which also recalls LoadScene
+            return;
+        }
         // Check to see if the audio prompt should be shown and if a selection has already been made
-        if (audioPrompt == true && audioPromptGiven == false)
+        else if (audioPrompt == true && audioPromptGiven == false)
         {
             // Sets the current panel to audio prompt
             SetCurrentWithHistory(audioPromptBoxPanel);
@@ -327,6 +343,18 @@ public class MenuManager : MonoBehaviour
         {
             GoToPrevious();
         }
+    }
+
+    public void NighWindDownVoice()
+    {
+        customPopupGiven = true;
+        LoadScene(savedLevelString);
+    }
+
+    public void NightWindDownAtmos(string atmosLevel)
+    {
+        customPopupGiven = true;
+        LoadScene(atmosLevel);
     }
 
     public void HideMenu()
@@ -419,8 +447,14 @@ public class MenuManager : MonoBehaviour
         // Get temp the amount of items within the history count
         int panelHistoryCountTotal = panelHistory.Count - 1;
         
+        // Check if the current panel is the custom popup
+        if(currentPanelTemp.Contains("Panel_CustomPopups_")) 
+        {
+            // Save the panel before the audio popup as the current panel
+            PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal].ToString());
+        }
         // Check if the current panel is the audio popup
-        if(currentPanelTemp == "Panel_Audio (Panel)") 
+        else if(currentPanelTemp == "Panel_Audio (Panel)") 
         {
             // Save the panel before the audio popup as the current panel
             PlayerPrefs.SetString("SavedCurrentPanel", panelHistory[panelHistoryCountTotal].ToString());

@@ -29,6 +29,14 @@ public static class SceneMenu
         OpenScene("Experiences/01_Discover/01_Discover_02_Stroke");
     }
 
+    [MenuItem("Scenes/Discover/Fatigue")]
+    public static void OpenDiscoverFatigue()
+    {
+        OpenScene("Experiences/01_Discover/01_Discover_03_Fatigue");
+    }
+
+
+
     //////////////
     //   Practise
     //////////////
@@ -136,6 +144,18 @@ public static class SceneMenu
     public static void OpenUnderwaterWorld()
     {
         OpenScene("Experiences/03_Calm/03_Calm_12_UnderwaterWorld");
+    }
+
+    [MenuItem("Scenes/Calm/NightWindDown")]
+    public static void OpenNighWindDown()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_13_SleepWindDown");
+    }
+
+    [MenuItem("Scenes/Calm/NightWindDownAtmos")]
+    public static void OpenNighWindDownAtmos()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_13B_SleepWindDownAtmos");
     }
 
 
