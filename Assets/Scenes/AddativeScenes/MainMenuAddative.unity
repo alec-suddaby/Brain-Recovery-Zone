@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start with voice guide
+  m_text: Atmosphere and voice guide
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2acf0e5fa23e9a342b7193e8c152d294, type: 2}
   m_sharedMaterial: {fileID: 2045785038050298708, guid: 2acf0e5fa23e9a342b7193e8c152d294,
@@ -4871,7 +4871,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -340, y: -62}
-  m_SizeDelta: {x: 165, y: 70}
+  m_SizeDelta: {x: 233.6, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243786722
 MonoBehaviour:
@@ -6236,7 +6236,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 340, y: -62.000065}
-  m_SizeDelta: {x: 165, y: 70}
+  m_SizeDelta: {x: 204.1, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338748341
 MonoBehaviour:
@@ -21613,7 +21613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start with atmosphere only
+  m_text: Atmosphere only
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2acf0e5fa23e9a342b7193e8c152d294, type: 2}
   m_sharedMaterial: {fileID: 2045785038050298708, guid: 2acf0e5fa23e9a342b7193e8c152d294,

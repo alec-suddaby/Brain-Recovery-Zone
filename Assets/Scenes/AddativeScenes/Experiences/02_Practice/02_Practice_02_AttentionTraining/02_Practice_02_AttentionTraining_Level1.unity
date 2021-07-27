@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _media: {fileID: 1582668818}
-  _defaultTexture: {fileID: 2800000, guid: c02effbaa6160364e9f8e7606e2ebcce, type: 3}
+  _defaultTexture: {fileID: 2800000, guid: 68061b4c9c82534439b3e9ffa7578f3a, type: 3}
   _material: {fileID: 2100000, guid: c8bec942227c4d74592adffe6756186e, type: 2}
   _texturePropertyName: _MainTex
   _offset: {x: 0, y: 0}
@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582668819}
   - component: {fileID: 1582668818}
+  - component: {fileID: 1582668820}
   m_Layer: 0
   m_Name: SkyboxMediaPlayer
   m_TagString: Untagged
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: file://mnt/sdcard/BrainRecoveryZoneVideos/02Practise/LONDON_STOCK_8K_0007.mp4
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02702.mkv
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -386,10 +387,10 @@ MonoBehaviour:
     overridePath: 0
     pathLocation: 2
     path: 
-    videoApi: 1
+    videoApi: 2
     useFastOesPath: 0
     showPosterFrame: 0
-    enableAudio360: 0
+    enableAudio360: 1
     audio360ChannelMode: 0
     preferSoftwareDecoder: 0
     httpHeaders: []
@@ -438,6 +439,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582668820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582668817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4c918821de64343b61c37f13fdfb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: V1.0 This script will, on awake, link the Canvas, UpdateStereoMaterial
+    or MediaPlayer to the main camera when placed on the same GameObject
 --- !u!1001 &28700217199077103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,6 +460,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 28700218039911597, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 28700218264788089, guid: 1781139c41c7f314f905f5f05971b6cf,
         type: 3}
       propertyPath: m_Pivot.x
@@ -569,6 +589,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AttentionTrainingVideoControls
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884020317974985766, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884020317974985766, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884020317974985766, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884020317974985766, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921270131206484423, guid: 1781139c41c7f314f905f5f05971b6cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1781139c41c7f314f905f5f05971b6cf, type: 3}

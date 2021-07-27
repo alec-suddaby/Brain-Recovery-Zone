@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _media: {fileID: 1828035843}
-  _defaultTexture: {fileID: 2800000, guid: aaf273407ed754b418b475c5e745d955, type: 3}
+  _defaultTexture: {fileID: 2800000, guid: b8bbc18deef23fb46878e32ddef50aca, type: 3}
   _material: {fileID: 2100000, guid: c8bec942227c4d74592adffe6756186e, type: 2}
   _texturePropertyName: _MainTex
   _offset: {x: 0, y: 0}
@@ -662,6 +662,7 @@ MonoBehaviour:
   persistentLogo: {fileID: 873199251}
   menuBackButton: {fileID: 8488745}
   defaultPanel: {fileID: 1087116186}
+  allowReturnToMenu: 1
 --- !u!224 &310924794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2866,6 +2867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97aacbab5b45964da64cd4a2e919dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   buttonWrap: {fileID: 0}
   currentScrollRect: {fileID: 0}
   scrollRateModifier: 30
@@ -4669,11 +4671,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: MenuBG/670_KDL_MVPA_BACKGROUNDVIDEO_V3.mp4
+  m_VideoPath: MenuBG/02602.mkv
   m_AutoOpen: 1
   m_AutoStart: 1
-  m_Loop: 1
-  m_Volume: 0.62
+  m_Loop: 0
+  m_Volume: 1
   m_Balance: 0
   m_Muted: 0
   m_PlaybackRate: 1
@@ -4762,8 +4764,8 @@ MonoBehaviour:
     videoApi: 2
     useFastOesPath: 0
     showPosterFrame: 0
-    enableAudio360: 0
-    audio360ChannelMode: 21
+    enableAudio360: 1
+    audio360ChannelMode: 0
     preferSoftwareDecoder: 0
     httpHeaders: []
     httpHeaderJson: 

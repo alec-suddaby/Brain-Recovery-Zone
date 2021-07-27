@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _media: {fileID: 1582668818}
-  _defaultTexture: {fileID: 2800000, guid: c02effbaa6160364e9f8e7606e2ebcce, type: 3}
+  _defaultTexture: {fileID: 2800000, guid: 68061b4c9c82534439b3e9ffa7578f3a, type: 3}
   _material: {fileID: 2100000, guid: c8bec942227c4d74592adffe6756186e, type: 2}
   _texturePropertyName: _MainTex
   _offset: {x: 0, y: 0}
@@ -410,6 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582668819}
   - component: {fileID: 1582668818}
+  - component: {fileID: 1582668820}
   m_Layer: 0
   m_Name: SkyboxMediaPlayer
   m_TagString: Untagged
@@ -429,8 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c870cac4da414fba921606d504407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_VideoLocation: 2
-  m_VideoPath: TempVideos/LONDON_STOCK_8K_0007.mp4
+  m_VideoLocation: 0
+  m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02802.mkv
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -520,10 +521,10 @@ MonoBehaviour:
     overridePath: 0
     pathLocation: 2
     path: 
-    videoApi: 1
+    videoApi: 2
     useFastOesPath: 0
     showPosterFrame: 0
-    enableAudio360: 0
+    enableAudio360: 1
     audio360ChannelMode: 0
     preferSoftwareDecoder: 0
     httpHeaders: []
@@ -572,3 +573,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582668820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582668817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4c918821de64343b61c37f13fdfb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: V1.0 This script will, on awake, link the Canvas, UpdateStereoMaterial
+    or MediaPlayer to the main camera when placed on the same GameObject
