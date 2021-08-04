@@ -65,6 +65,7 @@ public class MenuButtonDetails : MonoBehaviour
         {
             menuManager.audioPrompt = false;
             menuManager.likertScalePopup = false;
+            menuManager.customPopup = false;
         }
 
     }
