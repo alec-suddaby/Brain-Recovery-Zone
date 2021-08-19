@@ -4359,7 +4359,7 @@ MonoBehaviour:
   menuHideButton: {fileID: 1334735762}
   menuShowButton: {fileID: 1937429969}
   menuSettingsButton: {fileID: 213774559}
-  defaultPanel: {fileID: 1211286932}
+  defaultPanel: {fileID: 553768825}
   audioPrompt: 0
   audioPromptBoxPanel: {fileID: 1582156435}
   likertScaleInteractionManager: {fileID: 228583871}
