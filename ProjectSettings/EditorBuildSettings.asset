@@ -20,6 +20,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AddativeScenes/Experiences/01_Discover/01_Discover_03_Fatigue.unity
     guid: 4e1b132d3e64da444b7649feebcb64e0
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Speech.unity
+    guid: dc83a9f40fa449749a63c827d71db713
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining.unity
+    guid: 4593a0045dd01b846ab8eb2e579eb343
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level1.unity
+    guid: 6c776a693fc7bfa409cc1d7f704fff05
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level2.unity
+    guid: 1a7363e550ff60e4f885627d96de76d0
+  - enabled: 0
+    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level3.unity
+    guid: 9f35367fbfbd5534db5a85fde50e99d9
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_01_SpaceAnimation.unity
     guid: 510c88b4675ef6f4f8a6ca782efc1daf
@@ -62,21 +77,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_13B_SleepWindDownAtmos.unity
     guid: 3da68cc25ea7ac24192e63be9f3d67e1
-  - enabled: 0
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_01_Speech.unity
-    guid: dc83a9f40fa449749a63c827d71db713
-  - enabled: 0
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining.unity
-    guid: 4593a0045dd01b846ab8eb2e579eb343
-  - enabled: 0
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level1.unity
-    guid: 6c776a693fc7bfa409cc1d7f704fff05
-  - enabled: 0
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level2.unity
-    guid: 1a7363e550ff60e4f885627d96de76d0
-  - enabled: 0
-    path: Assets/Scenes/AddativeScenes/Experiences/02_Practice/02_Practice_02_AttentionTraining/02_Practice_02_AttentionTraining_Level3.unity
-    guid: 9f35367fbfbd5534db5a85fde50e99d9
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14A_PMRLevel1.unity
+    guid: da249f838f3c94145950104128f6fb81
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14B_PMRLevel2.unity
+    guid: 2878957598704694cb3df90de143fcbf
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14C_PMRLevel3.unity
+    guid: 02b7ce2284660ed489c8810fb39712d9
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_15_FlyThroughSpace.unity
+    guid: 13ffba79b285217468a2a296e29cf4c9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,
       type: 2}

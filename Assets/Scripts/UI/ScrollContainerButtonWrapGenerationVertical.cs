@@ -59,6 +59,15 @@ public class ScrollContainerButtonWrapGenerationVertical : MonoBehaviour
                 { 
                     return;
                 }
+                // If first & last set the position (middle) 
+                else if( i==0 && i == buttonArray.Length-1){
+                    rt.localPosition = new Vector3( 0, yStart, 0);
+                }
+                // If even & last set the position (middle) 
+                else if( i % 2 == 0 && i == buttonArray.Length-1){
+                    RectTransform rtm2middle = buttonArray[i-2].GetComponent<RectTransform>();
+                    rt.localPosition = new Vector3( 0, rtm2middle.localPosition.y + yOffset, 0);
+                }
                 // If i == 0 then set the first position (left)
                 else if(i==0){
                     rt.localPosition = new Vector3( xLeft, yStart, 0 );
@@ -66,7 +75,7 @@ public class ScrollContainerButtonWrapGenerationVertical : MonoBehaviour
                 // If i == 1 then set the first position (right)
                 else if(i==1){
                     rt.localPosition = new Vector3( xRight, yStart, 0 );
-                }          
+                }         
                 // For all even after 0 (left hand side)
                 else if(i % 2 == 0){
                     RectTransform rtm2left = buttonArray[i-2].GetComponent<RectTransform>();

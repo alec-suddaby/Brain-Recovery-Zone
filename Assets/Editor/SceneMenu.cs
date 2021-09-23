@@ -158,6 +158,30 @@ public static class SceneMenu
         OpenScene("Experiences/03_Calm/03_Calm_13B_SleepWindDownAtmos");
     }
 
+    [MenuItem("Scenes/Calm/PMRLevel1")]
+    public static void OpenPMRLevel1()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_14A_PMRLevel1");
+    }
+
+    [MenuItem("Scenes/Calm/PMRLevel2")]
+    public static void OpenPMRLevel2()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_14B_PMRLevel2");
+    }
+
+    [MenuItem("Scenes/Calm/PMRLevel3")]
+    public static void OpenPMRLevel3()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_14C_PMRLevel3");
+    }
+
+    [MenuItem("Scenes/Calm/FlightThroughSpace")]
+    public static void OpenFlightThroughSpace()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_15_FlyThroughSpace");
+    }
+
 
     //////////////
     //   Solo

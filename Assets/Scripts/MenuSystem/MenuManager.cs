@@ -357,6 +357,17 @@ public class MenuManager : MonoBehaviour
         LoadScene(atmosLevel);
     }
 
+    public void PMRLevelSelect(string PMRLevelSelect)
+    {
+        savedLevelString = PMRLevelSelect;
+    }
+
+    public void PMRLevelLoad()
+    {
+        customPopupGiven = true;
+        LoadScene(savedLevelString);
+    }
+
     public void HideMenu()
     {
         menuHidden = true;
