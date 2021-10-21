@@ -67,6 +67,9 @@ public class MenuManager : MonoBehaviour
     public Panel customPopupPanelLink;
     private CustomPopupManager customPopupManager;
 
+    [Header("PMR Custom Settings")]
+    private bool PMRExtendedCheckboxSave = false;
+
     void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(xRNode, devices);
@@ -362,9 +365,19 @@ public class MenuManager : MonoBehaviour
         savedLevelString = PMRLevelSelect;
     }
 
+    public void PMRExtendedCheckbox(bool PMRExtendedCheckbox)
+    {
+        PMRExtendedCheckboxSave = PMRExtendedCheckbox;
+    }
+
     public void PMRLevelLoad()
     {
         customPopupGiven = true;
+        // check tick box, if yes add the extended string to the end of the level string to load the correct scene
+        if( PMRExtendedCheckboxSave == true)
+        {
+            savedLevelString = savedLevelString + "_Extended";
+        }
         LoadScene(savedLevelString);
     }
 

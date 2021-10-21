@@ -164,16 +164,34 @@ public static class SceneMenu
         OpenScene("Experiences/03_Calm/03_Calm_14A_PMRLevel1");
     }
 
+    [MenuItem("Scenes/Calm/PMRLevel1Extended")]
+    public static void OpenPMRLevel1Extended()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_14A_PMRLevel1_Extended");
+    }
+
     [MenuItem("Scenes/Calm/PMRLevel2")]
     public static void OpenPMRLevel2()
     {
         OpenScene("Experiences/03_Calm/03_Calm_14B_PMRLevel2");
     }
 
+    [MenuItem("Scenes/Calm/PMRLevel2Extended")]
+    public static void OpenPMRLevel2Extended()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_14B_PMRLevel2_Extended");
+    }
+
     [MenuItem("Scenes/Calm/PMRLevel3")]
     public static void OpenPMRLevel3()
     {
         OpenScene("Experiences/03_Calm/03_Calm_14C_PMRLevel3");
+    }
+
+    [MenuItem("Scenes/Calm/PMRLevel3Extended")]
+    public static void OpenPMRLevel3Extended()
+    {
+        OpenScene("Experiences/03_Calm/03_Calm_14C_PMRLevel3_Extended");
     }
 
     [MenuItem("Scenes/Calm/FlightThroughSpace")]

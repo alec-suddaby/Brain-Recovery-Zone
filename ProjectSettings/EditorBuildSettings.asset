@@ -81,11 +81,20 @@ EditorBuildSettings:
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14A_PMRLevel1.unity
     guid: da249f838f3c94145950104128f6fb81
   - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14A_PMRLevel1_Extended.unity
+    guid: 431e6795339eac6458a9e3b45515ad5d
+  - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14B_PMRLevel2.unity
     guid: 2878957598704694cb3df90de143fcbf
   - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14B_PMRLevel2_Extended.unity
+    guid: 481e81f39384dfd42820cfdfb535f01e
+  - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14C_PMRLevel3.unity
     guid: 02b7ce2284660ed489c8810fb39712d9
+  - enabled: 1
+    path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_14C_PMRLevel3_Extended.unity
+    guid: f5e405be857828b4aa27053f53598d0a
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_15_FlyThroughSpace.unity
     guid: 13ffba79b285217468a2a296e29cf4c9
