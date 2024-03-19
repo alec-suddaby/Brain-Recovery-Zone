@@ -587,6 +587,7 @@ MonoBehaviour:
   systemDebugFFRLevel: -1
   systemFFRLevel: -1
   appCheckResult: 100
+  useRecommendedAntiAliasingLevel: 1
 --- !u!1 &1635420608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289175173496250956, guid: ca39a9a09043c58488042940e079d1fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2921009128364378681, guid: ca39a9a09043c58488042940e079d1fb,
         type: 3}

@@ -15,7 +15,7 @@
     },
     "com.unity.ext.nunit": {
       "version": "1.0.5",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -52,7 +52,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.1.19",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.5",
@@ -151,7 +151,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:Z:/VISUALISE STUFF/Unity Dev/PicoXR_Platform_SDK-1.1.1_B17",
+      "version": "file:D:/PicoXR_Platform_SDK-1.2.5_B81",
       "depth": 0,
       "source": "local",
       "dependencies": {
