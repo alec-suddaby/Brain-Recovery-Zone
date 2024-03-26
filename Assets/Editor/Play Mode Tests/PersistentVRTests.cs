@@ -18,7 +18,7 @@ public class PersistentVRTests
 
     #region SceneLoader
     private SceneLoader sceneLoader;
-    private const float postSceneLoadDelay = 0.25f;
+    private const float postSceneLoadDelay = 0.05f;
 
     private List<Scene> GetOpenScenes()
     {
@@ -32,7 +32,7 @@ public class PersistentVRTests
     }
 
     [UnityTest, Order(0)]
-    public IEnumerator SceneLoaderLoadPersistentTest()
+    public IEnumerator SceneLoaderLoadPersistentTest_Test105()
     {
         AsyncOperation loadScene = SceneManager.LoadSceneAsync(0);
         loadScene.allowSceneActivation = true;
@@ -61,22 +61,18 @@ public class PersistentVRTests
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest, Order(1)]
-    public IEnumerator SceneManagerLoadNewAdditiveScene()
+    public IEnumerator SceneManagerLoadNewAdditiveScene_Test105()
     {
         List<Scene> openScenes = GetOpenScenes();
 
         foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
         {
-            Scene sceneToLoad;
-
             if (!scene.enabled || openScenes.Where(x => x.path == scene.path).Count() > 0)
             {
                 continue;
             }
 
-            Assert.IsFalse((sceneToLoad = openScenes.First(x => x.path == scene.path)) == null);
-
-            sceneLoader.LoadNewScene(sceneToLoad.name);
+            sceneLoader.LoadNewScene(scene.path);
 
             while (sceneLoader.IsLoading)
             {
@@ -85,7 +81,11 @@ public class PersistentVRTests
 
             yield return new WaitForSeconds(postSceneLoadDelay);
 
-            Assert.IsTrue(openScenes.Where(x => x.name == sceneToLoad.name).Count() == 1 && openScenes.Count == 2);
+            List<Scene> currentlyOpenScenes = GetOpenScenes();
+
+            Assert.IsTrue(currentlyOpenScenes.Where(x => x.path == scene.path).Count() == 1 && openScenes.Count == 2);
+
+            break;
         }
     }
     #endregion

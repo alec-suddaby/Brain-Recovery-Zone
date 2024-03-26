@@ -464,7 +464,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void SavePanelHistory()
+    public void SavePanelHistory()
     {            
         // Get temp the current panel to string
         string currentPanelTemp = currentPanel.ToString();

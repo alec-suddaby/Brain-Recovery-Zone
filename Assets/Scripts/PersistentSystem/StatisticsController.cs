@@ -24,6 +24,7 @@ public class StatisticsController : Singleton<StatisticsController>
 
     private static BRZStatistic currentStatistic = null;
     private static BRZStatisticsList statisticsList = null;
+
     private static string fileLocation;
     private static readonly string fileName = "statistics.json";
 
@@ -33,7 +34,7 @@ public class StatisticsController : Singleton<StatisticsController>
         //LoadStatistics();
     }
 
-    private void LoadStatistics()
+    public BRZStatisticsList LoadStatistics()
     {
         Debug.Log("LoadStatistics Called in StatisticsController");
 
@@ -46,7 +47,7 @@ public class StatisticsController : Singleton<StatisticsController>
         {
             Debug.Log("ERROR: JSON file or directory not found");
             statisticsList = new BRZStatisticsList();
-            return;
+            return null;
         }
         string jsonList = File.ReadAllText(fileLocation + fileName);
         Debug.Log(jsonList);
@@ -58,6 +59,8 @@ public class StatisticsController : Singleton<StatisticsController>
         {
             statisticsList = JsonUtility.FromJson<BRZStatisticsList>(jsonList);
         }
+
+        return statisticsList;
     }
 
     private void SaveStatistics()

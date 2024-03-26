@@ -48091,11 +48091,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2551210047709671712, guid: 5a46f8ed62b1d5a43a4e7ce94330d3cb,
-        type: 3}
-      propertyPath: hoverSound
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2551210047709671713, guid: 5a46f8ed62b1d5a43a4e7ce94330d3cb,
         type: 3}
       propertyPath: m_Name

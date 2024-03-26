@@ -34,10 +34,14 @@ namespace RenderHeads.Media.AVProVideo
 #endif
 	public class MediaPlayer : MonoBehaviour
 	{
-		// These fields are just used to setup the default properties for a new video that is about to be loaded
-		// Once a video has been loaded you should use the interfaces exposed in the properties to
-		// change playback properties (eg volume, looping, mute)
-		public FileLocation m_VideoLocation = FileLocation.RelativeToStreamingAssetsFolder;
+		private const string headsetAssetsPath = "file://mnt/sdcard";
+		private const string desktopAssetsPath = "D://Brain Recovery Zone";
+
+
+        // These fields are just used to setup the default properties for a new video that is about to be loaded
+        // Once a video has been loaded you should use the interfaces exposed in the properties to
+        // change playback properties (eg volume, looping, mute)
+        public FileLocation m_VideoLocation = FileLocation.RelativeToStreamingAssetsFolder;
 
 		public string m_VideoPath;
 
@@ -841,6 +845,10 @@ namespace RenderHeads.Media.AVProVideo
 		{
 			m_VideoLocation = location;
 			m_VideoPath = path;
+#if UNITY_EDITOR
+			m_VideoPath.Replace(headsetAssetsPath, desktopAssetsPath);
+#endif
+
 			m_AutoStart = autoPlay;
 
 			if (m_Control == null)

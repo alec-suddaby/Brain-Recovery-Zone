@@ -9,6 +9,7 @@ public class Panel : MonoBehaviour
 {
     public Canvas canvas = null;
     private MenuManager menuManager = null;
+    public MenuManager MenuManager => menuManager;
 
     //public GameObject scrollBar;
     public GameObject buttonWrap;
