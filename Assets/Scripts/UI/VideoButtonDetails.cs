@@ -51,12 +51,16 @@ public class VideoButtonDetails : MonoBehaviour
     private TextMeshProUGUI decriptionTMP;
     private TextMeshProUGUI durationTMP;
     private ProceduralImage thumbnailIMG;
-       
-    
-    
+
+
+
     // Start is called before the first frame update
     void Start()
-    {             
+    {
+        Init();
+    }
+    
+    public void Init() {
         //Set Title
         if ( titleGameObject != null)
         {   

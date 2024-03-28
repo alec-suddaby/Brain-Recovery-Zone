@@ -3,6 +3,7 @@ using RenderHeads.Media.AVProVideo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -11,8 +12,7 @@ using UnityEngine.UI;
 
 public class MainMenuUnitTestsPlayMode
 {
-    [Test]
-    public void LoadMainMenu_Test6()
+    private void LoadMainMenu()
     {
         try
         {
@@ -26,6 +26,12 @@ public class MainMenuUnitTestsPlayMode
         }
 
         Assert.Pass("Scenes loaded successfully");
+    }
+
+    [Test]
+    public void LoadMainMenu_Test6()
+    {
+        LoadMainMenu();
     }
 
     private MenuManager GetMenuManager()
@@ -227,5 +233,25 @@ public class MainMenuUnitTestsPlayMode
 
         MenuManager menuManager = GetMenuManager();
         Assert.IsTrue(activePanelName == GetActivePanel(menuManager).transform.name);
+    }
+
+    [UnityTest]
+    public IEnumerator MainMenuDefaultVolumeTestButtonTest_Test102()
+    {
+        LoadMainMenu();
+
+        DefaultVolumeTestButton testButton = GameObject.FindObjectOfType<DefaultVolumeTestButton>();
+        Type defaultVolumeType = typeof(DefaultVolumeTestButton);
+        FieldInfo audioSourceField = defaultVolumeType.GetField("testVolumeAudioSource", BindingFlags.NonPublic | BindingFlags.Instance);
+
+
+        for(int i = 0; i < 3; i++)
+        {
+            float randomVolume = UnityEngine.Random.Range(0f, 1f);
+            PlayerPrefs.SetFloat("DefaultAppVolume", randomVolume);
+
+            yield return new WaitForEndOfFrame();
+            Assert.IsTrue(((AudioSource)audioSourceField.GetValue(testButton)).volume == randomVolume);
+        }
     }
 }
