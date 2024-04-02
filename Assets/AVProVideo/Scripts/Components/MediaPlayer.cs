@@ -845,9 +845,6 @@ namespace RenderHeads.Media.AVProVideo
 		{
 			m_VideoLocation = location;
 			m_VideoPath = path;
-#if UNITY_EDITOR
-			m_VideoPath.Replace(headsetAssetsPath, desktopAssetsPath);
-#endif
 
 			m_AutoStart = autoPlay;
 
@@ -1183,7 +1180,12 @@ namespace RenderHeads.Media.AVProVideo
 				long fileOffset = GetPlatformFileOffset();
 				string fullPath = GetPlatformFilePath(GetPlatform(), ref m_VideoPath, ref m_VideoLocation);
 
-				if (!string.IsNullOrEmpty(m_VideoPath))
+#if UNITY_EDITOR
+                m_VideoPath = m_VideoPath.Replace(headsetAssetsPath, desktopAssetsPath);
+                fullPath = fullPath.Replace(headsetAssetsPath, desktopAssetsPath);
+#endif
+
+                if (!string.IsNullOrEmpty(m_VideoPath))
 				{
 					string httpHeaderJson = null;
 

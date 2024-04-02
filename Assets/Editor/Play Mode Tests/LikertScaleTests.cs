@@ -14,7 +14,7 @@ public class LikertScaleTests
     private LikertScaleInteractionManager GetLikertScaleInteractionManager()
     {
         MainMenuUnitTestsPlayMode mainMenuTests = new MainMenuUnitTestsPlayMode();
-        mainMenuTests.LoadMainMenu_Test6();
+        mainMenuTests.LoadMainMenu();
 
         return GameObject.FindObjectOfType<LikertScaleInteractionManager>();
     }

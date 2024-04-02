@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 public class MainMenuUnitTestsPlayMode
 {
-    private void LoadMainMenu()
+    public void LoadMainMenu()
     {
         try
         {
@@ -36,7 +36,7 @@ public class MainMenuUnitTestsPlayMode
 
     private MenuManager GetMenuManager()
     {
-        LoadMainMenu_Test6();
+        LoadMainMenu();
 
         return GameObject.FindObjectOfType<MenuManager>();
     }
@@ -147,7 +147,7 @@ public class MainMenuUnitTestsPlayMode
     [Test]
     public void ConnectMainCameraTest_Test86()
     {
-        LoadMainMenu_Test6();
+        LoadMainMenu();
 
         Canvas[] canvases = GameObject.FindObjectsOfType<Canvas>();
         foreach(Canvas canvas in canvases)
@@ -191,7 +191,7 @@ public class MainMenuUnitTestsPlayMode
     {
         string preferenceName = "TestPreference";
 
-        LoadMainMenu_Test6();
+        LoadMainMenu();
         ResetApp resetApp = GameObject.FindObjectOfType<ResetApp>();
 
         PlayerPrefs.SetInt(preferenceName, 0);
