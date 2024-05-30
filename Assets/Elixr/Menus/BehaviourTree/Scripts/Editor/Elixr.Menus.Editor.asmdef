@@ -1,0 +1,18 @@
+{
+    "name": "Elixr.Menus.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:da4c343c7788a954b8ece9d8ac444cd8"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: Example Menu
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 6844212526303936513
+  nodes:
+  - rid: 6844212526303936513
+  - rid: 6844212526303936514
+  - rid: 6844212526303936515
+  - rid: 6844212526303936516
+  - rid: 6844212526303936517
+  - rid: 6844212526303936518
+  - rid: 6844212526303936520
+  - rid: 6844212526303936521
+  treeState: 0
+  blackboard:
+    ActiveNodeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  viewPosition: {x: 600, y: 300, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6844212526303936513
+      type: {class: RootNode, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: c6857411-0cac-4a78-ab63-451faab4797f
+        position: {x: 155, y: -117}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Root Node
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 6844212526303936514
+    - rid: 6844212526303936514
+      type: {class: Menu, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: d21385f6f8ff68a49a1a284b7d506ddb
+        position: {x: 155, y: 69}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Selection Menu
+        description: An example of a menu that leads to other menus
+        drawGizmos: 0
+        children:
+        - rid: 6844212526303936515
+        - rid: 6844212526303936516
+    - rid: 6844212526303936515
+      type: {class: Menu, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: 95c5fe5e12e411b4da1813109f4f9866
+        position: {x: 5, y: 266}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Submenu 1
+        description: A submenu with links to multiple levels
+        drawGizmos: 0
+        children:
+        - rid: 6844212526303936517
+        - rid: 6844212526303936518
+    - rid: 6844212526303936516
+      type: {class: Menu, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: f0427d80e6d5d0c4183970896b7c3833
+        position: {x: 305, y: 266}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Submenu 2
+        description: A second submenu with links to multiple levels
+        drawGizmos: 0
+        children:
+        - rid: 6844212526303936520
+        - rid: 6844212526303936521
+    - rid: 6844212526303936517
+      type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: df92787c6ba1a7a459d60f538f513336
+        position: {x: -145, y: 433}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Level 1
+        description: The first
+        drawGizmos: 0
+        LevelName: SampleScene
+    - rid: 6844212526303936518
+      type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: 2b7efbe12343d314a85cf49cc375f033
+        position: {x: 5, y: 433}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Level 2
+        description: The second
+        drawGizmos: 0
+        LevelName: SampleScene
+    - rid: 6844212526303936520
+      type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: febcee88860fee2438b3a97a14e36fa7
+        position: {x: 305, y: 433}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Level 3
+        description: The third
+        drawGizmos: 0
+        LevelName: SampleScene
+    - rid: 6844212526303936521
+      type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: 335d92fc19ee5e74e80c281f4b02a1e4
+        position: {x: 455, y: 433}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+        title: Level 4
+        description: The fourth
+        drawGizmos: 0
+        LevelName: SampleScene

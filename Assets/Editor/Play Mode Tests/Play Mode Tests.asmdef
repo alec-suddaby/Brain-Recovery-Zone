@@ -5,7 +5,11 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "BrainRecoveryZone",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "AVProVideo",
+        "Visualise",
+        "UnityEngine.UI.ProceduralImage",
+        "VideoPlayerControls"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

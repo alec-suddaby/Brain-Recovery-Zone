@@ -1,0 +1,25 @@
+{
+    "name": "Visualise",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:344c59e53e2aa435db7f183483734523",
+        "GUID:4af21795022437d4bb139a86514b9ff9",
+        "GUID:781d3f72e45b2ed46b35a96cb2736482",
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
+        "GUID:638c7ecf2959c23488875ab03b5aed7b",
+        "GUID:c77a722c383beef4582a73048de548c4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

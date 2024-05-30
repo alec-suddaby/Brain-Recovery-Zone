@@ -18,7 +18,7 @@ public class PersistentVRTests
 
     #region SceneLoader
     private SceneLoader sceneLoader;
-    private const float postSceneLoadDelay = 0.05f;
+    private const float postSceneLoadDelay = 0.5f;
 
     private List<Scene> GetOpenScenes()
     {
@@ -63,6 +63,18 @@ public class PersistentVRTests
     [UnityTest, Order(1)]
     public IEnumerator SceneManagerLoadNewAdditiveScene_Test105()
     {
+        AsyncOperation loadScene = SceneManager.LoadSceneAsync(0);
+        loadScene.allowSceneActivation = true;
+
+        while (!loadScene.isDone)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForFixedUpdate();
+
+        SceneLoader sceneLoader = GameObject.FindObjectOfType<SceneLoader>();
+
         List<Scene> openScenes = GetOpenScenes();
 
         foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
@@ -83,7 +95,9 @@ public class PersistentVRTests
 
             List<Scene> currentlyOpenScenes = GetOpenScenes();
 
-            Assert.IsTrue(currentlyOpenScenes.Where(x => x.path == scene.path).Count() == 1 && openScenes.Count == 2);
+            bool openedCorrectScene = currentlyOpenScenes.Where(x => x.path == scene.path).Count() == 1;
+
+            Assert.IsTrue(openedCorrectScene && currentlyOpenScenes.Count == 2, $"Expected '{scene.path}' to be loaded: {openedCorrectScene}. Expected scene count of 2: {currentlyOpenScenes.Count}");
 
             break;
         }

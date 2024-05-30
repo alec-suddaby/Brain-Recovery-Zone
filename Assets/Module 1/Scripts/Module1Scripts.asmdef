@@ -1,0 +1,17 @@
+{
+    "name": "Module1Scripts",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2f71148c713a6154f91196a0002e4494",
+        "GUID:da4c343c7788a954b8ece9d8ac444cd8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

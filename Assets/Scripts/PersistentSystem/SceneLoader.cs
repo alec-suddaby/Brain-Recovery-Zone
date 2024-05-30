@@ -115,6 +115,11 @@ public class SceneLoader : Singleton<SceneLoader>
 
     private IEnumerator UnloadCurrent()
     {
+        if(SceneManager.GetActiveScene() == null || SceneManager.sceneCount == 1)
+        {
+            yield break;
+        }
+
         AsyncOperation unloadOperation = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
         //Can add the progress loading bar here for async progress
