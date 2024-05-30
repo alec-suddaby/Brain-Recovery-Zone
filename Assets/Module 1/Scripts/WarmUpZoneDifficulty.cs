@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WarmUpZoneDifficulty : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class WarmUpZoneDifficulty : MonoBehaviour
     public List<DifficultyLevel> difficulties;
     [HideInInspector]
     public BellRinging bellRinging;
-    public Text levelText;
+    public TextMeshPro levelText;
 
     private void Awake()
     {

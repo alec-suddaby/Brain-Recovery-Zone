@@ -1,9 +1,12 @@
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class TaskCountdown : TimedTask
 {
     
-    public Text countdownText;
+    public TextMeshPro countdownText;
+    public Slider countdownSlider;
     public bool showCountdownInMins = false;
 
     public override void InitTask()
@@ -11,6 +14,15 @@ public class TaskCountdown : TimedTask
         base.InitTask();
         countdownText.text = "";
         updateTick.AddListener(UpdateCountdownText);
+        if(countdownSlider != null )
+        {
+            updateTick.AddListener(UpdateCountdownSlider);
+        }
+    }
+
+    private void UpdateCountdownSlider()
+    {
+        countdownSlider.value = timeElapsed / taskLengthSeconds;
     }
 
     private void UpdateCountdownText(){

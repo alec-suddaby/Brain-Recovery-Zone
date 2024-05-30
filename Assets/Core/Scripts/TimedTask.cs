@@ -43,6 +43,7 @@ public class TimedTask : MonoBehaviour
         if(!beginTask){
             return;
         }
+
         updateTick.Invoke();
     }
 

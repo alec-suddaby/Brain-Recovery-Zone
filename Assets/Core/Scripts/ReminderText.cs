@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ReminderText : MonoBehaviour
 {
     public GameObject reminderCanvas;
-    public Text reminderText;
+    public TextMeshProUGUI reminderText;
     public string playerPref = "";
     public string reminder = "";
 

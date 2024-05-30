@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class NumberSelector : MonoBehaviour
 {
 
     public int minGuess;
     public int maxGuess;
     private int currentGuess;
-    public Text numberGuessed;
+    public TextMeshProUGUI numberGuessed;
     public int GetGuess{
         get => currentGuess;
     }
