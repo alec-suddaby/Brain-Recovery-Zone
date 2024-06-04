@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SessionCompleteFeedback : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class SessionCompleteFeedback : MonoBehaviour
         }
     }
 
-    public Text feedbackText;
+    public TextMeshProUGUI feedbackText;
     public FeedbackForScore[] feedbacks;
 
     public void SelfEvaluationUpdated(int score){

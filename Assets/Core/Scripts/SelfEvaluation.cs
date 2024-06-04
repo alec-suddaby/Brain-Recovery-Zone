@@ -4,21 +4,23 @@ using UnityEngine;
 using System.IO;
 using System;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class SelfEvaluation : MonoBehaviour
 {
     public string fileName = "SelfEvaluationScores";
-    public int score = 5;
+    public Slider score;
     public UnityEvent<int> scoreChanged;
 
     public void Start(){
-        scoreChanged.Invoke(score);
+        scoreChanged.Invoke((int)score.value);
+        score.onValueChanged.AddListener(SetScore);
     }
 
-    public void SetScore(int s){
-        score = s;
-        scoreChanged.Invoke(score);
+    public void SetScore(float s){
+        scoreChanged.Invoke((int)score.value);
     }
+
     public void SaveSelfEvaluation(string levelName, bool alertingSound, bool infoText, int correctButtonPresses, int totalButtonPresses, int expectedButtonPresses){
         //try{
             if(!File.Exists(Application.persistentDataPath + "/" + fileName.Replace(' ', '-') + ".csv")){

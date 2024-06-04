@@ -8,7 +8,12 @@ public class MenuManager : MonoBehaviour
     public bool isMainMenu = false;
 
     void Start(){
-        if(LoadLevelSettings.loadLevelSettings.currentMenu == -1 || !isMainMenu){
+        if (!isMainMenu)
+        {
+            return;
+        }
+
+        if(LoadLevelSettings.loadLevelSettings.currentMenu == -1){
             return;
         }
         ChangeMenu(menus[LoadLevelSettings.loadLevelSettings.currentMenu]);

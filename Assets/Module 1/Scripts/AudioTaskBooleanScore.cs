@@ -15,7 +15,7 @@ public class AudioTaskBooleanScore : TaskScore
     protected override void SaveScore(){
         List<AudioCountTask.AudioTaskSound> countTaskSounds = audioCountTaskLevel.CompletedSounds;
         int numberOfTriggerSounds = audioCountTaskLevel.GetNumberOfTriggerSounds;
-        score = FindObjectOfType<SelfEvaluation>().score;
+        score = (int)FindObjectOfType<SelfEvaluation>().score.value;
         if(score > 1){
             score = 0;
         }

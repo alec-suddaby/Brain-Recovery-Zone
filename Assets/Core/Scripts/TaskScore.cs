@@ -36,7 +36,7 @@ public class TaskScore : MonoBehaviour
 
     protected virtual void SaveScore(){
         Debug.Log("Test");
-        score = FindObjectOfType<SelfEvaluation>().score;
+        score = (int)FindObjectOfType<SelfEvaluation>().score.value;
         if(!File.Exists(Application.persistentDataPath + "/" + fileName.Replace(' ', '-') + ".csv")){
             File.WriteAllLines(Application.persistentDataPath + "/" +  fileName.Replace(' ', '-') + ".csv", new List<string>(){ ("Level Name,Date Completed,Score") });
         }

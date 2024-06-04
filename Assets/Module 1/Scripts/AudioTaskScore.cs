@@ -23,7 +23,7 @@ public class AudioTaskScore : TaskScore
         List<float> triggerPresses = triggerPressCounter.GetButtonPresses;
         int actualScore = GetScore(triggerPresses, countTaskSounds);
         int numberOfTriggerSounds = audioCountTaskLevel.GetNumberOfTriggerSounds;
-        score = FindObjectOfType<SelfEvaluation>().score;
+        score = (int)FindObjectOfType<SelfEvaluation>().score.value;
 
         if(!File.Exists(Application.persistentDataPath + "/" + fileName.Replace(' ', '-') + ".csv")){
             File.WriteAllLines(Application.persistentDataPath + "/" +  fileName.Replace(' ', '-') + ".csv", new List<string>(){ ("Level Name,Date Completed,Self Evaluation Score,Correct Button Presses,Total Button Presses,Trigger Sounds Played,Total Sounds Played") });

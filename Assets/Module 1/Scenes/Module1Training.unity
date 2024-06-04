@@ -369,18 +369,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &749798732 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4235598348384216870, guid: df76f806dbb17134ca75568a96fefe24,
+--- !u!1 &682283326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3560492217369381872, guid: 0c166182681d75f4ca832baa2c28368b,
     type: 3}
-  m_PrefabInstance: {fileID: 4235598347905081962}
+  m_PrefabInstance: {fileID: 1169574866705799780}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &780860793
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +618,7 @@ MonoBehaviour:
   display: {fileID: 1833068205}
   fileName: AudioTaskTrigger
   taskLevel: {fileID: 1064057398}
-  saveScoreButton: {fileID: 749798732}
+  saveScoreButton: {fileID: 2058801687}
   saveComplete:
     m_PersistentCalls:
       m_Calls:
@@ -637,7 +631,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: MainMenuAddative
           m_BoolArgument: 0
         m_CallState: 2
   triggerPressCounter: {fileID: 1064057396}
@@ -693,6 +687,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1064057396}
         m_TargetAssemblyTypeName: TriggerPressCounter, Assembly-CSharp
         m_MethodName: CountButtonPresses
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 682283326}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1225,7 +1231,7 @@ MonoBehaviour:
   display: {fileID: 1833068205}
   fileName: AudioTaskTrigger
   taskLevel: {fileID: 1411753382}
-  saveScoreButton: {fileID: 749798732}
+  saveScoreButton: {fileID: 2058801687}
   saveComplete:
     m_PersistentCalls:
       m_Calls:
@@ -1238,7 +1244,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: MainMenuAddative
           m_BoolArgument: 0
         m_CallState: 2
   triggerPressCounter: {fileID: 1411753384}
@@ -1294,6 +1300,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1411753384}
         m_TargetAssemblyTypeName: TriggerPressCounter, Assembly-CSharp
         m_MethodName: CountButtonPresses
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 682283326}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1684,7 +1702,7 @@ MonoBehaviour:
   display: {fileID: 1833068205}
   fileName: AudioTaskTrigger
   taskLevel: {fileID: 1832311926}
-  saveScoreButton: {fileID: 749798732}
+  saveScoreButton: {fileID: 2058801687}
   saveComplete:
     m_PersistentCalls:
       m_Calls:
@@ -1697,7 +1715,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: MainMenuAddative
           m_BoolArgument: 0
         m_CallState: 2
   triggerPressCounter: {fileID: 1832311924}
@@ -1753,6 +1771,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1832311924}
         m_TargetAssemblyTypeName: TriggerPressCounter, Assembly-CSharp
         m_MethodName: CountButtonPresses
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 682283326}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2228,7 +2258,7 @@ MonoBehaviour:
   display: {fileID: 1833068205}
   fileName: AudioTaskTrigger
   taskLevel: {fileID: 2053831964}
-  saveScoreButton: {fileID: 749798732}
+  saveScoreButton: {fileID: 2058801687}
   saveComplete:
     m_PersistentCalls:
       m_Calls:
@@ -2241,7 +2271,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: MainMenuAddative
           m_BoolArgument: 0
         m_CallState: 2
   triggerPressCounter: {fileID: 2053831962}
@@ -2297,6 +2327,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2053831962}
         m_TargetAssemblyTypeName: TriggerPressCounter, Assembly-CSharp
         m_MethodName: CountButtonPresses
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 682283326}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2451,6 +2493,18 @@ MonoBehaviour:
   reminder: Press the trigger button for <b>delayed</b> train announcements
   callOnStart: 0
   updateTextOnStart: 1
+--- !u!114 &2058801687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8487123679579138422, guid: df76f806dbb17134ca75568a96fefe24,
+    type: 3}
+  m_PrefabInstance: {fileID: 4235598347905081962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1169574866705799780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2545,6 +2599,81 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 815409948055128494, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1411753378}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2053831959}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1064057393}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1832311921}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: FindButtonAudioGameObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: FindButtonAudioGameObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975745643418261912, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: FindButtonAudioGameObject, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4235598347475744746, guid: df76f806dbb17134ca75568a96fefe24,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2885,6 +3014,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4235598349469697242, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4235598349469697243, guid: df76f806dbb17134ca75568a96fefe24,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3019,6 +3153,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510289061740345098, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775658085374265003, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775658085374265003, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775658085374265003, guid: df76f806dbb17134ca75568a96fefe24,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df76f806dbb17134ca75568a96fefe24, type: 3}
