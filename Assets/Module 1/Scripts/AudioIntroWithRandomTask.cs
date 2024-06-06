@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AudioIntroWithRandomTask : TaskIntroduction
 {
@@ -19,7 +20,7 @@ public class AudioIntroWithRandomTask : TaskIntroduction
 
     public string descriptionString = "<SpecialCharacter1/>";
     public int numberOfSpecialCharacters = 1;
-    public Text descriptionText;
+    public TextMeshProUGUI descriptionText;
 
     public AudioClip betweenTriggerSound;
     public AudioClip beforeLastTriggerSound;
