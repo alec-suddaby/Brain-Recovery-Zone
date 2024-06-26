@@ -1,0 +1,16 @@
+{
+    "name": "Calm.ActiveStressRelaxation",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2f71148c713a6154f91196a0002e4494"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

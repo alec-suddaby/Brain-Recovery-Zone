@@ -1,0 +1,18 @@
+{
+    "name": "Audio360.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:33168b80431485940a61103f81afaf13"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

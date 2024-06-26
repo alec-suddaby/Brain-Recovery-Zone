@@ -98,6 +98,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddativeScenes/Experiences/03_Calm/03_Calm_15_FlyThroughSpace.unity
     guid: 13ffba79b285217468a2a296e29cf4c9
+  - enabled: 1
+    path: Assets/Calm/Active Stress Relaxation/Calm_ActiveStressRelaxation.unity
+    guid: 66e283b5d3cd2424aa9634d8e913a9d1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,
       type: 2}

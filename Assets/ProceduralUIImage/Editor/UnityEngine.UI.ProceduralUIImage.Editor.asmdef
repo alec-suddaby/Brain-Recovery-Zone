@@ -1,0 +1,18 @@
+{
+    "name": "UnityEditor.ProceduralUIImage.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c77a722c383beef4582a73048de548c4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

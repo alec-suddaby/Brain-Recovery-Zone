@@ -2371,7 +2371,7 @@ GameObject:
   - component: {fileID: 1345400298070555359}
   - component: {fileID: 1345400298070555356}
   - component: {fileID: 1345400298070555357}
-  - component: {fileID: 1345400298070555330}
+  - component: {fileID: 1710858473346139855}
   m_Layer: 5
   m_Name: Quit Menu
   m_TagString: Untagged
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   buttonWrap: {fileID: 0}
   currentScrollRect: {fileID: 0}
   scrollRateModifier: 30
---- !u!114 &1345400298070555330
+--- !u!114 &1710858473346139855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2481,9 +2481,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1345400298070555331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fda5f90f0157294884e0724578f60ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a4c918821de64343b61c37f13fdfb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Description: V1.0 This script will, on awake, link the Canvas, UpdateStereoMaterial
+    or MediaPlayer to the main camera when placed on the same GameObject
 --- !u!1 &1345400298157724402
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,8 @@
         "AVProVideo",
         "Visualise",
         "UnityEngine.UI.ProceduralImage",
-        "VideoPlayerControls"
+        "VideoPlayerControls",
+        "Editor"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
