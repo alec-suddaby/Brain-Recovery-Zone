@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &812737431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7314589706079896035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ca963bab1b3fd4797395582fb4c008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questionText: {fileID: 7314589706647917788}
-  clicked:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &5389821242080910732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,6 +7,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3408900877928106320, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408900877928106320, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408900877928106320, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408900878433344620, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408900878433344620, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408900878433344620, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408900878433344620, guid: 9bf9150cbca384c47a37eb765512a12e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3408900878433344621, guid: 9bf9150cbca384c47a37eb765512a12e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -156,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 3408900878433344623, guid: 9bf9150cbca384c47a37eb765512a12e,
         type: 3}
       propertyPath: m_Name
-      value: AnswerButton
+      value: AnswerButton Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf9150cbca384c47a37eb765512a12e, type: 3}
@@ -166,6 +185,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5389821242080910732}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &812737431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314589706079896035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ca963bab1b3fd4797395582fb4c008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionText: {fileID: 7314589706647917788}
+  clicked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7314589706647917788 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3408900877928106320, guid: 9bf9150cbca384c47a37eb765512a12e,

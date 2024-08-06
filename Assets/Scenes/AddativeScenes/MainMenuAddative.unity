@@ -5353,7 +5353,7 @@ MonoBehaviour:
   menuHideButton: {fileID: 1334735762}
   menuShowButton: {fileID: 1937429969}
   menuSettingsButton: {fileID: 213774559}
-  defaultPanel: {fileID: 2125607538}
+  defaultPanel: {fileID: 553768825}
   audioPrompt: 0
   audioPromptBoxPanel: {fileID: 1582156435}
   likertScaleInteractionManager: {fileID: 228583871}
@@ -37072,7 +37072,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: fd717c2a6bbd2a84dbef7c2b597b803a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

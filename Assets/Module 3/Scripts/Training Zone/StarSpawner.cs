@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StarSpawner : TaskCountdown
 {
@@ -23,7 +24,7 @@ public class StarSpawner : TaskCountdown
 
     public float timeForSuccessfulTriggerPress = 5f;
 
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
 
     public IntervalBillboard highlighter;
     private bool highlighterDeleted = true;

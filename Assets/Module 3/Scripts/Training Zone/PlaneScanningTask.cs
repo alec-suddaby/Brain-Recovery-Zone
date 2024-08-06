@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlaneScanningTask : TaskCountdown
 {
@@ -37,7 +38,7 @@ public class PlaneScanningTask : TaskCountdown
     private float nextDummySpawnTime = 0f;
     public bool dummyPlanesEnabled = true;
 
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
 
     public TriggerPressCounter triggerCounter;
 
