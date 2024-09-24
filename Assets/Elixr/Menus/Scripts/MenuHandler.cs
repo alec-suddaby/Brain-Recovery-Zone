@@ -19,7 +19,7 @@ namespace Elixr.MenuSystem
 
         private AudioClip descriptionAudio;
 
-        public void SetupMenu(Menu menu, MenuManager menuManager)
+        public virtual void SetupMenu(Menu menu, MenuManager menuManager)
         {
             descriptionAudio = menu.descriptionAudio;
             audioButton.SetActive(descriptionAudio != null);

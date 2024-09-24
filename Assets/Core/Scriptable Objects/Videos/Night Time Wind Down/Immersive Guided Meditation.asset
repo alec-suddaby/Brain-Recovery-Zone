@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
+  m_Name: Immersive Guided Meditation
+  m_EditorClassIdentifier: 
+  title: Immersive Guided Meditation
+  description: Become mindfully aware of your thoughts and unwind before bed
+  durationMins: 2
+  icon: {fileID: 21300000, guid: e5bdce8c16afec44098b57424a76e534, type: 3}

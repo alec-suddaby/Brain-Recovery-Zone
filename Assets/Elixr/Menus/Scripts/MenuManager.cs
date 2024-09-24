@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Elixr.MenuSystem
 {
@@ -15,6 +16,7 @@ namespace Elixr.MenuSystem
         public CanvasGroup menuCanvas;
 
         public MenuHandler menuPrefab;
+        public VideoLoaderHandler videoHandler;
         public LoadLevelMenuHandler loadLevelPrefab;
         public LoadLevelOptionsHandler loadLevelOptionsPrefab;
 
@@ -32,7 +34,7 @@ namespace Elixr.MenuSystem
         private float lastBackButtonClicktime = float.MinValue;
 
         public CanvasGroup breadcrumbsCanvas;
-        public Text breadcrumbsText;
+        public TextMeshProUGUI breadcrumbsText;
         public string breadcrumbsSeperator = " | ";
 
         // Start is called before the first frame update
@@ -116,6 +118,21 @@ namespace Elixr.MenuSystem
                 case Menu menuNode:
                     MenuHandler newMenu = Instantiate(menuPrefab.gameObject, menuCanvas.transform).GetComponent<MenuHandler>();
                     newMenu.SetupMenu(menuNode, this);
+                    break;
+                case VideoLoader videoLoader:
+                    VideoLoaderHandler newVideoLoader = Instantiate(videoHandler.gameObject, menuCanvas.transform).GetComponent<VideoLoaderHandler>();
+                    
+                    if(newVideoLoader == null)
+                    {
+                        Debug.Log("1 null");
+                    }
+
+                    if (videoLoader == null)
+                    {
+                        Debug.Log("2 null");
+                    }
+
+                    newVideoLoader.SetupMenu(videoLoader);
                     break;
                 case LoadLevelOptionsNode levelOptionsMenu:
                     LoadLevelMenuHandler newLevelOptionsMenu = Instantiate(loadLevelOptionsPrefab.gameObject, menuCanvas.transform).GetComponent<LoadLevelOptionsHandler>();

@@ -18,11 +18,13 @@ public class ScrollContainerButtonWrapGenerationVertical : MonoBehaviour
 
     private GameObject[] buttonArray;
 
+    [SerializeField] private Mask mask;
+
     // Start is called before the first frame update
     void Start()
     {
         // Ensure the mask is enabled to hide the items
-        transform.parent.gameObject.GetComponent<Mask>().enabled = true;
+        mask.enabled = true;
 
         // Gets all the gameObject that are a child of buttonWrap and adds to the buttonArray.
         buttonArray = new GameObject[buttonWarp.transform.childCount];

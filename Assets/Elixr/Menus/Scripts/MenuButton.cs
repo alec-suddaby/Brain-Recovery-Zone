@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Elixr.MenuSystem
 {
     [RequireComponent(typeof(Button))]
     public class MenuButton : MonoBehaviour
     {
-        public Text Title;
-        public Text Description;
+        public TextMeshProUGUI Title;
+        public TextMeshProUGUI Description;
 
         private MenuManager menuManager;
         private Node node;

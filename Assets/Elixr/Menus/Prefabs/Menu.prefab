@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 160}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &272102982848459780
@@ -56,7 +56,7 @@ MonoBehaviour:
   titleText: {fileID: 2645680423230232912}
   descriptionText: {fileID: 8688079170244544886}
   buttonParent: {fileID: 6723800676391658966}
-  buttonPrefab: {fileID: 6347270777063517231, guid: 4bfe4e1dab3f6204f9a6245237a14b6f,
+  buttonPrefab: {fileID: 2057134197462599592, guid: 2f29cf50101d200498130f664aa31e09,
     type: 3}
   buttonLayout: {fileID: 3375205428368895809}
   audioButton: {fileID: 2593859332017317915}
@@ -94,8 +94,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -140}
-  m_SizeDelta: {x: 800, y: 174.7976}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1500, y: 174.7976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3375205428368895809
 MonoBehaviour:
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 220, y: 220}
+  m_CellSize: {x: 400, y: 240}
   m_Spacing: {x: 30, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.833334, y: 14}
+  m_AnchoredPosition: {x: 20.833334, y: 125}
   m_SizeDelta: {x: 1142.05, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6591825613603590519
@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 64}
+  m_AnchoredPosition: {x: 0, y: 175}
   m_SizeDelta: {x: 715.95, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6212886879353580551

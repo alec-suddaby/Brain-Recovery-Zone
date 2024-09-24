@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
+  m_Name: Lakeside
+  m_EditorClassIdentifier: 
+  title: Lakeside
+  description: Dip your toes in a calming lake
+  durationMins: 3
+  icon: {fileID: 21300000, guid: 3e51811fa8eeb1843b95cb1ac123e368, type: 3}
+  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01103.mp4

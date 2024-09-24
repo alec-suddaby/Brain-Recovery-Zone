@@ -28,8 +28,9 @@ MonoBehaviour:
     ActiveNodeChanged:
       m_PersistentCalls:
         m_Calls: []
-  viewPosition: {x: 600, y: 300, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+    interactable: 1
+  viewPosition: {x: 1004, y: 391, z: 0}
+  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
   references:
     version: 2
     RefIds:
@@ -44,9 +45,11 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Root Node
         description: 
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         child:
           rid: 6844212526303936514
     - rid: 6844212526303936514
@@ -60,12 +63,15 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Selection Menu
         description: An example of a menu that leads to other menus
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         children:
         - rid: 6844212526303936515
         - rid: 6844212526303936516
+        descriptionAudio: {fileID: 0}
     - rid: 6844212526303936515
       type: {class: Menu, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -77,12 +83,15 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Submenu 1
         description: A submenu with links to multiple levels
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         children:
         - rid: 6844212526303936517
         - rid: 6844212526303936518
+        descriptionAudio: {fileID: 0}
     - rid: 6844212526303936516
       type: {class: Menu, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -94,12 +103,15 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Submenu 2
         description: A second submenu with links to multiple levels
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         children:
         - rid: 6844212526303936520
         - rid: 6844212526303936521
+        descriptionAudio: {fileID: 0}
     - rid: 6844212526303936517
       type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -111,10 +123,16 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Level 1
         description: The first
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         LevelName: SampleScene
+        DifficultyLevel: 1
+        Stage: 0
+        descriptionAudio: {fileID: 0}
+        extraMenuInfo: {fileID: 0}
     - rid: 6844212526303936518
       type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -126,10 +144,16 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Level 2
         description: The second
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         LevelName: SampleScene
+        DifficultyLevel: 1
+        Stage: 0
+        descriptionAudio: {fileID: 0}
+        extraMenuInfo: {fileID: 0}
     - rid: 6844212526303936520
       type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -141,10 +165,16 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Level 3
         description: The third
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         LevelName: SampleScene
+        DifficultyLevel: 1
+        Stage: 0
+        descriptionAudio: {fileID: 0}
+        extraMenuInfo: {fileID: 0}
     - rid: 6844212526303936521
       type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -156,7 +186,13 @@ MonoBehaviour:
           ActiveNodeChanged:
             m_PersistentCalls:
               m_Calls: []
+          interactable: 1
         title: Level 4
         description: The fourth
         drawGizmos: 0
+        <isEnabled>k__BackingField: 1
         LevelName: SampleScene
+        DifficultyLevel: 1
+        Stage: 0
+        descriptionAudio: {fileID: 0}
+        extraMenuInfo: {fileID: 0}

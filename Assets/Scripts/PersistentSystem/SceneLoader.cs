@@ -21,7 +21,6 @@ public class SceneLoader : Singleton<SceneLoader>
     private List<string> deletedSavedPanelHistory = new List<string>();
     private int deleteShowPostLikert;
 
-
     private void Awake()
     {
         if (!Application.isEditor)
