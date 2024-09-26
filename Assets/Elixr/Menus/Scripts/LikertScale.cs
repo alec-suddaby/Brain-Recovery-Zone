@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class LikertScale : MonoBehaviour
 {
     [SerializeField] private CanvasGroup panel;
+
     [SerializeField] private Slider likertSlider;
 
     [SerializeField] private Slider previousValueSlider = null;
@@ -20,6 +21,8 @@ public class LikertScale : MonoBehaviour
 
     public void Init(Elixr.MenuSystem.MenuManager menuManager, int initialValue = 5, bool active = false)
     {
+        Debug.Log("Active: " + active);
+
         this.menuManager = menuManager;
 
         if(!active)
@@ -28,9 +31,6 @@ public class LikertScale : MonoBehaviour
             StartCoroutine(menuManager.Fade(1, 0, true, panel, 0));
 
         SetValue(initialValue);
-
-        if(previousValueSlider != null ) 
-            previousValueSlider.gameObject.SetActive(false);
     }
 
     public void Display(float fadeDuration, bool display, UnityAction<float> eventOnComplete = null, float? previousValue = null, float? fadeDelay = null)

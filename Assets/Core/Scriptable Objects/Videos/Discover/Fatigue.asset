@@ -18,3 +18,5 @@ MonoBehaviour:
   durationMins: 3
   icon: {fileID: 21300000, guid: a8cb1ebb55ba77944bf67673ff9b5f8c, type: 3}
   videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/00401.mp4
+  showLikertScale: 1
+  videoScene: 01_Discover_03_Fatigue

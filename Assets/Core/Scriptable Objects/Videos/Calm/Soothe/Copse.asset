@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
-  m_Name: Private Beach
+  m_Name: Copse
   m_EditorClassIdentifier: 
-  title: Private Beach
-  description: Sit and watch the sunrise on your own private beach
-  durationMins: 7
-  icon: {fileID: 21300000, guid: 338bd4100d97058408bf6f8149f1004b, type: 3}
-  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01103.mp4
+  title: Copse
+  description: Sit amongest a forest copse during golden hour
+  durationMins: 2
+  icon: {fileID: 21300000, guid: 1d205c767f6f6574bb4793c26092348d, type: 3}
+  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/00803.mkv
+  showLikertScale: 1
+  videoScene: 03_Calm_03_AshdownForestCopse

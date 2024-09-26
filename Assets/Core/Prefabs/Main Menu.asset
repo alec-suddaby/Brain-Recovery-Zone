@@ -123,17 +123,17 @@ MonoBehaviour:
   - rid: 2594991929445842944
   - rid: 2594992040103378944
   - rid: 2594992040103378945
-  - rid: 2594992040103378946
   - rid: 2594992040103378948
   - rid: 2594992040103378949
+  - rid: 2594992084244496384
   treeState: 0
   blackboard:
     ActiveNodeChanged:
       m_PersistentCalls:
         m_Calls: []
     interactable: 1
-  viewPosition: {x: 255, y: 198, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: -315, y: 296, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -244,34 +244,6 @@ MonoBehaviour:
         videos:
         - {fileID: 11400000, guid: 542cc27a8241b184da8800c677451d38, type: 2}
         - {fileID: 11400000, guid: 7989ead4d584f8f4daba552594181aaf, type: 2}
-    - rid: 2594992040103378946
-      type: {class: VideoLoader, ns: , asm: Elixr}
-      data:
-        state: 0
-        started: 0
-        guid: f8a13ad300dacb44783dd52ca8aa4df9
-        position: {x: 1424, y: 222}
-        blackboard:
-          ActiveNodeChanged:
-            m_PersistentCalls:
-              m_Calls: []
-          interactable: 1
-        title: Night Time Wind Down
-        description: 'This exercise is about helping you go to sleep. You need to
-          tell your brain it is time to go to sleep. Journey into space, visit the
-          Northern Lights and access gentle wind down routines before bed '
-        drawGizmos: 0
-        <isEnabled>k__BackingField: 1
-        LevelName: 
-        DifficultyLevel: 1
-        Stage: 0
-        descriptionAudio: {fileID: 0}
-        extraMenuInfo: {fileID: 0}
-        videos:
-        - {fileID: 11400000, guid: 5dd5cae4c632e224387f3e6c533417a6, type: 2}
-        - {fileID: 11400000, guid: 9834e74de288cbd4aa8f841d7c80c2b4, type: 2}
-        - {fileID: 11400000, guid: 17bf3576e9f3d1f4f8d1062e053d1316, type: 2}
-        - {fileID: 11400000, guid: 61a4c1c4a905f1c4e822e107db15da52, type: 2}
     - rid: 2594992040103378948
       type: {class: LoadLevelNode, ns: Elixr.MenuSystem, asm: Elixr}
       data:
@@ -316,6 +288,50 @@ MonoBehaviour:
         Stage: 0
         descriptionAudio: {fileID: 0}
         extraMenuInfo: {fileID: 0}
+    - rid: 2594992084244496384
+      type: {class: LoadLevelOptionsNode, ns: , asm: Elixr}
+      data:
+        state: 0
+        started: 0
+        guid: cdbe5089be1fa7a4a97b0144c0e7ae12
+        position: {x: 1424, y: 225}
+        blackboard:
+          ActiveNodeChanged:
+            m_PersistentCalls:
+              m_Calls: []
+          interactable: 1
+        title: Night Time Wind Down
+        description: This exercise is about helping you go to sleep. You need to
+          tell your brain it is time to go to sleep. Journey into space, visit the
+          Northern Lights and access gentle wind down routines before bed
+        drawGizmos: 0
+        <isEnabled>k__BackingField: 1
+        LevelName: 03_Calm_13_SleepWindDown
+        DifficultyLevel: 1
+        Stage: 0
+        descriptionAudio: {fileID: 0}
+        extraMenuInfo: {fileID: 0}
+        extraUiElements: []
+        Preferences:
+        - PreferenceName: NightTimeWindDownNarrator
+          Title: Voice Guide
+          Description: 'Before you start this exercise, make sure you are ready for
+            bed. You will have your own routine, but you may need to make sure the
+            house is locked up, turn everything off and change into your pyjamas.
+
+
+
+            We
+            recommend to watch this exercise near to your bed and turn off any bright
+            lights.
+
+'
+          DefaultValue: 1
+          Options:
+          - name: On
+            value: 1
+          - name: Off
+            value: 0
     - rid: 3402528970655924233
       type: {class: UnlockableLoadLevel, ns: , asm: Elixr}
       data:
@@ -1068,7 +1084,7 @@ MonoBehaviour:
         children:
         - rid: 2594992040103378944
         - rid: 2594992040103378945
-        - rid: 2594992040103378946
+        - rid: 2594992084244496384
         - rid: 2594992040103378948
         - rid: 6844212527691202566
         descriptionAudio: {fileID: 0}

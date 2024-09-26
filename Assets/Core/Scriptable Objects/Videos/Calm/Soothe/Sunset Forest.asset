@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
-  m_Name: 100 Acre Woods
+  m_Name: Sunset Forest
   m_EditorClassIdentifier: 
-  title: 100 Acre Woods
-  description: Walk through the 100 acre woods and experience your own private sunset
-  durationMins: 4
-  icon: {fileID: 21300000, guid: e2bd618d124c9b24994e0cd0b30fa4af, type: 3}
-  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/00703.mkv
+  title: Sunset Forest
+  description: Personal sunset amongest the foliage of the forest
+  durationMins: 2
+  icon: {fileID: 21300000, guid: 208b27a72d4f2014b92573b909adbc20, type: 3}
+  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01003.mkv
+  showLikertScale: 1
+  videoScene: 03_Calm_05_AshdownForestSunset

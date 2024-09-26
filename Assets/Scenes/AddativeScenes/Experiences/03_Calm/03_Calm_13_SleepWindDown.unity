@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.2677424, g: 0.24486962, b: 0.21374181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,6 +213,7 @@ Transform:
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -281,6 +282,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -496,6 +498,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1582668819}
   m_RootOrder: 0
@@ -529,6 +532,7 @@ GameObject:
   - component: {fileID: 1582668819}
   - component: {fileID: 1582668818}
   - component: {fileID: 1582668820}
+  - component: {fileID: 1582668821}
   m_Layer: 0
   m_Name: SkyboxMediaPlayer
   m_TagString: Untagged
@@ -550,8 +554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
   m_VideoPath: file://mnt/sdcard/BRZ_ASSETS/files/02003.mp4
-  m_AutoOpen: 1
-  m_AutoStart: 1
+  m_AutoOpen: 0
+  m_AutoStart: 0
   m_Loop: 0
   m_Volume: 1
   m_Balance: 0
@@ -686,6 +690,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1504272209}
   m_Father: {fileID: 0}
@@ -705,3 +710,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: V1.0 This script will, on awake, link the Canvas, UpdateStereoMaterial
     or MediaPlayer to the main camera when placed on the same GameObject
+--- !u!114 &1582668821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582668817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30360860ca156f4883bc2a09caabf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefName: NightTimeWindDownNarrator
+  conditionalVideos:
+  - prefValue: 0
+    videoPath: file://mnt/sdcard/BRZ_ASSETS/files/02003.mp4
+  - prefValue: 1
+    videoPath: file://mnt/sdcard/BRZ_ASSETS/files/02003B.mp4
+  mediaPlayer: {fileID: 0}

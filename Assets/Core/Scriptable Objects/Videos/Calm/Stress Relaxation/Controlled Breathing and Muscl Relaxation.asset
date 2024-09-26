@@ -19,3 +19,5 @@ MonoBehaviour:
   durationMins: 3
   icon: {fileID: 21300000, guid: 6ceebc038a84e8a4cb16d7420d8679e5, type: 3}
   videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/03003.mp4
+  showLikertScale: 1
+  videoScene: 03_Calm_14A_PMRLevel1

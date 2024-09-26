@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
-  m_Name: Copse
+  m_Name: Traumatic Brain Injury
   m_EditorClassIdentifier: 
-  title: Copse
-  description: Sit amongest a forest copse during golden hour
+  title: Traumatic Brain Injury
+  description: Take a journey through the brain to understand your injury and any
+    hidden difficulties.
   durationMins: 2
-  icon: {fileID: 21300000, guid: 1d205c767f6f6574bb4793c26092348d, type: 3}
-  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/00803.mkv
+  icon: {fileID: 21300000, guid: 4e305e3a876a3264dbf5915b8accae4b, type: 3}
+  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/00101.mp4
+  showLikertScale: 1
+  videoScene: 01_Discover_01_Brain

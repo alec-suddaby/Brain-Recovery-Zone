@@ -48,11 +48,13 @@ public class VideoMenuButton : MonoBehaviour
 
     public void ButtonClicked()
     {
-        FindObjectOfType<LikertScaleManager>().ShowPreLikertScale(LoadVideo, videoDescription);
-    }
+        LikertScaleManager likertManager = FindObjectOfType<LikertScaleManager>();
+        if (videoDescription.ShowLikertScale)
+        {
+            likertManager.ShowPreLikertScale(likertManager.LoadVideo, videoDescription);
+            return;
+        }
 
-    public void LoadVideo(float value)
-    {
-        SceneManager.LoadScene(videoDescription.VideoScene);
+        likertManager.LoadVideo(0);
     }
 }

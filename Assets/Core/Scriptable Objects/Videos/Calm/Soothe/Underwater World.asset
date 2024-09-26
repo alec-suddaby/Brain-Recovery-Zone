@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
-  m_Name: Northern Lights
+  m_Name: Underwater World
   m_EditorClassIdentifier: 
-  title: Northern Lights
-  description: Wind down with northern lights moving across the night-time sky
-  durationMins: 10
-  icon: {fileID: 21300000, guid: 48a40d52056893344a4fef46f3c4e3d8, type: 3}
-  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01903.mp4
+  title: Underwater World
+  description: Take a dive into tranquility
+  durationMins: 4
+  icon: {fileID: 21300000, guid: 09f608ed4288c17408ae068bb689a9ee, type: 3}
+  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01503.mp4
+  showLikertScale: 1
+  videoScene: 03_Calm_12_UnderwaterWorld

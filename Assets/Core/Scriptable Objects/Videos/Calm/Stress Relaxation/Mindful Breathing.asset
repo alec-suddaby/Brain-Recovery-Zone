@@ -19,3 +19,5 @@ MonoBehaviour:
   durationMins: 5
   icon: {fileID: 21300000, guid: 208b27a72d4f2014b92573b909adbc20, type: 3}
   videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01603.mkv
+  showLikertScale: 1
+  videoScene: 03_Calm_11_MindfulBreathing

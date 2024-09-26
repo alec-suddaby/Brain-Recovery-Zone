@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class LikertScaleManager : MonoBehaviour
 {
+    [SerializeField] private CanvasGroup panel;
+    public CanvasGroup Panel => panel;
+
     [SerializeField] private LikertScale preLikertScale;
     [SerializeField] private LikertScale postLikertScale;
 
@@ -12,6 +16,9 @@ public class LikertScaleManager : MonoBehaviour
     private static float? postLikertValue = null;
     private static string videoName = null;
     private static bool isActive = false;
+
+    private VideoDescription videoDescription = null;
+
     public bool IsActive => isActive;
 
     [SerializeField] private Elixr.MenuSystem.MenuManager menuManager;
@@ -19,10 +26,22 @@ public class LikertScaleManager : MonoBehaviour
     [Range(0, 5)]
     [SerializeField] private float fadeDuration = 1f;
 
+    private LikertScale activeScale = null;
+    public LikertScale ActiveScale => activeScale;
+
     public void Start()
     {
+#if UNITY_EDITOR
+        isActive = false;
+#endif
+
+        activeScale = preLikertScale;
+
+        Debug.Log("Init Pre Likert Scale Manager");
         preLikertScale.Init(menuManager);
+        Debug.Log("Init Post Likert Scale Manager");
         postLikertScale.Init(menuManager, active: isActive);
+        Debug.Log("Init Likert Scale Complete");
     }
 
     public void Close()
@@ -35,9 +54,12 @@ public class LikertScaleManager : MonoBehaviour
 
     public void ShowPreLikertScale(UnityAction<float> eventOnComplete, VideoDescription videoDescription)
     {
+        activeScale = preLikertScale;
+
         preLikertValue = null;
         postLikertValue = null;
         videoName = videoDescription.name;
+        this.videoDescription = videoDescription;
 
         StartCoroutine(menuManager.Fade(0, fadeDuration, false));
 
@@ -56,6 +78,8 @@ public class LikertScaleManager : MonoBehaviour
 
     public void ShowPostLikertScale(UnityAction<float> eventOnComplete)
     {
+        activeScale = postLikertScale;
+
         StartCoroutine(menuManager.Fade(0, 0, false));
 
         postLikertScale.Display(fadeDuration, true, eventOnComplete, preLikertValue);
@@ -105,5 +129,11 @@ public class LikertScaleManager : MonoBehaviour
         Debug.Log("Ending Likert Score: " + postLikertValue);
 
         Debug.Log("End Write Likert to JSON");
+    }
+
+    public void LoadVideo(float value)
+    {
+        Debug.Log("Load video");
+        SceneManager.LoadScene(videoDescription.VideoScene);
     }
 }

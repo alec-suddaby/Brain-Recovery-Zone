@@ -39,9 +39,23 @@ namespace Elixr.MenuSystem
 
         [SerializeField] private LikertScaleManager likertScaleManager;
 
+        [SerializeField] private CanvasGroup showButton;
+        [SerializeField] private CanvasGroup hideButton;
+
+        [SerializeField] private CanvasGroup settingsButton;
+
+        [SerializeField] private CanvasGroup settingsPanel;
+
+        private bool ShowBackButton => menus.blackboard.BreadcrumbsCount > 1;
+
+        private bool SettingsPanelActive = false;
+        
         // Start is called before the first frame update
         private void Start()
         {
+            SetSettingsPanelVisibility(false);
+            ToggleShowHideButtons(false);
+
             backButton.alpha = 0f;
             context = CreateBehaviourTreeContext();
             menus = menus.Clone();
@@ -110,13 +124,11 @@ namespace Elixr.MenuSystem
 
         private IEnumerator FadeTransition(Node node)
         {
-            bool showBackButton = menus.blackboard.BreadcrumbsCount > 1;
-
             float oneWayTransition = transitionTime / 2f;
             float timeRemaining = oneWayTransition;
-            if (!showBackButton && backButton.alpha > 0)
+            if (!ShowBackButton && backButton.alpha > 0)
             {
-                StartCoroutine(FadeBackButton(showBackButton));
+                StartCoroutine(FadeBackButton(ShowBackButton));
             }
 
             while (timeRemaining > 0)
@@ -135,9 +147,9 @@ namespace Elixr.MenuSystem
 
             breadcrumbsText.text = GetBreadcrumbs();
 
-            if (showBackButton && backButton.alpha < 1)
+            if (ShowBackButton && backButton.alpha < 1)
             {
-                StartCoroutine(FadeBackButton(showBackButton));
+                StartCoroutine(FadeBackButton(ShowBackButton));
             }
             //backButton.gameObject.SetActive(menus.blackboard.BreadcrumbsCount > 1);
 
@@ -209,18 +221,16 @@ namespace Elixr.MenuSystem
 
         private IEnumerator FadeBackButton(bool visable)
         {
+            float startAlpha = backButton.alpha;
+            float alphaChange = (visable ? 1f : 0f) - startAlpha;
+
             float oneWayTransition = transitionTime / 2f;
-            float timeRemaining = oneWayTransition;
+            float fadeTime = 0;
 
-            while (timeRemaining > 0)
+            while (fadeTime < oneWayTransition)
             {
-                timeRemaining -= Time.deltaTime;
-                float transitionValue = timeRemaining / oneWayTransition;
-
-                if (visable)
-                {
-                    transitionValue = 1 - transitionValue;
-                }
+                fadeTime += Time.deltaTime;
+                float transitionValue = alphaChange * (fadeTime/oneWayTransition);
 
                 transitionValue = Mathf.Clamp01(transitionValue);
 
@@ -232,6 +242,13 @@ namespace Elixr.MenuSystem
 
         public void Back()
         {
+            if (SettingsPanelActive)
+            {
+                SetSettingsPanelVisibility(false);
+
+                return;
+            }
+
             if (likertScaleManager.IsActive)
             {
                 likertScaleManager.Close();
@@ -267,6 +284,45 @@ namespace Elixr.MenuSystem
                     n.OnDrawGizmos();
                 }
             });
+        }
+
+        public void FadeMenus(bool display)
+        {
+            CanvasGroup fadePanel = likertScaleManager.IsActive ? likertScaleManager.Panel : menuCanvas;
+
+            StartCoroutine(Fade(display ? 1 : 0, transitionTime / 2f, display, fadePanel));
+            StartCoroutine(FadeBackButton(display ? ShowBackButton : false));
+        }
+
+        public void ToggleShowHideButtons(bool show)
+        {
+            StartCoroutine(Fade(show ? 1 : 0, transitionTime/2f, show, showButton, show ? transitionTime/2f : 0));
+            StartCoroutine(Fade(show ? 0 : 1, transitionTime/2f, !show, hideButton, show ? 0 : transitionTime/2f));
+
+            StartCoroutine(Fade(show ? 0 : 1, transitionTime / 2f, !show, settingsButton, show ? 0 : transitionTime / 2f));
+        }
+
+
+        public void ToggleSettingsPanel()
+        {
+            SetSettingsPanelVisibility(!SettingsPanelActive);
+        }
+
+        private void SetSettingsPanelVisibility(bool visible)
+        {
+            CanvasGroup otherFadeCanvas = likertScaleManager.IsActive ? likertScaleManager.Panel : menuCanvas;
+            StartCoroutine(Fade(!visible ? 1 : 0, transitionTime / 2f, !visible, otherFadeCanvas, !visible ? transitionTime / 2f : 0f));
+
+            StartCoroutine(Fade(visible ? 1 : 0, transitionTime/2f, visible, settingsPanel, visible ? transitionTime / 2f : 0f));
+
+            SettingsPanelActive = visible;
+        }
+
+        public void ForceSettingsPanelVisibility(bool visible)
+        {
+            StartCoroutine(Fade(visible ? 1 : 0, transitionTime / 2f, visible, settingsPanel, visible ? transitionTime / 2f : 0f));
+
+            SettingsPanelActive = visible;
         }
     }
 }

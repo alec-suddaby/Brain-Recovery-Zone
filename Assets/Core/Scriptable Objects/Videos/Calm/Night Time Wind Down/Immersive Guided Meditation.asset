@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
-  m_Name: Waterfall
+  m_Name: Immersive Guided Meditation
   m_EditorClassIdentifier: 
-  title: Waterfall
-  description: Enjoy a selection of stunning waterfalls
-  durationMins: 3
-  icon: {fileID: 21300000, guid: 4a334455d1c49f74998db18d3d0aa440, type: 3}
-  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01403.mp4
+  title: Immersive Guided Meditation
+  description: Become mindfully aware of your thoughts and unwind before bed
+  durationMins: 2
+  icon: {fileID: 21300000, guid: e5bdce8c16afec44098b57424a76e534, type: 3}
+  videoFilePath: 
+  showLikertScale: 1
+  videoScene: 03_Calm_01_SpaceAnimation

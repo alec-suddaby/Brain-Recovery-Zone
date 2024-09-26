@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0434b94795f01e847a6f0ec0f3ee4eab, type: 3}
-  m_Name: Lakeside
+  m_Name: Stroke
   m_EditorClassIdentifier: 
-  title: Lakeside
-  description: Dip your toes in a calming lake
+  title: Stroke
+  description: Take a journey to understand how a stroke affects different parts
+    of the brain, including changes in how you think and feel
   durationMins: 3
-  icon: {fileID: 21300000, guid: 3e51811fa8eeb1843b95cb1ac123e368, type: 3}
-  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/01103.mp4
+  icon: {fileID: 21300000, guid: 5c0942d1bca50954cb65c7bbb67cbca7, type: 3}
+  videoFilePath: file://mnt/sdcard/BRZ_ASSETS/files/00201.mp4
+  showLikertScale: 1
+  videoScene: 01_Discover_02_Stroke
