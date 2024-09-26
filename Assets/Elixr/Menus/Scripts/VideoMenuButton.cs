@@ -1,8 +1,10 @@
 using Elixr.MenuSystem;
+using log4net.Core;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UI.ProceduralImage;
 
@@ -17,8 +19,12 @@ public class VideoMenuButton : MonoBehaviour
     [SerializeField] private string videoPostfix = "mins";
     [SerializeField] private ProceduralImage videoIconDisplay;
 
+    private VideoDescription videoDescription;
+
     public virtual void SetupButton(VideoDescription videoDescription)
     {
+        this.videoDescription = videoDescription;
+
         if (Title != null)
         {
             Title.text = videoDescription.Title;
@@ -42,6 +48,11 @@ public class VideoMenuButton : MonoBehaviour
 
     public void ButtonClicked()
     {
-        
+        FindObjectOfType<LikertScaleManager>().ShowPreLikertScale(LoadVideo, videoDescription);
+    }
+
+    public void LoadVideo(float value)
+    {
+        SceneManager.LoadScene(videoDescription.VideoScene);
     }
 }

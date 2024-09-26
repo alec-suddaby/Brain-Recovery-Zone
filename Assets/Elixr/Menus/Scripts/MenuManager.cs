@@ -37,13 +37,11 @@ namespace Elixr.MenuSystem
         public TextMeshProUGUI breadcrumbsText;
         public string breadcrumbsSeperator = " | ";
 
+        [SerializeField] private LikertScaleManager likertScaleManager;
+
         // Start is called before the first frame update
         private void Start()
         {
-            PlayerPrefs.SetInt("MemoryMazeLevel", 1);
-            PlayerPrefs.SetInt("MemoryMazeStage", 1);
-            PlayerPrefs.Save();
-
             backButton.alpha = 0f;
             context = CreateBehaviourTreeContext();
             menus = menus.Clone();
@@ -78,6 +76,36 @@ namespace Elixr.MenuSystem
         {
             positionTracker.lastMenuPositionGuid = node.guid;
             StartCoroutine(FadeTransition(node));
+        }
+
+        public IEnumerator Fade(float alpha, float duration, bool interactable = true, CanvasGroup canvasGroup = null, float startDelay = 0f)
+        {
+            yield return new WaitForSeconds(startDelay);
+
+            if(canvasGroup == null)
+            {
+                canvasGroup = menuCanvas;
+            }
+
+            float initialAlpha = canvasGroup.alpha;
+            float alphaChange = alpha - initialAlpha;
+
+            float timeElapsed = 0;
+
+            while (timeElapsed < duration)
+            {
+                timeElapsed += Time.deltaTime;
+
+                float elapsedAmount = timeElapsed / duration;
+
+                canvasGroup.alpha = Mathf.Clamp01(initialAlpha + (elapsedAmount * alphaChange));
+
+                yield return new WaitForEndOfFrame();
+            }
+
+            canvasGroup.alpha = alpha;
+            canvasGroup.blocksRaycasts = interactable;
+            canvasGroup.interactable = interactable;
         }
 
         private IEnumerator FadeTransition(Node node)
@@ -121,17 +149,6 @@ namespace Elixr.MenuSystem
                     break;
                 case VideoLoader videoLoader:
                     VideoLoaderHandler newVideoLoader = Instantiate(videoHandler.gameObject, menuCanvas.transform).GetComponent<VideoLoaderHandler>();
-                    
-                    if(newVideoLoader == null)
-                    {
-                        Debug.Log("1 null");
-                    }
-
-                    if (videoLoader == null)
-                    {
-                        Debug.Log("2 null");
-                    }
-
                     newVideoLoader.SetupMenu(videoLoader);
                     break;
                 case LoadLevelOptionsNode levelOptionsMenu:
@@ -215,6 +232,12 @@ namespace Elixr.MenuSystem
 
         public void Back()
         {
+            if (likertScaleManager.IsActive)
+            {
+                likertScaleManager.Close();
+                return;
+            }
+
             if (Time.time - lastBackButtonClicktime < backButtonCooldown)
             {
                 return;

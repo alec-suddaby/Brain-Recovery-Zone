@@ -19,4 +19,10 @@ public class VideoDescription : ScriptableObject
 
     [SerializeField] private string videoFilePath;
     public string VideoFilePath => videoFilePath;
+
+    [SerializeField] private bool showLikertScale = true;
+    public bool ShowLikertScale => showLikertScale;
+
+    [SerializeField] private string videoScene;
+    public string VideoScene => videoScene;
 }
