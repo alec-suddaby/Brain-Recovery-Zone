@@ -11,7 +11,7 @@ namespace Elixr.MenuSystem
 
         public Text descriptionText;
 
-        private LoadLevelNode level;
+        public LoadLevelNode Level;
 
         public GameObject audioButton;
 
@@ -23,7 +23,8 @@ namespace Elixr.MenuSystem
 
         public virtual void SetupMenu(LoadLevelNode level)
         {
-            this.level = level;
+            Level = level;
+
             titleText.text = level.title;
             descriptionText.text = level.description;
 
@@ -36,21 +37,13 @@ namespace Elixr.MenuSystem
             }
         }
 
-        public void LoadLevel()
+        public virtual void LoadLevel()
         {
             FindObjectOfType<MenuManager>().menus.blackboard.interactable = false;
-            FindObjectOfType<SceneFade>().FadeOut();
 
-            FindObjectOfType<LoadLevelSettings>().SetDifficultyLevel(level.DifficultyLevel, level.Stage);
+            FindObjectOfType<LoadLevelSettings>().SetDifficultyLevel(Level.DifficultyLevel, Level.Stage);
 
-            StartCoroutine("LoadScene");
-        }
-
-        private IEnumerator LoadScene()
-        {
-            yield return new WaitForSeconds(sceneFadeTime);
-
-            SceneManager.LoadScene(level.LevelName);
+            FindObjectOfType<SceneLoader>().LoadNewScene(Level.LevelName);
         }
 
         public void PlayAudioDescription()

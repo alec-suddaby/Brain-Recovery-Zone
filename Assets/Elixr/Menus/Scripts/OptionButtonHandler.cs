@@ -18,7 +18,7 @@ public class OptionButtonHandler : MonoBehaviour
         Button.onClick.AddListener(Clicked);
     }
 
-    private void Clicked()
+    public void Clicked()
     {
         OnClick.Invoke(option.value, Button);
     }

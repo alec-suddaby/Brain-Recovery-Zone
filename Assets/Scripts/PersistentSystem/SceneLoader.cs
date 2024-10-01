@@ -44,11 +44,11 @@ public class SceneLoader : Singleton<SceneLoader>
         ClearPlayerPrefPanelHistory();
     }
 
-    private void OnApplicationFocus()
-    {
-        Debug.Log("Application is running and player prefs have been reloaded");
-        ReloadPlayerPrefPanelHistory();
-    }
+    //private void OnApplicationFocus()
+    //{
+    //    Debug.Log("Application is running and player prefs have been reloaded");
+    //    ReloadPlayerPrefPanelHistory();
+    //}
 
     public void LoadPersistent()
     {

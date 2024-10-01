@@ -291,7 +291,7 @@ namespace Elixr.MenuSystem
             CanvasGroup fadePanel = likertScaleManager.IsActive ? likertScaleManager.Panel : menuCanvas;
 
             StartCoroutine(Fade(display ? 1 : 0, transitionTime / 2f, display, fadePanel));
-            StartCoroutine(FadeBackButton(display ? ShowBackButton : false));
+            StartCoroutine(FadeBackButton(display && ShowBackButton));
         }
 
         public void ToggleShowHideButtons(bool show)

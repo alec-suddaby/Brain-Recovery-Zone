@@ -101,6 +101,57 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Calm/Active Stress Relaxation/Calm_ActiveStressRelaxation.unity
     guid: 66e283b5d3cd2424aa9634d8e913a9d1
+  - enabled: 1
+    path: Assets/Module 1/Scenes/Module1Training.unity
+    guid: 1361b8f02982da74e99144b3e4db7ae3
+  - enabled: 1
+    path: Assets/Module 1/Scenes/Module1WarmUp.unity
+    guid: 33d999c9a5941b44d95887f87032bc35
+  - enabled: 1
+    path: Assets/Module 2/Scenes/Module2TrainingLevel1.unity
+    guid: 743f86505ad498c47a48fa9917dbf4ea
+  - enabled: 1
+    path: Assets/Module 2/Scenes/Module2TrainingLevel1Traffic.unity
+    guid: 9909b392d7a05a9469dad3a5e1a30fe4
+  - enabled: 1
+    path: Assets/Module 2/Scenes/Module2TrainingLevel2.unity
+    guid: 5116b20a666830e4a851ac35ba123ea2
+  - enabled: 1
+    path: Assets/Module 2/Scenes/Module2TrainingLevel3.unity
+    guid: 631a0b35c201200478ec6da91aad184c
+  - enabled: 1
+    path: Assets/Module 2/Scenes/Module2WarmUp.unity
+    guid: 860a4030337ada24c99c376c416f2a0d
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3AssessmentZone.unity
+    guid: f078cf88ece427f4e8285eee98a8ffaf
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3DiceRoll.unity
+    guid: 7ad7c2824d0a6304eae5f4e432b810b5
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3ObjectScanningAndMatching.unity
+    guid: a66907da79aebf64496a515e434ab7d9
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3Pong.unity
+    guid: b9918f5578856264b91d36b45abddb5e
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3RapidScanning.unity
+    guid: bc1a6c8f005f33e428c6b7ee6e8ea6f5
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3Training1.unity
+    guid: 70476fbe4be8a9044bcff8464948ce9f
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3Training2.unity
+    guid: 4bf6a55a0f3c56c4397c5fa859b0ba77
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3Training3.unity
+    guid: b040b9ac1960a0f46982bd6a6b11d601
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3TrainingPong.unity
+    guid: c751f6cfb3e62104ea5d4931284518ed
+  - enabled: 1
+    path: Assets/Module 3/Scenes/Module3ZoneIn.unity
+    guid: f7e399837e8b926409d12b31b03f228d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: eda8bce8652ec6440ace544f653e15a6,
       type: 2}
@@ -108,6 +159,12 @@ EditorBuildSettings:
       type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 27f145b8f0c6e1d48b80cac50fb09152,
       type: 2}
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: ac5fea0ec361007429801ea7a785d896, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 21d09e0341a19cd4cad89e0d921ca870,
+      type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 34214df6a5fb6144682b4b5a8de72543, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ea89635da3afaa94db74ccb12dc6534b,
       type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: f3406e523c1cb324d839b4a626cf1c37,

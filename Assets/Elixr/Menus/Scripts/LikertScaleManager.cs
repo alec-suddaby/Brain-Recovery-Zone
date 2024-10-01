@@ -134,6 +134,6 @@ public class LikertScaleManager : MonoBehaviour
     public void LoadVideo(float value)
     {
         Debug.Log("Load video");
-        SceneManager.LoadScene(videoDescription.VideoScene);
+        FindObjectOfType<SceneLoader>().LoadNewScene(videoDescription.VideoScene);
     }
 }

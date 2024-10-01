@@ -14,7 +14,7 @@ public class LoadLevelSettings : MonoBehaviour
         if (loadLevelSettings == null)
         {
             loadLevelSettings = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
     }
 

@@ -2,29 +2,33 @@ using Elixr.MenuSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadLevelOptionsHandler : LoadLevelMenuHandler
+namespace Elixr.MenuSystem
 {
-    public PreferenceHandler OptionMenu;
-
-    public VerticalLayoutGroup OptionParent;
-
-    public override void SetupMenu(LoadLevelNode level)
+    public class LoadLevelOptionsHandler : LoadLevelMenuHandler
     {
-        base.SetupMenu(level);
-        LoadLevelOptionsNode node = (LoadLevelOptionsNode)level;
+        public PreferenceHandler OptionMenu;
 
-        node.Preferences.ForEach(preference =>
+        public VerticalLayoutGroup OptionParent;
+
+        public override void SetupMenu(LoadLevelNode level)
         {
-            PreferenceHandler preferenceHandler = Instantiate(OptionMenu.gameObject, OptionParent.transform).GetComponent<PreferenceHandler>();
-            preferenceHandler.Init(preference);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(preferenceHandler.GetComponent<RectTransform>());
-        });
+            base.SetupMenu(level);
 
-        node.extraUiElements.ForEach(uiElement =>
-        {
-            Instantiate(uiElement, OptionParent.transform);
-        });
+            LoadLevelOptionsNode node = (LoadLevelOptionsNode)level;
 
-        LayoutRebuilder.ForceRebuildLayoutImmediate(OptionParent.GetComponent<RectTransform>());
+            node.Preferences.ForEach(preference =>
+            {
+                PreferenceHandler preferenceHandler = Instantiate(OptionMenu.gameObject, OptionParent.transform).GetComponent<PreferenceHandler>();
+                preferenceHandler.Init(preference);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(preferenceHandler.GetComponent<RectTransform>());
+            });
+
+            node.extraUiElements.ForEach(uiElement =>
+            {
+                Instantiate(uiElement, OptionParent.transform);
+            });
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(OptionParent.GetComponent<RectTransform>());
+        }
     }
 }
