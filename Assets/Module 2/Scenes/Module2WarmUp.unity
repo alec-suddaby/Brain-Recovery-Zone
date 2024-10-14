@@ -841,6 +841,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 278508948}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -981,8 +993,12 @@ MonoBehaviour:
   playerPref: M2W2
   reminder: Press the trigger button immediately when you hear the lower tone and
     ignore the higher tone.
-  callOnStart: 1
-  updateTextOnStart: 0
+  reminderHandler:
+    reminderCanvas: {fileID: 1734522288}
+    reminderText: {fileID: 1734522289}
+    playerPref: M2W2
+    reminder: Press the trigger button immediately when you hear the lower tone and
+      ignore the higher tone.
 --- !u!1001 &356265188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1317,6 +1333,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 435417578}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -1457,8 +1485,12 @@ MonoBehaviour:
   playerPref: M2W5
   reminder: Press the trigger button immediately when you hear the lower tone and
     ignore the higher tone.
-  callOnStart: 1
-  updateTextOnStart: 0
+  reminderHandler:
+    reminderCanvas: {fileID: 1734522288}
+    reminderText: {fileID: 1734522289}
+    playerPref: M2W5
+    reminder: Press the trigger button immediately when you hear the lower tone and
+      ignore the higher tone.
 --- !u!1 &725030467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,6 +4274,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1411753385}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -4396,8 +4440,12 @@ MonoBehaviour:
   playerPref: M2W1
   reminder: Press the trigger button immediately when you hear the lower tone and
     ignore the higher tone.
-  callOnStart: 1
-  updateTextOnStart: 0
+  reminderHandler:
+    reminderCanvas: {fileID: 1734522288}
+    reminderText: {fileID: 1734522289}
+    playerPref: M2W1
+    reminder: Press the trigger button immediately when you hear the lower tone and
+      ignore the higher tone.
 --- !u!1 &1415698992
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,6 +4659,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1415698999}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -4751,8 +4811,12 @@ MonoBehaviour:
   playerPref: M2W4
   reminder: Press the trigger button immediately when you hear the lower tone and
     ignore the higher tone.
-  callOnStart: 1
-  updateTextOnStart: 0
+  reminderHandler:
+    reminderCanvas: {fileID: 1734522288}
+    reminderText: {fileID: 1734522289}
+    playerPref: M2W4
+    reminder: Press the trigger button immediately when you hear the lower tone and
+      ignore the higher tone.
 --- !u!850595691 &1462873124
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -4923,6 +4987,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3233235690880467546, guid: 0c166182681d75f4ca832baa2c28368b,
+        type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3560492217369381872, guid: 0c166182681d75f4ca832baa2c28368b,
         type: 3}
       propertyPath: m_Name
@@ -4931,7 +5000,7 @@ PrefabInstance:
     - target: {fileID: 3560492217369381872, guid: 0c166182681d75f4ca832baa2c28368b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5515864125388198140, guid: 0c166182681d75f4ca832baa2c28368b,
         type: 3}
@@ -5003,7 +5072,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7648240888226741277, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
+    - {fileID: 1375606527039778667, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
 --- !u!1 &1734522288 stripped
 GameObject:
@@ -5236,6 +5307,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1748428068}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -5376,8 +5459,12 @@ MonoBehaviour:
   playerPref: M2W3
   reminder: Press the trigger button immediately when you hear the lower tone and
     ignore the higher tone.
-  callOnStart: 1
-  updateTextOnStart: 0
+  reminderHandler:
+    reminderCanvas: {fileID: 1734522288}
+    reminderText: {fileID: 1734522289}
+    playerPref: M2W3
+    reminder: Press the trigger button immediately when you hear the lower tone and
+      ignore the higher tone.
 --- !u!1 &1833068205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4235598349469697223, guid: df76f806dbb17134ca75568a96fefe24,

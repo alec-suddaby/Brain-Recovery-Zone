@@ -94,8 +94,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3512233298797100674}
-  - component: {fileID: 3512233298797100675}
   - component: {fileID: 3512233298797100676}
+  - component: {fileID: 8556281351497436518}
   m_Layer: 5
   m_Name: ButtonWrap
   m_TagString: Untagged
@@ -121,32 +121,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -377.1577, y: 0}
+  m_SizeDelta: {x: 108.7241, y: 0}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &3512233298797100675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3512233298797100673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 1
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 650, y: 240}
-  m_Spacing: {x: 20, y: 20}
-  m_Constraint: 1
-  m_ConstraintCount: 2
 --- !u!114 &3512233298797100676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +137,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
+--- !u!114 &8556281351497436518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3512233298797100673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17e6fedf1a14c1d9cc57983272aaf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 650, y: 240}
+  m_Spacing: {x: 20, y: 20}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &3512233299034783136
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   descriptionText: {fileID: 3512233299034783138}
   buttonParent: {fileID: 3512233298797100674}
   buttonPrefab: {fileID: 2092547995, guid: cd701c4081a96b74f9c1ed35dcc90637, type: 3}
-  buttonLayout: {fileID: 3512233298797100675}
+  buttonLayout: {fileID: 0}
   audioButton: {fileID: 3512233300039345554}
 --- !u!1 &3512233300291664809
 GameObject:
@@ -628,7 +628,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 377.1577, y: 0}
+  m_SizeDelta: {x: 267.14, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347441953143212594
 MonoBehaviour:
@@ -703,12 +703,12 @@ PrefabInstance:
     - target: {fileID: 9005371760783836100, guid: 802874d559fc08b48a27c2af38a346ad,
         type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0.8552632
       objectReference: {fileID: 0}
     - target: {fileID: 9005371760783836100, guid: 802874d559fc08b48a27c2af38a346ad,
         type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9005371760783836100, guid: 802874d559fc08b48a27c2af38a346ad,
         type: 3}

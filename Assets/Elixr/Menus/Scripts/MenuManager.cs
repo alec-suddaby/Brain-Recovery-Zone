@@ -38,11 +38,11 @@ namespace Elixr.MenuSystem
         public string breadcrumbsSeperator = " | ";
 
         [SerializeField] private LikertScaleManager likertScaleManager;
+        public LikertScaleManager LikertManager => likertScaleManager;
 
         [SerializeField] private CanvasGroup showButton;
-        [SerializeField] private CanvasGroup hideButton;
 
-        [SerializeField] private CanvasGroup settingsButton;
+        [SerializeField] private CanvasGroup optionsPanel;
 
         [SerializeField] private CanvasGroup settingsPanel;
 
@@ -96,9 +96,15 @@ namespace Elixr.MenuSystem
         {
             yield return new WaitForSeconds(startDelay);
 
-            if(canvasGroup == null)
+            if (canvasGroup == null)
             {
                 canvasGroup = menuCanvas;
+            }
+
+            if (interactable)
+            {
+                canvasGroup.blocksRaycasts = interactable;
+                canvasGroup.interactable = interactable;
             }
 
             float initialAlpha = canvasGroup.alpha;
@@ -117,9 +123,13 @@ namespace Elixr.MenuSystem
                 yield return new WaitForEndOfFrame();
             }
 
+            if (!interactable)
+            {
+                canvasGroup.blocksRaycasts = interactable;
+                canvasGroup.interactable = interactable;
+            }
+
             canvasGroup.alpha = alpha;
-            canvasGroup.blocksRaycasts = interactable;
-            canvasGroup.interactable = interactable;
         }
 
         private IEnumerator FadeTransition(Node node)
@@ -286,22 +296,11 @@ namespace Elixr.MenuSystem
             });
         }
 
-        public void FadeMenus(bool display)
-        {
-            CanvasGroup fadePanel = likertScaleManager.IsActive ? likertScaleManager.Panel : menuCanvas;
-
-            StartCoroutine(Fade(display ? 1 : 0, transitionTime / 2f, display, fadePanel));
-            StartCoroutine(FadeBackButton(display && ShowBackButton));
-        }
-
         public void ToggleShowHideButtons(bool show)
         {
-            StartCoroutine(Fade(show ? 1 : 0, transitionTime/2f, show, showButton, show ? transitionTime/2f : 0));
-            StartCoroutine(Fade(show ? 0 : 1, transitionTime/2f, !show, hideButton, show ? 0 : transitionTime/2f));
-
-            StartCoroutine(Fade(show ? 0 : 1, transitionTime / 2f, !show, settingsButton, show ? 0 : transitionTime / 2f));
+            StartCoroutine(Fade(show ? 1 : 0, transitionTime/2f, show, showButton));
+            StartCoroutine(Fade(show ? 0 : 1, transitionTime/2f, !show, optionsPanel));
         }
-
 
         public void ToggleSettingsPanel()
         {
@@ -311,16 +310,16 @@ namespace Elixr.MenuSystem
         private void SetSettingsPanelVisibility(bool visible)
         {
             CanvasGroup otherFadeCanvas = likertScaleManager.IsActive ? likertScaleManager.Panel : menuCanvas;
-            StartCoroutine(Fade(!visible ? 1 : 0, transitionTime / 2f, !visible, otherFadeCanvas, !visible ? transitionTime / 2f : 0f));
+            StartCoroutine(Fade(!visible ? 1 : 0, transitionTime / 2f, !visible, otherFadeCanvas));
 
-            StartCoroutine(Fade(visible ? 1 : 0, transitionTime/2f, visible, settingsPanel, visible ? transitionTime / 2f : 0f));
+            StartCoroutine(Fade(visible ? 1 : 0, transitionTime/2f, visible, settingsPanel));
 
             SettingsPanelActive = visible;
         }
 
         public void ForceSettingsPanelVisibility(bool visible)
         {
-            StartCoroutine(Fade(visible ? 1 : 0, transitionTime / 2f, visible, settingsPanel, visible ? transitionTime / 2f : 0f));
+            StartCoroutine(Fade(visible ? 1 : 0, transitionTime / 2f, visible, settingsPanel));
 
             SettingsPanelActive = visible;
         }

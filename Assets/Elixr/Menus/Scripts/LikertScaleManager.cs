@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,41 +16,50 @@ public class LikertScaleManager : MonoBehaviour
     private static float? preLikertValue = null;
     private static float? postLikertValue = null;
     private static string videoName = null;
-    private static bool isActive = false;
 
     private VideoDescription videoDescription = null;
 
-    public bool IsActive => isActive;
+    private LikertScaleMemory memory => GameObject.FindObjectOfType<LikertScaleMemory>();
+    public bool IsActive
+    {
+        get
+        {
+            return memory.active;
+        }
+
+        set
+        {
+            memory.active = value;
+        }
+    }
 
     [SerializeField] private Elixr.MenuSystem.MenuManager menuManager;
-
-    [Range(0, 5)]
-    [SerializeField] private float fadeDuration = 1f;
 
     private LikertScale activeScale = null;
     public LikertScale ActiveScale => activeScale;
 
     public void Start()
     {
-#if UNITY_EDITOR
-        isActive = false;
-#endif
-
         activeScale = preLikertScale;
 
         Debug.Log("Init Pre Likert Scale Manager");
         preLikertScale.Init(menuManager);
         Debug.Log("Init Post Likert Scale Manager");
-        postLikertScale.Init(menuManager, active: isActive);
+        postLikertScale.Init(menuManager);
         Debug.Log("Init Likert Scale Complete");
+
+        if (IsActive)
+        {
+            ShowPostLikertScale((float f) => { });
+        }
     }
 
     public void Close()
     {
-        StartCoroutine(menuManager.Fade(1, fadeDuration, true, startDelay: fadeDuration));
-        preLikertScale.Display(fadeDuration, false, null, fadeDelay: 0);
-        postLikertScale.Display(fadeDuration, false, null, fadeDelay: 0);
-        isActive = false;
+        StartCoroutine(menuManager.Fade(1, menuManager.transitionTime, true));
+        preLikertScale.Display(menuManager.transitionTime, false, null, fadeDelay: 0);
+        postLikertScale.Display(menuManager.transitionTime, false, null, fadeDelay: 0);
+        IsActive = false;
     }
 
     public void ShowPreLikertScale(UnityAction<float> eventOnComplete, VideoDescription videoDescription)
@@ -61,19 +71,17 @@ public class LikertScaleManager : MonoBehaviour
         videoName = videoDescription.name;
         this.videoDescription = videoDescription;
 
-        StartCoroutine(menuManager.Fade(0, fadeDuration, false));
+        StartCoroutine(menuManager.Fade(0, menuManager.transitionTime, false));
 
-        preLikertScale.Display(fadeDuration, true, eventOnComplete);
+        preLikertScale.Display(menuManager.transitionTime, true, eventOnComplete);
         preLikertScale.AddListener(SetPreLikertScaleValue);
 
-        isActive = true;
+        IsActive = true;
     }
 
     public void SetPreLikertScaleValue(float value)
     {
         preLikertValue = value;
-
-        isActive = false;
     }
 
     public void ShowPostLikertScale(UnityAction<float> eventOnComplete)
@@ -82,10 +90,10 @@ public class LikertScaleManager : MonoBehaviour
 
         StartCoroutine(menuManager.Fade(0, 0, false));
 
-        postLikertScale.Display(fadeDuration, true, eventOnComplete, preLikertValue);
+        postLikertScale.Display(0, true, eventOnComplete, preLikertValue);
         postLikertScale.AddListener(SetPostLikertScaleValue);
 
-        isActive = true;
+        IsActive = true;
     }
 
     public void SetPostLikertScaleValue(float value)
@@ -93,9 +101,12 @@ public class LikertScaleManager : MonoBehaviour
         postLikertValue = value;
         ToJSON();
 
-        StartCoroutine(menuManager.Fade(1, fadeDuration));
+        IsActive = false;
 
-        isActive = false;
+        postLikertScale.Display(menuManager.transitionTime, false);
+
+        menuManager.menus.blackboard.ReloadMenus(menuManager);
+        //menuManager.Fade(1, menuManager.transitionTime);
     }
 
     public void ToJSON()

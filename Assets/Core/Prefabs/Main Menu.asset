@@ -132,7 +132,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     interactable: 1
-  viewPosition: {x: -3371, y: -983, z: 0}
+  viewPosition: {x: -1233, y: -1196, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
@@ -2227,7 +2227,7 @@ MonoBehaviour:
           type: 3}
         extraUiElements: []
         Preferences:
-        - PreferenceName: M2L3-MemoryReminder
+        - PreferenceName: M2L2-MemoryReminder
           Title: Memory Reminder
           Description: "You can choose to keep the reminder of what you are listening
             out for in view. Or, you can switch it off if you want an additional
@@ -2265,7 +2265,7 @@ MonoBehaviour:
           type: 3}
         extraUiElements: []
         Preferences:
-        - PreferenceName: M2L3-MemoryReminder
+        - PreferenceName: M2L2-MemoryReminder
           Title: Memory Reminder
           Description: "You can choose to keep the reminder of what you are listening
             out for in view. Or, you can switch it off if you want an additional
@@ -2301,7 +2301,7 @@ MonoBehaviour:
           type: 3}
         extraUiElements: []
         Preferences:
-        - PreferenceName: M2L3-MemoryReminder
+        - PreferenceName: M2L2-MemoryReminder
           Title: Memory Reminder
           Description: "You can choose to keep the reminder of what you are listening
             out for in view. Or, you can switch it off if you want an additional

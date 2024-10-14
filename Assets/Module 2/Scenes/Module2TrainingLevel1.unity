@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 51005285}
   - component: {fileID: 51005284}
   - component: {fileID: 51005283}
+  - component: {fileID: 51005290}
   m_Layer: 0
   m_Name: Level 6
   m_TagString: Untagged
@@ -307,7 +308,19 @@ MonoBehaviour:
     levelType: 1
   taskBegun:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 51005290}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: InitWithoutPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -516,7 +529,6 @@ MonoBehaviour:
   triggerClipSource: 1
   descriptionString: Remember if you hear the <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 253796044}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
@@ -539,6 +551,21 @@ MonoBehaviour:
     nextAudioStartPoint: 1
     alerterSound: {fileID: 8300000, guid: de044a2bffae87a43a03598f8c3b4ba6, type: 3}
   playerPref: M2L1E6-AlerterSounds
+--- !u!114 &51005290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51005281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 253796044}
+  playerPref: 
+  reminder: 
 --- !u!1 &52940909
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +687,7 @@ GameObject:
   - component: {fileID: 247268689}
   - component: {fileID: 247268688}
   - component: {fileID: 247268687}
+  - component: {fileID: 247268694}
   m_Layer: 0
   m_Name: Level 4
   m_TagString: Untagged
@@ -828,7 +856,19 @@ MonoBehaviour:
     levelType: 1
   taskBegun:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 247268694}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: InitWithoutPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -1037,7 +1077,6 @@ MonoBehaviour:
   triggerClipSource: 1
   descriptionString: Remember if you hear the <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 253796044}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
@@ -1060,6 +1099,21 @@ MonoBehaviour:
     nextAudioStartPoint: 1
     alerterSound: {fileID: 8300000, guid: de044a2bffae87a43a03598f8c3b4ba6, type: 3}
   playerPref: M2L1E4-AlerterSounds
+--- !u!114 &247268694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247268685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 253796044}
+  playerPref: 
+  reminder: 
 --- !u!114 &253796044 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3628376495773918861, guid: 0c166182681d75f4ca832baa2c28368b,
@@ -1166,6 +1220,7 @@ GameObject:
   - component: {fileID: 518219646}
   - component: {fileID: 518219645}
   - component: {fileID: 518219644}
+  - component: {fileID: 518219651}
   m_Layer: 0
   m_Name: Level 5
   m_TagString: Untagged
@@ -1334,7 +1389,19 @@ MonoBehaviour:
     levelType: 1
   taskBegun:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 518219651}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: InitWithoutPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -1543,7 +1610,6 @@ MonoBehaviour:
   triggerClipSource: 1
   descriptionString: Remember if you hear the <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 253796044}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
@@ -1566,6 +1632,21 @@ MonoBehaviour:
     nextAudioStartPoint: 1
     alerterSound: {fileID: 8300000, guid: de044a2bffae87a43a03598f8c3b4ba6, type: 3}
   playerPref: M2L1E5-AlerterSounds
+--- !u!114 &518219651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518219642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 253796044}
+  playerPref: 
+  reminder: 
 --- !u!1 &630216941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1662,7 @@ GameObject:
   - component: {fileID: 630216945}
   - component: {fileID: 630216944}
   - component: {fileID: 630216943}
+  - component: {fileID: 630216950}
   m_Layer: 0
   m_Name: Level 2
   m_TagString: Untagged
@@ -1749,7 +1831,19 @@ MonoBehaviour:
     levelType: 1
   taskBegun:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 630216950}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: InitWithoutPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -1958,7 +2052,6 @@ MonoBehaviour:
   triggerClipSource: 1
   descriptionString: Remember if you hear the <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 253796044}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
@@ -1981,6 +2074,21 @@ MonoBehaviour:
     nextAudioStartPoint: 1
     alerterSound: {fileID: 8300000, guid: de044a2bffae87a43a03598f8c3b4ba6, type: 3}
   playerPref: M2L1E2-AlerterSounds
+--- !u!114 &630216950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630216941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 253796044}
+  playerPref: 
+  reminder: 
 --- !u!1001 &654776981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2252,6 +2360,7 @@ GameObject:
   - component: {fileID: 998418918}
   - component: {fileID: 998418917}
   - component: {fileID: 998418916}
+  - component: {fileID: 998418923}
   m_Layer: 0
   m_Name: Level 3
   m_TagString: Untagged
@@ -2420,7 +2529,19 @@ MonoBehaviour:
     levelType: 1
   taskBegun:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 998418923}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: InitWithoutPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -2629,7 +2750,6 @@ MonoBehaviour:
   triggerClipSource: 1
   descriptionString: Remember if you hear the <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 253796044}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
@@ -2652,6 +2772,21 @@ MonoBehaviour:
     nextAudioStartPoint: 1
     alerterSound: {fileID: 8300000, guid: de044a2bffae87a43a03598f8c3b4ba6, type: 3}
   playerPref: M2L1E3-AlerterSounds
+--- !u!114 &998418923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998418914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 253796044}
+  playerPref: 
+  reminder: 
 --- !u!1001 &1122217639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2965,6 +3100,7 @@ GameObject:
   - component: {fileID: 1411753382}
   - component: {fileID: 1411753381}
   - component: {fileID: 1411753380}
+  - component: {fileID: 1411753388}
   m_Layer: 0
   m_Name: Level 1
   m_TagString: Untagged
@@ -3133,7 +3269,19 @@ MonoBehaviour:
     levelType: 1
   taskBegun:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411753388}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: InitWithoutPrefs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -3359,12 +3507,26 @@ MonoBehaviour:
   triggerClipSource: 1
   descriptionString: Remember if you hear the <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 253796044}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
   chanceOfTriggerSoundOccuring: 0.5
   addUnusedTriggerSoundsToGeneric: 1
+--- !u!114 &1411753388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411753378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 253796044}
+  playerPref: 
+  reminder: 
 --- !u!850595691 &1462873124
 LightingSettings:
   m_ObjectHideFlags: 0

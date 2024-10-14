@@ -339,6 +339,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 14682133}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -563,18 +575,6 @@ MonoBehaviour:
       - m_Target: {fileID: 14682131}
         m_TargetAssemblyTypeName: TaskCountdown, Assembly-CSharp
         m_MethodName: InitTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 14682133}
-        m_TargetAssemblyTypeName: ChangePrefs, Assembly-CSharp
-        m_MethodName: LoadPrefs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -900,12 +900,12 @@ MonoBehaviour:
   triggerClipSource: 0
   descriptionString: Press the trigger button when you hear the number <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 222904895}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
   chanceOfTriggerSoundOccuring: 1
   addUnusedTriggerSoundsToGeneric: 0
+  reminderHandler: {fileID: 14682133}
 --- !u!114 &14682133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,28 +915,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 14682125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7106ea33d9199146b716f04d7af1b9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefName: M2L2-MemoryReminder
-  toggle: {fileID: 0}
-  defaultState: 1
-  isEnabled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 222904894}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  callOnStart: 1
+  reminderText: {fileID: 222904895}
+  playerPref: M2L3-MemoryReminder
+  reminder: 
 --- !u!1 &52940909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,12 +1101,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
---- !u!1 &222904894 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7040436272990416008, guid: 0c166182681d75f4ca832baa2c28368b,
-    type: 3}
-  m_PrefabInstance: {fileID: 222904893}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &222904895 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3628376495773918861, guid: 0c166182681d75f4ca832baa2c28368b,
@@ -1983,7 +1961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411753379}
-  - component: {fileID: 1411753385}
+  - component: {fileID: 1411753388}
   - component: {fileID: 1411753387}
   - component: {fileID: 1411753383}
   - component: {fileID: 1411753382}
@@ -2175,6 +2153,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1411753388}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -2312,37 +2302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPressTimes: []
   timedTask: {fileID: 1411753382}
---- !u!114 &1411753385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411753378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7106ea33d9199146b716f04d7af1b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefName: M2L1-MemoryReminder
-  toggle: {fileID: 0}
-  defaultState: 1
-  isEnabled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 222904894}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  callOnStart: 1
 --- !u!114 &1411753387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,18 +2328,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1411753383}
         m_TargetAssemblyTypeName: TaskCountdown, Assembly-CSharp
         m_MethodName: InitTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1411753385}
-        m_TargetAssemblyTypeName: ChangePrefs, Assembly-CSharp
-        m_MethodName: LoadPrefs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2481,12 +2428,27 @@ MonoBehaviour:
   triggerClipSource: 0
   descriptionString: Press the trigger button when you hear the letter <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 222904895}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
   chanceOfTriggerSoundOccuring: 1
   addUnusedTriggerSoundsToGeneric: 0
+  reminderHandler: {fileID: 1411753388}
+--- !u!114 &1411753388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411753378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 222904895}
+  playerPref: M2L3-MemoryReminder
+  reminder: 
 --- !u!850595691 &1462873124
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2576,7 +2538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1979395302}
-  - component: {fileID: 1979395301}
+  - component: {fileID: 1979395303}
   - component: {fileID: 1979395300}
   - component: {fileID: 1979395299}
   - component: {fileID: 1979395298}
@@ -2758,6 +2720,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: TriggerPressCounter, Assembly-CSharp
         m_MethodName: CountButtonPresses
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1979395303}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3016,18 +2990,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1979395299}
         m_TargetAssemblyTypeName: TaskCountdown, Assembly-CSharp
         m_MethodName: InitTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1979395301}
-        m_TargetAssemblyTypeName: ChangePrefs, Assembly-CSharp
-        m_MethodName: LoadPrefs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3431,43 +3393,12 @@ MonoBehaviour:
   triggerClipSource: 0
   descriptionString: Press the trigger button when you hear <b><SpecialCharacter1/></b>
   numberOfSpecialCharacters: 1
-  descriptionText: {fileID: 222904895}
   betweenTriggerSound: {fileID: 8300000, guid: 4c9af08195b966445a5865fa43b0e599, type: 3}
   beforeLastTriggerSound: {fileID: 8300000, guid: 31f4696b8fd3d9247a480bf059bf7de9,
     type: 3}
   chanceOfTriggerSoundOccuring: 1
   addUnusedTriggerSoundsToGeneric: 0
---- !u!114 &1979395301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979395294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7106ea33d9199146b716f04d7af1b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefName: M2L3-MemoryReminder
-  toggle: {fileID: 0}
-  defaultState: 1
-  isEnabled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 222904894}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  callOnStart: 1
+  reminderHandler: {fileID: 1979395303}
 --- !u!4 &1979395302
 Transform:
   m_ObjectHideFlags: 0
@@ -3484,6 +3415,21 @@ Transform:
   m_Father: {fileID: 780860795}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979395303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979395294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae67e6a10ed69d4a996c8644e0751db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderText: {fileID: 222904895}
+  playerPref: M2L3-MemoryReminder
+  reminder: 
 --- !u!1001 &4235598347905081962
 PrefabInstance:
   m_ObjectHideFlags: 0

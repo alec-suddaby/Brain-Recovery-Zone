@@ -83,6 +83,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1702089419803569580}
     m_Modifications:
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75,
+        type: 3}
     - target: {fileID: 5184175443809169016, guid: af195e810da191f4cab0471a2319e06b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -253,6 +274,27 @@ PrefabInstance:
       propertyPath: m_Text
       value: Low Tone
       objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809354905465671252, guid: af195e810da191f4cab0471a2319e06b,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75,
+        type: 3}
     - target: {fileID: 5138217518221656225, guid: af195e810da191f4cab0471a2319e06b,
         type: 3}
       propertyPath: m_Name

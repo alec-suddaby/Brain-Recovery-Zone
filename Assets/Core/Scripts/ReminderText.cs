@@ -6,28 +6,52 @@ using TMPro;
 
 public class ReminderText : MonoBehaviour
 {
-    public GameObject reminderCanvas;
     public TextMeshProUGUI reminderText;
     public string playerPref = "";
     public string reminder = "";
 
-    public bool callOnStart = true;
-    public bool updateTextOnStart = false;
+    private bool alwaysOn = false;
 
-    public void Start(){
-        if(callOnStart){
-            SetReminder();
-        }
+    public void SetReminderText(string reminder)
+    {
+        this.reminder = reminder;
+        reminderText.text = this.reminder;
+    }
 
-        if(updateTextOnStart){
+    public void Init()
+    {
+        GameObject.FindObjectOfType<ButtonPressed>().OnButtonPressed.AddListener(SetReminder);
+
+        alwaysOn = !PlayerPrefs.HasKey(playerPref) || PlayerPrefs.GetInt(playerPref) == 1;
+
+        SetReminderText(reminder);
+        SetReminder();
+    }
+
+    public void InitWithoutPrefs()
+    {
+        InitWithoutPrefs(reminder);
+    }
+
+    public void InitWithoutPrefs(string reminder)
+    {
+        SetReminderText(reminder);
+
+        GameObject.FindObjectOfType<ButtonPressed>().OnButtonPressed.AddListener(SetReminder);
+        alwaysOn = false;
+    }
+
+    private void SetReminder()
+    {
+        if (alwaysOn)
+        {
+            GameObject.FindObjectOfType<ReminderCanvas>().SetReminderState(true);
             reminderText.text = reminder;
         }
     }
 
-    public void SetReminder(){
-        if(!PlayerPrefs.HasKey(playerPref) || PlayerPrefs.GetInt(playerPref) == 1){
-            reminderCanvas.SetActive(true);
-            reminderText.text = reminder;
-        }
+    public void SetReminder(bool state)
+    {
+        GameObject.FindObjectOfType<ReminderCanvas>().SetReminderState(state || alwaysOn);
     }
 }

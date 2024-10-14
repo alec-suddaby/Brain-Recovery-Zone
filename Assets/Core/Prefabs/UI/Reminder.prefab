@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5515864125388198140}
   - component: {fileID: 3233235690880467546}
+  - component: {fileID: 3975400698127710963}
   m_Layer: 0
   m_Name: Reminder
   m_TagString: Untagged
@@ -47,20 +48,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnButtonPressed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7040436272990416008}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   lockOn: 0
+--- !u!114 &3975400698127710963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560492217369381872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb395660da0d924a8a0815f45c0b6a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reminderCanvas: {fileID: 7040436272990416008}
 --- !u!1 &5917266079396668272
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,10 +301,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3575735510613650868}
   - component: {fileID: 4335737851886547899}
-  - component: {fileID: 702315487258308984}
-  - component: {fileID: 1375606527039778667}
-  - component: {fileID: 7648240888226741277}
   - component: {fileID: 8751775306377753719}
+  - component: {fileID: 1872267340275928661}
   m_Layer: 5
   m_Name: Reminder Canvas
   m_TagString: Untagged
@@ -352,57 +352,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &702315487258308984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7040436272990416008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1375606527039778667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7040436272990416008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 2147483647
---- !u!114 &7648240888226741277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7040436272990416008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d97aacbab5b45964da64cd4a2e919dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  buttonWrap: {fileID: 0}
-  currentScrollRect: {fileID: 0}
-  scrollRateModifier: 30
 --- !u!114 &8751775306377753719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +364,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fda5f90f0157294884e0724578f60ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1872267340275928661
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7040436272990416008}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8706812887685129379
 GameObject:
   m_ObjectHideFlags: 0

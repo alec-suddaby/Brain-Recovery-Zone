@@ -862,8 +862,11 @@ MonoBehaviour:
   reminderText: {fileID: 1169574866705799782}
   playerPref: M1L3-MemoryReminder
   reminder: Press the trigger button for <b>security</b> announcements
-  callOnStart: 0
-  updateTextOnStart: 1
+  reminderHandler:
+    reminderCanvas: {fileID: 1169574866705799781}
+    reminderText: {fileID: 1169574866705799782}
+    playerPref: M1L3-MemoryReminder
+    reminder: Press the trigger button for <b>security</b> announcements
 --- !u!1001 &1122217639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1282,6 +1285,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1411753386}
+        m_TargetAssemblyTypeName: ReminderText, CoreScripts
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   taskCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -1409,18 +1424,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1411753386}
-        m_TargetAssemblyTypeName: ReminderText, Assembly-CSharp
-        m_MethodName: SetReminder
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   taskLengthSeconds: 6
   startOnSceneLoad: 1
   timeLimitEnabled: 1
@@ -1475,8 +1478,11 @@ MonoBehaviour:
   reminderText: {fileID: 1169574866705799782}
   playerPref: M1L1-MemoryReminder
   reminder: Press the trigger button for <b>cancelled</b> train announcements
-  callOnStart: 0
-  updateTextOnStart: 1
+  reminderHandler:
+    reminderCanvas: {fileID: 1169574866705799781}
+    reminderText: {fileID: 1169574866705799782}
+    playerPref: M1L1-MemoryReminder
+    reminder: Press the trigger button for <b>cancelled</b> train announcements
 --- !u!850595691 &1462873124
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1947,8 +1953,11 @@ MonoBehaviour:
   reminderText: {fileID: 1169574866705799782}
   playerPref: M1L4-MemoryReminder
   reminder: Press the trigger button for <b>platform change</b> announcements
-  callOnStart: 0
-  updateTextOnStart: 1
+  reminderHandler:
+    reminderCanvas: {fileID: 1169574866705799781}
+    reminderText: {fileID: 1169574866705799782}
+    playerPref: M1L4-MemoryReminder
+    reminder: Press the trigger button for <b>platform change</b> announcements
 --- !u!1 &1833068205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4235598349469697223, guid: df76f806dbb17134ca75568a96fefe24,
@@ -2439,18 +2448,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2053831967}
-        m_TargetAssemblyTypeName: ReminderText, Assembly-CSharp
-        m_MethodName: SetReminder
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   taskLengthSeconds: 6
   startOnSceneLoad: 1
   timeLimitEnabled: 1
@@ -2491,8 +2488,11 @@ MonoBehaviour:
   reminderText: {fileID: 1169574866705799782}
   playerPref: M1L2-MemoryReminder
   reminder: Press the trigger button for <b>delayed</b> train announcements
-  callOnStart: 0
-  updateTextOnStart: 1
+  reminderHandler:
+    reminderCanvas: {fileID: 1169574866705799781}
+    reminderText: {fileID: 1169574866705799782}
+    playerPref: M1L2-MemoryReminder
+    reminder: Press the trigger button for <b>delayed</b> train announcements
 --- !u!114 &2058801687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8487123679579138422, guid: df76f806dbb17134ca75568a96fefe24,
@@ -2512,6 +2512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3233235690880467546, guid: 0c166182681d75f4ca832baa2c28368b,
+        type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3560492217369381872, guid: 0c166182681d75f4ca832baa2c28368b,
         type: 3}
       propertyPath: m_Name
@@ -2572,7 +2577,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7040436272990416008, guid: 0c166182681d75f4ca832baa2c28368b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7648240888226741277, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
+    - {fileID: 8751775306377753719, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
+    - {fileID: 1375606527039778667, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
+    - {fileID: 702315487258308984, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c166182681d75f4ca832baa2c28368b, type: 3}
 --- !u!1 &1169574866705799781 stripped
 GameObject:
@@ -2592,6 +2606,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1169574866705799783
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169574866705799781}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &4235598347905081962
 PrefabInstance:
   m_ObjectHideFlags: 0

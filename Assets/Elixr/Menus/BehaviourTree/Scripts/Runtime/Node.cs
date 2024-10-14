@@ -24,6 +24,9 @@ namespace Elixr.MenuSystem
         [TextArea] public string description;
         [HideInInspector] public bool drawGizmos = false;
 
+        [SerializeField] protected virtual bool backOnSceneReload => true;
+        public bool BackOnSceneReload => backOnSceneReload;
+
         [field: SerializeField]
         public virtual bool isEnabled { get; set; } = true;
 

@@ -59,6 +59,7 @@ namespace Elixr.MenuSystem
 
             breadcrumbs.Clear();
             Node currentNode = FindMenuItem(menuManager, targetGuid);
+            Node originalNode = currentNode;
 
             bool rootNodeFound = false;
             while (!rootNodeFound)
@@ -69,7 +70,34 @@ namespace Elixr.MenuSystem
                 rootNodeFound = currentNode is RootNode or null;
             }
 
-            Back();
+            if(originalNode != null && originalNode.BackOnSceneReload)
+                Back();
+        }
+
+        public void ReloadMenus(MenuManager menuManager)
+        {
+            string targetGuid = menuManager.positionTracker.lastMenuPositionGuid;
+            if (targetGuid == null || targetGuid == string.Empty)
+            {
+                return;
+            }
+
+            breadcrumbs.Clear();
+            Node currentNode = FindMenuItem(menuManager, targetGuid);
+            Node originalNode = currentNode;
+
+            bool rootNodeFound = false;
+            while (!rootNodeFound)
+            {
+                breadcrumbs.Insert(0, currentNode);
+                currentNode = FindMenuItemParent(menuManager, currentNode.guid);
+
+                rootNodeFound = currentNode is RootNode or null;
+            }
+
+            menuManager.menuCanvas.interactable = true;
+            menuManager.menuCanvas.blocksRaycasts = true;
+            ActiveNode = originalNode;
         }
 
         private Node FindMenuItem(MenuManager menuManager, string guid)

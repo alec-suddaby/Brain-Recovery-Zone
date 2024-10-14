@@ -21,8 +21,6 @@ public class LikertScale : MonoBehaviour
 
     public void Init(Elixr.MenuSystem.MenuManager menuManager, int initialValue = 5, bool active = false)
     {
-        Debug.Log("Active: " + active);
-
         this.menuManager = menuManager;
 
         if(!active)
@@ -33,14 +31,9 @@ public class LikertScale : MonoBehaviour
         SetValue(initialValue);
     }
 
-    public void Display(float fadeDuration, bool display, UnityAction<float> eventOnComplete = null, float? previousValue = null, float? fadeDelay = null)
+    public void Display(float fadeDuration, bool display, UnityAction<float> eventOnComplete = null, float? previousValue = null, float? fadeDelay = 0)
     {
         this.fadeDuration = fadeDuration;
-
-        if(fadeDelay == null)
-        {
-            fadeDelay = fadeDuration;
-        }
 
         StartCoroutine(menuManager.Fade(display ? 1 : 0, fadeDuration, display, panel, (float)fadeDelay));
 
@@ -74,6 +67,6 @@ public class LikertScale : MonoBehaviour
     public void Complete()
     {
         onComplete.Invoke(likertSlider.value);
-        Display(fadeDuration, false);
+        Display(menuManager.transitionTime, false, fadeDelay: 0);
     }
 }
